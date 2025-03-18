@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{STORY_TITLE}} | Αττικές Ιστορίες</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .story-headline {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .story-meta {
+            font-style: italic;
+            color: var(--color-dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .story-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Style for the continue-reading anchor */
+        #continue-reading {
+            scroll-margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-title">Αττικές Ιστορίες</h1>
+            <p class="site-description">Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="story-container">
+            <header class="story-header">
+                <h1 class="story-headline">{{STORY_TITLE}}</h1>
+                <div class="story-meta">
+                    <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span><br>
+                    <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών ὀγδόῃ ἐπὶ δέκα, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 18, 2025</span></span>
+                </div>
+            </header>
+
+            <div class="story-content">
+                {{STORY_CONTENT}}
+            </div>
+
+            <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Αττικές Ιστορίες</p>
+            <p>Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
+        </div>
+    </footer>
+</body>
+
+</html>
