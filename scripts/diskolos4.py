@@ -755,16 +755,11 @@ def save_to_website(story, corrected_story, vocab_data, metadata):
         with open(index_path, "r", encoding="utf-8") as f:
             index_content = f.read()
             
-        # Create excerpt from actual story content, not the title
-        if len(paragraphs) >= 2:
-            # Use the second paragraph for the excerpt
-            excerpt = paragraphs[1][:100] + "..." if len(paragraphs[1]) > 100 else paragraphs[1]
-        elif len(paragraphs) == 1:
-            # If there's only one paragraph, use it but check it's not just the title
-            if paragraphs[0].strip() != headline.strip():
-                excerpt = paragraphs[0][:100] + "..." if len(paragraphs[0]) > 100 else paragraphs[0]
-            else:
-                excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
+        # SIMPLE APPROACH: For the excerpt, just use the first few words of the first paragraph
+        if len(paragraphs) >= 1:
+            # Use first 8 words of the first paragraph
+            words = paragraphs[0].split()
+            excerpt = ' '.join(words[:8]) + "..."
         else:
             excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
             
