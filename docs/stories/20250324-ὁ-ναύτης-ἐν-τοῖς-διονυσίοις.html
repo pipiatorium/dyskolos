@@ -10,63 +10,63 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
         <style>
             /* Base styles */
-            .story-container {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 0 20px;
-                position: relative;
-            }
+.story-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
 
-            @media (max-width: 768px) {
-                .story-container {
-                    padding: 0 15px;
-                }
-            }
+@media (max-width: 768px) {
+    .story-container {
+        padding: 0 15px;
+    }
+}
 
-            .story-header {
-                margin-bottom: 40px;
-                text-align: center;
-            }
+.story-header {
+    margin-bottom: 25px;
+    text-align: center;
+}
 
-            .story-headline {
-                font-size: 2.2rem;
-                margin-bottom: 20px;
-                line-height: 1.2;
-                font-family: 'GFS Didot', serif;
-            }
+.story-headline {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-family: 'GFS Didot', serif;
+}
 
-            @media (max-width: 768px) {
-                .story-headline {
-                    font-size: 1.8rem;
-                }
-            }
+@media (max-width: 768px) {
+    .story-headline {
+        font-size: 1.6rem;
+    }
+}
 
-            .story-meta {
-                font-style: italic;
-                color: var(--color-dark-gray, #555);
-                margin-bottom: 20px;
-            }
+.story-meta {
+    font-style: italic;
+    color: var(--color-dark-gray, #555);
+    margin-bottom: 15px;
+}
 
-            /* Text content */
-            .text {
-                line-height: 1.8;
-                font-size: 1.25rem;
-                font-family: 'GFS Didot', serif;
-                padding: 0.75rem 1.5rem;
-                margin-bottom: 1rem;
-                text-align: justify;
-                -webkit-hyphens: auto;
-                -ms-hyphens: auto;
-                hyphens: auto;
-            }
+/* Text content */
+.text {
+    line-height: 1.6;
+    font-size: 1.25rem;
+    font-family: 'GFS Didot', serif;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
 
-            @media (max-width: 768px) {
-                .text {
-                    font-size: 1.15rem;
-                    padding: 0.5rem 1rem;
-                    text-align: justify;
-                }
-            }
+@media (max-width: 768px) {
+    .text {
+        font-size: 1.10rem;
+        padding: 0.4rem 0.5rem;
+        text-align: justify;
+    }
+}
 
             /* Tooltip styles */
             .highlighted-word {
@@ -127,9 +127,15 @@
                 }
             }
 
+            .text:last-of-type {
+                margin-bottom: 5px;
+                /* Reduced from default 1rem */
+            }
+
             .back-link {
                 display: inline-block;
-                margin-top: 40px;
+                margin-top: 9px;
+                margin-bottom: 20px;
                 font-weight: 600;
                 text-decoration: none;
                 color: #ea2d2d;
@@ -264,6 +270,7 @@
                 </header>
                 <div class="text greek id=" continue-reading"">
                     Ὦ ἄνδρες Ἀθηναῖοι, τίς οὐκ οἶδε τὸν Νικίαν τὸν ναύτην, ὃς ἐκ Πειραιῶς εἰς τὰ Διονύσια ἦλθεν; ἐγὼ δὲ ὑμῖν 
+                    
                     <span class="highlighted-word">
                         διηγήσομαι<span class="tooltip">narrabo</span>
                     </span>
@@ -271,22 +278,27 @@
                         τὰ πραχθέντα<span class="tooltip">res gestae</span>
                     </span>
                     ἐκείνῃ τῇ ἡμέρᾳ, ὅτε ὁ Νικίας εἰς τὸ θέατρον 
+                    
                     <span class="highlighted-word">
                         εἰσῆλθεν<span class="tooltip">intravit</span>
                     </span>
                     .
         
+                
                 </div>
                 <div class="text greek">
                     Ἦν μὲν οὖν ἡ τῶν Διονυσίων ἑορτή, καὶ πάντες οἱ πολῖται ἐν τῷ θεάτρῳ 
+                    
                     <span class="highlighted-word">
                         συνηθροίζοντο<span class="tooltip">congregabantur</span>
                     </span>
                     . ὁ δὲ Νικίας, 
+                    
                     <span class="highlighted-word">
                         ἄρτι<span class="tooltip">nuper</span>
                     </span>
                     ἐκ μακρᾶς 
+                    
                     <span class="highlighted-word">
                         ναυτιλίας<span class="tooltip">navigationis</span>
                     </span>
@@ -294,17 +306,20 @@
                         ἐπανελθών<span class="tooltip">reversus</span>
                     </span>
                     , καὶ τῆς πόλεως ἐπιθυμῶν, 
+                    
                     <span class="highlighted-word">
                         σπουδῇ<span class="tooltip">festinanter</span>
                     </span>
                     εἰς τὸ θέατρον ἀφίκετο.
         
+                
                 </div>
                 <div class="text greek">
                     <span class="highlighted-word">
                         Καθήμενος<span class="tooltip">sedens</span>
                     </span>
                     δὲ παρά τινι γέροντι, τῷ Ἀριστοφάνει, 
+                    
                     <span class="highlighted-word">
                         ἤρξατο<span class="tooltip">incepit</span>
                     </span>
@@ -313,6 +328,7 @@
                     </span>
                     ·
         
+                
                 </div>
                 <div class="text greek">"Χαῖρε, ὦ πρεσβύτα," ἔφη ὁ Νικίας. "ἆρα τυγχάνεις εἰδὼς ποίαν κωμῳδίαν μέλλουσι διδάσκειν σήμερον;"
         </div>
@@ -324,15 +340,18 @@
         </div>
                 <div class="text greek">
                     Ἐν τούτῳ δὲ προσελθὼν ὁ χορὸς ἤρξατο τῆς 
+                    
                     <span class="highlighted-word">
                         παρόδου<span class="tooltip">parodi</span>
                     </span>
                     , καὶ πάντες 
+                    
                     <span class="highlighted-word">
                         ἐσιώπησαν<span class="tooltip">tacuerunt</span>
                     </span>
                     .
         
+                
                 </div>
                 <div class="text greek">Μετὰ δὲ τὴν παράβασιν, πάλιν ὁ Νικίας πρὸς τὸν γέροντα ἔφη· "Ὦ Ἀριστόφανες, ὡς ἡδέως ἀκούω τῶν χορευτῶν. ἐν τῇ θαλάττῃ γὰρ οὐκ ἔστι τοιαύτη τέρψις."
         </div>
@@ -408,11 +427,13 @@
                     Facebook
 
                 
+                
                 </a>
                 <a href="https://x.com/intent/tweet?url=https://www.locutorium.com&text=Check%20out%20ΙΕΡΟΓΛΥΦΩ%20-%20Egyptian%20Hieroglyphs%20Tool" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-twitter"></i>
                     Twitter 
 
+                
                 
                 </a>
                 <a href="https://www.tumblr.com/share/link?url=https://www.locutorium.com&name=ΙΕΡΟΓΛΥΦΩ&description=Egyptian%20Hieroglyphs%20Tool" class="social-btn tumblr" target="_blank" rel="noopener noreferrer">
@@ -420,11 +441,13 @@
                     Tumblr
 
                 
+                
                 </a>
                 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.locutorium.com&title=ΙΕΡΟΓΛΥΦΩ&summary=Egyptian%20Hieroglyphs%20Tool" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i>
                     LinkedIn
 
+                
                 
                 </a>
                 <a href="https://reddit.com/submit?url=https://www.locutorium.com&title=ΙΕΡΟΓΛΥΦΩ%20-%20Egyptian%20Hieroglyphs%20Tool" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
@@ -432,11 +455,13 @@
                     Reddit
 
                 
+                
                 </a>
                 <a href="https://t.me/share/url?url=https://www.locutorium.com&text=Check%20out%20ΙΕΡΟΓΛΥΦΩ%20-%20Egyptian%20Hieroglyphs%20Tool" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-telegram-plane"></i>
                     Telegram
 
+                
                 
                 </a>
             </div>

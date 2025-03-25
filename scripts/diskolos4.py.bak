@@ -10,7 +10,6 @@ import os
 import inspect
 from difflib import SequenceMatcher
 import random
-import time
 
 # Print script location to check which file is actually running
 print(f"Running script from: {inspect.getfile(inspect.currentframe())}")
@@ -214,55 +213,38 @@ class Agent:
         self.system_prompt = system_prompt
         self.client = AsyncAnthropic(api_key=API_KEY)
 
-    async def analyze(self, prompt_content: str, max_retries=5, initial_backoff=1) -> Dict[str, Any]:
-        retries = 0
-        backoff = initial_backoff
-        
-        while retries <= max_retries:
-            try:
-                print(f"Starting {self.name} API call (attempt {retries+1}/{max_retries+1})...")
-                response = await self.client.messages.create(
-                    model="claude-3-7-sonnet-20250219",
-                    max_tokens=2048,
-                    system=self.system_prompt,
-                    messages=[{"role": "user", "content": prompt_content}]
-                )
-                print(f"Completed {self.name} API call")
-                
-                # Handle the response content properly
-                content = response.content
-                if isinstance(content, list):
-                    content = content[0].text if hasattr(content[0], 'text') else str(content[0])
-                
-                return {
-                    "agent": self.name,
-                    "response": content,
-                    "tokens": response.usage.input_tokens + response.usage.output_tokens
-                }
-            except Exception as e:
-                error_msg = f"Analysis failed for {self.name}: {str(e)}"
-                print(error_msg)
-                
-                # Check if we've reached max retries
-                if retries >= max_retries:
-                    print(f"Max retries ({max_retries}) reached. Giving up.")
-                    if "overloaded" in str(e).lower():
-                        return None  # Return None specifically for overload errors
-                    return {
-                        "agent": self.name,
-                        "response": error_msg,
-                        "tokens": 0
-                    }
-                
-                # Calculate backoff with jitter
-                jitter = random.uniform(0, 0.1 * backoff)
-                sleep_time = backoff + jitter
-                print(f"Retrying in {sleep_time:.2f} seconds...")
-                await asyncio.sleep(sleep_time)
-                
-                # Increase backoff for next attempt
-                backoff *= 2
-                retries += 1
+# Add these modifications to your analyze method in the Agent class:
+
+    async def analyze(self, prompt_content: str) -> Dict[str, Any]:
+        try:
+            print(f"Starting {self.name} API call...")
+            response = await self.client.messages.create(
+                model="claude-3-7-sonnet-20250219",
+                max_tokens=2048,
+                system=self.system_prompt,
+                messages=[{"role": "user", "content": prompt_content}]
+            )
+            print(f"Completed {self.name} API call")
+            
+            # Handle the response content properly
+            content = response.content
+            if isinstance(content, list):
+                content = content[0].text if hasattr(content[0], 'text') else str(content[0])
+            
+            return {
+                "agent": self.name,
+                "response": content,
+                "tokens": response.usage.input_tokens + response.usage.output_tokens
+            }
+        except Exception as e:
+            error_msg = f"Analysis failed for {self.name}: {str(e)}"
+            print(error_msg)
+            # Return a valid dictionary with error information instead of None
+            return {
+                "agent": self.name,
+                "response": error_msg,
+                "tokens": 0
+            }
 
 class DiskolosEditor(Agent):
     def __init__(self):
@@ -328,7 +310,8 @@ class AtticVocabularyAgent(Agent):
 def similarity_ratio(a, b):
     """Return a similarity ratio between two strings"""
     return SequenceMatcher(None, a, b).ratio()
-  
+
+    
 async def write_story():
     writer = AtticGreekWriter()
     
@@ -341,12 +324,8 @@ async def write_story():
     print("\nAsking writer to create a story with prompt: " + prompt)
     
     try:
-        result = await writer.analyze(prompt, max_retries=5, initial_backoff=1)
+        result = await writer.analyze(prompt)
         
-        if result is None:
-            print("Story generation failed due to API overload. Aborting.")
-            return None, 0, None
-            
         if not result:
             print("Error: Writer returned None instead of a response")
             return "Error generating story", 0, {"headline": "Story Generation Error"}
@@ -369,7 +348,7 @@ async def write_story():
     except Exception as e:
         print(f"Error in write_story: {str(e)}")
         return "Error generating story.", 0, {"headline": "Story Generation Error"}
-
+        
 async def review_story(story, metadata):
     editor = DiskolosEditor()
     prompt = f"""Please review the following Attic Greek story:
@@ -383,10 +362,6 @@ Provide corrections if needed and approve for publication if it meets standards 
     print("\nSending story to Diskolos for grammar review...")
     result = await editor.analyze(prompt)
     
-    if result is None:
-        print("Story correction failed due to API overload.")
-        return None, 0
-        
     print(f"\n📝 REVIEW FROM {result['agent'].upper()}")
     print("=" * 50)
     print(result['response'].strip())
@@ -405,10 +380,6 @@ Extract 1-3 challenging words per paragraph with their Latin equivalents."""
     
     print("\nExtracting vocabulary with Latin equivalents...")
     result = await vocab_agent.analyze(prompt)
-    
-    if result is None:
-        print("Vocabulary extraction failed due to API overload.")
-        return None, 0
     
     print(f"\n📚 VOCABULARY FROM {result['agent'].upper()}")
     print("=" * 50)
@@ -447,7 +418,7 @@ Extract 1-3 challenging words per paragraph with their Latin equivalents."""
             vocab_data = parse_vocabulary_manually(result['response'])
             print(f"Manually extracted {len(vocab_data)} paragraph entries")
             return vocab_data, result['tokens']
-        
+
 def parse_vocabulary_manually(response_text):
     """Parse vocabulary data from a potentially malformed JSON response"""
     vocab_dict = {}
@@ -784,16 +755,11 @@ def save_to_website(story, corrected_story, vocab_data, metadata):
         with open(index_path, "r", encoding="utf-8") as f:
             index_content = f.read()
             
-        # Create excerpt from actual story content, not the title
-        if len(paragraphs) >= 2:
-            # Use the second paragraph for the excerpt
-            excerpt = paragraphs[1][:100] + "..." if len(paragraphs[1]) > 100 else paragraphs[1]
-        elif len(paragraphs) == 1:
-            # If there's only one paragraph, use it but check it's not just the title
-            if paragraphs[0].strip() != headline.strip():
-                excerpt = paragraphs[0][:100] + "..." if len(paragraphs[0]) > 100 else paragraphs[0]
-            else:
-                excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
+        # SIMPLE APPROACH: For the excerpt, just use the first few words of the first paragraph
+        if len(paragraphs) >= 1:
+            # Use first 8 words of the first paragraph
+            words = paragraphs[0].split()
+            excerpt = ' '.join(words[:8]) + "..."
         else:
             excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
             
@@ -923,10 +889,6 @@ async def main():
     try:
         # Step 1: Writer creates story
         story, writer_tokens, metadata = await write_story()
-        
-        if story is None or metadata is None:
-            print("Story generation failed. Not creating HTML output.")
-            return
 
         # Step 2: Record story generation for analytics
         record_story_generation(metadata, writer_tokens)
@@ -934,17 +896,9 @@ async def main():
         # Step 3: Editor corrects the story
         corrected_story, review_tokens = await review_story(story, metadata)
         
-        if corrected_story is None:
-            print("Story correction failed. Not creating HTML output.")
-            return
-        
         # Step 4: Extract vocabulary with Latin equivalents
         print("\nExtracting vocabulary with Latin equivalents...")
         vocab_data, vocab_tokens = await extract_vocabulary(corrected_story, metadata)
-        
-        if vocab_data is None:
-            print("Vocabulary extraction failed. Not creating HTML output.")
-            return
         
         # Debug vocabulary extraction
         print("\n📚 VOCABULARY DATA DEBUGGING:")
@@ -993,6 +947,7 @@ async def main():
         print(f"Error during execution: {e}")
         import traceback
         traceback.print_exc()
+
     
 if __name__ == "__main__":
     asyncio.run(main())
