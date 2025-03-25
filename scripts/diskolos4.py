@@ -838,36 +838,30 @@ def save_to_website(story, corrected_story, vocab_data, metadata):
         # Add new story to grid (at beginning) - BUT ONLY if it's not already in the index
         story_grid = r'<div class="story-grid">'
         if story_grid in index_content:
-            # Check if this is a brand new story (not already in the index)
-            if filename not in index_content:
-                # Extract all existing story cards
-                story_grid_pattern = r'<div class="story-grid">([\s\S]*?)</div>\s*</section>'
-                match = re.search(story_grid_pattern, index_content, re.DOTALL)
+            # Extract all existing story cards (removed filename check)
+            story_grid_pattern = r'<div class="story-grid">([\s\S]*?)</div>\s*</section>'
+            match = re.search(story_grid_pattern, index_content, re.DOTALL)
+
+            if match:
+                existing_cards = match.group(1)
                 
-                if match:
-                    existing_cards = match.group(1)
-                    
-                    # Extract individual story cards
-                    card_pattern = r'<div class="story-card">[\s\S]*?</div>\s*'
-                    card_matches = re.findall(card_pattern, existing_cards)
-                    
-                    # Keep only the most recent 3 cards (plus our new one = 4 total)
-                    # This ensures total of 4 existing cards + 1 new card = 5 cards
-                    limited_cards = card_matches[:3] if len(card_matches) > 3 else card_matches
-                    
-                    # Create new story grid content with new card at the top
-                    new_grid_content = f'{story_grid}\n{story_card}\n{"".join(limited_cards)}'
-                    
-                    # Replace entire story grid section
-                    index_content = re.sub(story_grid_pattern, new_grid_content + '</div>\n</section>', index_content, flags=re.DOTALL)
-                    print(f"Added new story card to story grid and limited to 5 total stories")
-                else:
-                    # If pattern not found, just add the new card
-                    index_content = re.sub(story_grid, f'{story_grid}\n{story_card}', index_content)
-                    print(f"Added new story card to empty story grid")
+                # Extract individual story cards
+                card_pattern = r'<div class="story-card">[\s\S]*?</div>\s*'
+                card_matches = re.findall(card_pattern, existing_cards)
+                
+                # Keep only the most recent 3 cards (plus our new one = 4 total)
+                limited_cards = card_matches[:3] if len(card_matches) > 3 else card_matches
+                
+                # Create new story grid content with new card at the top
+                new_grid_content = f'{story_grid}\n{story_card}\n{"".join(limited_cards)}'
+                
+                # Replace entire story grid section
+                index_content = re.sub(story_grid_pattern, new_grid_content + '</div>\n</section>', index_content, flags=re.DOTALL)
+                print(f"Added new story card to story grid and limited to 4 total stories")
             else:
-                print(f"Story already exists in index, only updating featured section")
-        
+                # If pattern not found, just add the new card
+                index_content = re.sub(story_grid, f'{story_grid}\n{story_card}', index_content)
+                print(f"Added new story card to empty story grid")  
         # Write updated index.html
         with open(index_path, "w", encoding="utf-8") as f:
             f.write(index_content)
@@ -877,6 +871,7 @@ def save_to_website(story, corrected_story, vocab_data, metadata):
     except Exception as e:
         print(f"Error updating index.html: {e}")
         print("This is non-critical - the story page was still created successfully")
+
 # ==============END SAVE STORY==================
 # ==============record story generation==========
 def record_story_generation(metadata, tokens):
