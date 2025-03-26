@@ -1,91 +1,256 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Δίσκολος</title>
-<link href="assets/css/style.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Sans+Pro:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-</head>
-<body>
-<header>
-<div class="container">
-<div class="header-content">
-<div class="header-logo">
-<img alt="Δίσκολος λόγω" class="logo" height="auto" src="assets/logo.jpg" width="250"/>
-</div>
-<div class="header-text">
-<p class="site-description">Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
-</div>
-</div>
-</div>
-</header>
-<main class="container">
-<section class="featured-story">
-<!-- Latest story will be inserted here automatically -->
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Δίσκολος</title>
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Sans+Pro:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+        <style>
+            .site-description {
+                font-family: 'GFS Didot', serif;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #333;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+                letter-spacing: 0.05em;
+                margin: 0.5rem 0;
+            }
 
-<div class="story-card featured">
-<h2 class="story-title">Ὄνειρος ὁ Προφητικός: Τεχνίτης ἐν Ἀγροῖς</h2>
-<div class="story-meta">
-<span class="story-date" title="Ἐλαφηβολιών πέμπτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 26, 2025</span>
-</div>
-<div class="story-excerpt">
-<p>μιᾷ δὲ νυκτὶ ὄναρ εἶδεν ὁ Χαρμίδης θαυμαστόν. ἐδόκει γὰρ ἐν νηὶ εἶναι ἐν μέσῳ τῷ πελάγει, πολλαὶ δὲ ...</p>
-<a class="read-more" href="stories/20250326-ὄνειρος-ὁ-προφητικός-τεχνίτης-ἐν-ἀγροῖς.html#continue-reading">Συνέχισε →</a>
-</div>
-</div>
+            /* Donate button */
+            .tool-btn {
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                color: white;
+                animation: rainbow 8s ease infinite;
+                border-radius: 8px;
+                /* Rounds the corners */
+            }
 
-</section>
-<section class="story-archive">
-<h2 class="section-title">Πρόσφατοι λόγοι</h2>
-<div class="story-grid">
-<div class="story-card">
-<h3 class="story-title">Ἡ Ἀπάτη τοῦ Δημαγωγοῦ</h3>
-<div class="story-meta">
-<span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span>
-</div>
-<div class="story-excerpt">
-<p>Οἶδα γὰρ ἀκριβῶς, ὦ ἄνδρες Ἀθηναῖοι, τὰς τῶν πολεμίων ναῦς οὐ πλείους τῶν ἑβδομήκοντα οὔσας, τὰς
+            @keyframes rainbow {
+                0% {
+                    background-position: 0% 82%
+                }
+
+                50% {
+                    background-position: 100% 19%
+                }
+
+                100% {
+                    background-position: 0% 82%
+                }
+            }
+
+            .tool-btn:hover {
+                animation: rainbow 2s ease infinite;
+            }
+
+            /* SOCIAL MEDIA */
+            .social-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .social-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 3px 4px;
+                font-size: 12px;
+                font-weight: bold;
+                text-decoration: none;
+                border-radius: 5px;
+                color: #fff;
+                transition: background-color 0.3s ease;
+                min-width: 70px;
+                text-align: center;
+            }
+
+            .social-btn i {
+                margin-right: 0px;
+            }
+
+            .facebook {
+                background-color: #3b5998;
+            }
+
+            .facebook:hover {
+                background-color: #324d84;
+            }
+
+            .twitter {
+                background-color: #1da1f2;
+            }
+
+            .twitter:hover {
+                background-color: #178cd1;
+            }
+
+            .linkedin {
+                background-color: #0077b5;
+            }
+
+            .linkedin:hover {
+                background-color: #005f93;
+            }
+
+            .reddit {
+                background-color: #ff4500;
+            }
+
+            .reddit:hover {
+                background-color: #cc3700;
+            }
+
+            .telegram {
+                background-color: #0088cc;
+            }
+
+            .telegram:hover {
+                background-color: #0072a1;
+            }
+
+            /* Added footer padding */
+            footer {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-logo">
+                        <img alt="Δίσκολος λόγω" class="logo" height="auto" src="assets/logo.jpg" width="250"/>
+                    </div>
+                    <div class="header-text">
+                        <p class="site-description">Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <section class="featured-story">
+                <!-- Latest story will be inserted here automatically -->
+                <div class="story-card featured">
+                    <h2 class="story-title">Ὄνειρος ὁ Προφητικός: Τεχνίτης ἐν Ἀγροῖς</h2>
+                    <div class="story-meta">
+                        <span class="story-date" title="Ἐλαφηβολιών πέμπτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 26, 2025</span>
+                    </div>
+                    <div class="story-excerpt">
+                        <p>μιᾷ δὲ νυκτὶ ὄναρ εἶδεν ὁ Χαρμίδης θαυμαστόν. ἐδόκει γὰρ ἐν νηὶ εἶναι ἐν μέσῳ τῷ πελάγει, πολλαὶ δὲ ...</p>
+                        <a class="read-more" href="stories/20250326-ὄνειρος-ὁ-προφητικός-τεχνίτης-ἐν-ἀγροῖς.html#continue-reading">Συνέχισε →</a>
+                    </div>
+                </div>
+            </section>
+            <section class="story-archive">
+                <h2 class="section-title">Πρόσφατοι λόγοι</h2>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <h3 class="story-title">Ἡ Ἀπάτη τοῦ Δημαγωγοῦ</h3>
+                        <div class="story-meta">
+                            <span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span>
+                        </div>
+                        <div class="story-excerpt">
+                            <p>Οἶδα γὰρ ἀκριβῶς, ὦ ἄνδρες Ἀθηναῖοι, τὰς τῶν πολεμίων ναῦς οὐ πλείους τῶν ἑβδομήκοντα οὔσας, τὰς
                         δὲ ...</p>
-<a class="read-more" href="stories/20250325-ἡ-ἀπάτη-τοῦ-δημαγωγοῦ.html#continue-reading">Συνέχισε
+                            <a class="read-more" href="stories/20250325-ἡ-ἀπάτη-τοῦ-δημαγωγοῦ.html#continue-reading">Συνέχισε
                         →</a>
-</div>
-</div><div class="story-card">
-<h3 class="story-title">Ὁ κωμῳδὸς ὁ ἐν τῷ δικαστηρίῳ</h3>
-<div class="story-meta">
-<span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span>
-</div>
-<p class="story-excerpt">Ἐν δὲ τῷ δικαστηρίῳ παρῆν ὄχλος πολύς· οἱ μὲν γὰρ ἐθαύμαζον τὸν Κλέωνα ὡς
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <h3 class="story-title">Ὁ κωμῳδὸς ὁ ἐν τῷ δικαστηρίῳ</h3>
+                        <div class="story-meta">
+                            <span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span>
+                        </div>
+                        <p class="story-excerpt">Ἐν δὲ τῷ δικαστηρίῳ παρῆν ὄχλος πολύς· οἱ μὲν γὰρ ἐθαύμαζον τὸν Κλέωνα ὡς
                         εὐφυᾶ, οἱ δὲ ἐμίσουν ὡς κα...</p>
-<a class="read-more" href="stories/20250325-ὁ-κωμῳδὸς-ὁ-ἐν-τῷ-δικαστηρίῳ.html#continue-reading">Συνέχισε →</a>
-</div>
-<div class="story-card">
-<h3 class="story-title">ἡ Φρόνιμος Γυνὴ καὶ ἡ Ἐπιδημία</h3>
-<div class="story-meta">
-<span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span>
-</div>
-<p class="story-excerpt">ἡ δὲ Κλεαρίστη, ἀκούσασα τῶν πρεσβυτέρων περὶ τοιούτων νόσων, εὐθὺς
+                        <a class="read-more" href="stories/20250325-ὁ-κωμῳδὸς-ὁ-ἐν-τῷ-δικαστηρίῳ.html#continue-reading">Συνέχισε →</a>
+                    </div>
+                    <div class="story-card">
+                        <h3 class="story-title">ἡ Φρόνιμος Γυνὴ καὶ ἡ Ἐπιδημία</h3>
+                        <div class="story-meta">
+                            <span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span>
+                        </div>
+                        <p class="story-excerpt">ἡ δὲ Κλεαρίστη, ἀκούσασα τῶν πρεσβυτέρων περὶ τοιούτων νόσων, εὐθὺς
                         παρεσκευάζετο. πρῶτον μὲν τοὺς π...</p>
-<a class="read-more" href="stories/20250325-ἡ-φρόνιμος-γυνὴ-καὶ-ἡ-ἐπιδημία.html#continue-reading">Συνέχισε →</a>
-</div>
-<!-- New story cards will be inserted/updated here by the script -->
-</div>
-</section>
-</main>
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-info">
-<p>©2025 Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
-</div>
-<div class="footer-social">
-<a class="donate-button" href="https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY" target="_blank">Donate</a>
-</div>
-</div>
-</div>
-</footer>
-</body>
+                        <a class="read-more" href="stories/20250325-ἡ-φρόνιμος-γυνὴ-καὶ-ἡ-ἐπιδημία.html#continue-reading">Συνέχισε →</a>
+                    </div>
+                    <!-- New story cards will be inserted/updated here by the script -->
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <p style="margin: 0;">&copy;2025 Αττικές Ιστορίες</p>
+                    <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" class="tool-btn" title="Donate!" style="margin-left: 10px;">Donate</button>
+                </div>
+            </div>
+            <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://dyscolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+    
+                
+                
+                
+                
+                
+                
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                    Twitter 
+    
+                
+                
+                
+                
+                
+                
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dyscolos.com&title=Αττικές%20Ιστορίες&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                    LinkedIn
+    
+                
+                
+                
+                
+                
+                
+                </a>
+                <a href="https://reddit.com/submit?url=https://dyscolos.com&title=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-reddit-alien"></i>
+                    Reddit
+    
+                
+                
+                
+                
+                
+                
+                </a>
+                <a href="https://t.me/share/url?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-telegram-plane"></i>
+                    Telegram
+    
+                
+                
+                
+                
+                
+                
+                </a>
+            </div>
+        </footer>
+    </body>
 </html>
