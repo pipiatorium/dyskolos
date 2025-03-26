@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{STORY_TITLE}} | Αττικές Ιστορίες</title>
+        <title>Ὁ κωμῳδὸς ὁ ἐν τῷ δικαστηρίῳ | Αττικές Ιστορίες</title>
         <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@
                 margin-bottom: 15px;
             }
 
-            /* Desktop and general styles */
+            /* Text content */
             .text {
                 line-height: 1.6;
                 font-size: 1.25rem;
@@ -59,10 +59,11 @@
                 hyphens: auto;
             }
 
-            /* Mobile styles only */
             @media (max-width: 768px) {
                 .text {
-                    text-align: left !important;
+                    font-size: 1.10rem;
+                    padding: 0.4rem 0.5rem;
+                    text-align: justify;
                 }
             }
 
@@ -127,8 +128,7 @@
 
             .back-link {
                 display: inline-block;
-                margin-top: 10px;
-                margin-bottom: 20px;
+                margin-top: 40px;
                 font-weight: 600;
                 text-decoration: none;
                 color: #ea2d2d;
@@ -159,34 +159,6 @@
                 border-bottom: 1px solid rgba(212, 185, 110, 0.3);
                 padding-bottom: 0.5rem;
                 font-style: italic;
-            }
-
-            /* Donate button */
-            .tool-btn {
-                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-                background-size: 1800% 1800%;
-                color: white;
-                animation: rainbow 8s ease infinite;
-                border-radius: 8px;
-                /* Rounds the corners */
-            }
-
-            @keyframes rainbow {
-                0% {
-                    background-position: 0% 82%
-                }
-
-                50% {
-                    background-position: 100% 19%
-                }
-
-                100% {
-                    background-position: 0% 82%
-                }
-            }
-
-            .tool-btn:hover {
-                animation: rainbow 2s ease infinite;
             }
 
             /* SOCIAL MEDIA */
@@ -233,6 +205,14 @@
                 background-color: #178cd1;
             }
 
+            .tumblr {
+                background-color: #35465c;
+            }
+
+            .tumblr:hover {
+                background-color: #2c3b4d;
+            }
+
             .linkedin {
                 background-color: #0077b5;
             }
@@ -256,26 +236,50 @@
             .telegram:hover {
                 background-color: #0072a1;
             }
-
-            /* Added footer padding */
-            footer {
-                margin-bottom: 30px;
-                padding-bottom: 30px;
-            }
         </style>
     </head>
     <body>
+        <!-- <header>
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="../assets/logo.jpg" alt="Δίσκολος λόγω" class="logo" width="250" height="auto">
+                </div>
+                <div class="header-text">
+                    <p class="site-description">Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
+                </div>
+            </div>
+        </header> -->
         <main>
             <article class="story-container">
                 <header class="story-header">
-                    <h1 class="story-headline">{{STORY_TITLE}}</h1>
+                    <h1 class="story-headline">Ὁ κωμῳδὸς ὁ ἐν τῷ δικαστηρίῳ</h1>
                     <div class="story-meta">
                         <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
                         <br>
-                        <span class="story-date">{{STORY_DATE}}</span>
+                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span></span>
                     </div>
                 </header>
-                {{STORY_CONTENT_WITH_TOOLTIPS}}
+                
+        <div class="text greek" id="continue-reading">
+            Εἶδον, ὦ ἄνδρες, ἐγὼ αὐτὸς τὸν Κλέωνα τὸν <span class="highlighted-word">κωμῳδοδιδάσκαλον<span class="tooltip">comoediarum magister</span></span> ἐν τοῖς Διονυσίοις <span class="highlighted-word">πέρυσιν<span class="tooltip">anno superiore</span></span>. οὗτος γὰρ ἐδίδαξε χορὸν <span class="highlighted-word">καταγελῶντα<span class="tooltip">irridentem</span></span> Λαμάχου τοῦ στρατηγοῦ. ὁ δὲ Λάμαχος ὠργίσθη καὶ ἐγράψατο γραφὴν κατὰ τοῦ Κλέωνος ὡς ὑβρίζοντος <span class="highlighted-word">τοὺς ἐν τέλει<span class="tooltip">magistratus</span></span>.
+        </div>
+        
+        <div class="text greek">
+            Ἐν δὲ τῷ δικαστηρίῳ παρῆν ὄχλος πολύς· οἱ μὲν γὰρ ἐθαύμαζον τὸν Κλέωνα ὡς <span class="highlighted-word">εὐφυᾶ<span class="tooltip">ingeniosum</span></span>, οἱ δὲ ἐμίσουν ὡς <span class="highlighted-word">κακολόγον<span class="tooltip">maledicum</span></span>. ὁ δὲ Λάμαχος πρῶτος ἔλεξεν ὅτι <span class="highlighted-word">δεινὰ πάσχοι<span class="tooltip">gravia pateretur</span></span> ὑπὸ τῶν ποιητῶν, οἳ <span class="highlighted-word">καταγελῷεν<span class="tooltip">irriderent</span></span> τῶν στρατηγῶν ἐναντίον τῶν συμμάχων, καὶ ὅτι τοῦτο <span class="highlighted-word">βλάπτοι<span class="tooltip">noceret</span></span> τὴν πόλιν.
+        </div>
+        
+        <div class="text greek">
+            Ὁ δὲ Κλέων, ὅτε ὁ λόγος αὐτῷ ἐδόθη, οὐ <span class="highlighted-word">τὰ εἰωθότα<span class="tooltip">consueta</span></span> εἶπεν, ἀλλὰ ὥσπερ ἐν θεάτρῳ <span class="highlighted-word">ὑπεκρίνετο<span class="tooltip">agebat</span></span>, μιμούμενος τὴν τοῦ Λαμάχου φωνὴν καὶ <span class="highlighted-word">τὸ σχῆμα<span class="tooltip">gestum</span></span>. καὶ τοσοῦτον γέλωτα <span class="highlighted-word">παρεῖχε<span class="tooltip">praebebat</span></span> τοῖς δικασταῖς ὥστε ἐνίους καὶ δακρύειν ὑπὸ τοῦ γέλωτος. ἔλεγε δὲ ὅτι πάτριόν ἐστι τοῖς Ἀθηναίοις ἐλευθέρως λέγειν καὶ ὅτι ἡ κωμῳδία ὥσπερ <span class="highlighted-word">καθαρμός<span class="tooltip">purgatio</span></span> ἐστι τῇ πόλει.
+        </div>
+        
+        <div class="text greek">
+            Οἱ δὲ δικασταὶ <span class="highlighted-word">ἀπέγνωσαν<span class="tooltip">reiecerunt</span></span> τὴν γραφήν, λέγοντες ὅτι Διονύσου εἴη τὰ θέατρα καὶ ὅτι <span class="highlighted-word">οὐ χρείη<span class="tooltip">non oporteret</span></span> τὰ <span class="highlighted-word">ἐν παιδιᾷ<span class="tooltip">per iocum</span></span> λεγόμενα εἰς τὸ δικαστήριον ἄγειν. οὕτω δὴ ἀπῆλθεν ὁ Κλέων χαίρων, ὁ δὲ Λάμαχος <span class="highlighted-word">ᾐσχύνθη<span class="tooltip">pudore affectus est</span></span> διπλῶς, καὶ ἐπὶ τῷ ἐν τῇ κωμῳδίᾳ <span class="highlighted-word">σκωφθῆναι<span class="tooltip">irrisum esse</span></span> καὶ ἐπὶ τῷ ἐν τῷ δικαστηρίῳ μὴ νικῆσαι.
+        </div>
+        
+        <div class="text greek">
+            Οὐ πολὺ δὲ ὕστερον εἶδον αὐτοὺς <span class="highlighted-word">ἀμφοτέρους<span class="tooltip">ambos</span></span> ἐν τῇ ἀγορᾷ <span class="highlighted-word">διαλεγομένους<span class="tooltip">colloquentes</span></span> <span class="highlighted-word">φιλικῶς<span class="tooltip">amice</span></span>, ὥσπερ <span class="highlighted-word">μηδενὸς κακοῦ γεγονότος<span class="tooltip">nullo malo facto</span></span>. τοιαῦτα γὰρ τὰ τῶν Ἀθηναίων <span class="highlighted-word">ἤθη<span class="tooltip">mores</span></span>.
+        </div>
+        
                 <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
             </article>
         </main>
@@ -335,41 +339,44 @@
         </script>
         <footer>
             <div class="container">
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <p style="margin: 0;">&copy;2025 Αττικές Ιστορίες</p>
-                    <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" class="tool-btn" title="Donate!" style="margin-left: 10px;">Donate</button>
-                </div>
+                <p style="text-align: center;">&copy;2025 Αττικές Ιστορίες</p>
             </div>
             <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
             <div class="social-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://dyscolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.diskolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-facebook-f"></i>
                     Facebook
-    
+        
                 
                 </a>
-                <a href="https://twitter.com/intent/tweet?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/intent/tweet?url=https://www.diskolos.com&text=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-twitter"></i>
                     Twitter 
-    
+        
                 
                 </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dyscolos.com&title=Αττικές%20Ιστορίες&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tumblr.com/share/link?url=https://www.diskolos.com&name=Δύσκολος&description=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn tumblr" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tumblr"></i>
+                    Tumblr
+        
+                
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.diskolos.com&title=Δύσκολος&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i>
                     LinkedIn
-    
+        
                 
                 </a>
-                <a href="https://reddit.com/submit?url=https://dyscolos.com&title=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
+                <a href="https://reddit.com/submit?url=https://www.diskolos.com&title=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-reddit-alien"></i>
                     Reddit
-    
+        
                 
                 </a>
-                <a href="https://t.me/share/url?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/share/url?url=https://www.diskolos.com&text=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-telegram-plane"></i>
                     Telegram
-    
+        
                 
                 </a>
             </div>

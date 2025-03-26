@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{STORY_TITLE}} | Αττικές Ιστορίες</title>
+        <title>Ἡ Ἀπάτη τοῦ Δημαγωγοῦ | Αττικές Ιστορίες</title>
         <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@
                 margin-bottom: 15px;
             }
 
-            /* Desktop and general styles */
+            /* Text content */
             .text {
                 line-height: 1.6;
                 font-size: 1.25rem;
@@ -59,10 +59,11 @@
                 hyphens: auto;
             }
 
-            /* Mobile styles only */
             @media (max-width: 768px) {
                 .text {
-                    text-align: left !important;
+                    font-size: 1.10rem;
+                    padding: 0.4rem 0.5rem;
+                    text-align: justify;
                 }
             }
 
@@ -127,8 +128,7 @@
 
             .back-link {
                 display: inline-block;
-                margin-top: 10px;
-                margin-bottom: 20px;
+                margin-top: 40px;
                 font-weight: 600;
                 text-decoration: none;
                 color: #ea2d2d;
@@ -159,34 +159,6 @@
                 border-bottom: 1px solid rgba(212, 185, 110, 0.3);
                 padding-bottom: 0.5rem;
                 font-style: italic;
-            }
-
-            /* Donate button */
-            .tool-btn {
-                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-                background-size: 1800% 1800%;
-                color: white;
-                animation: rainbow 8s ease infinite;
-                border-radius: 8px;
-                /* Rounds the corners */
-            }
-
-            @keyframes rainbow {
-                0% {
-                    background-position: 0% 82%
-                }
-
-                50% {
-                    background-position: 100% 19%
-                }
-
-                100% {
-                    background-position: 0% 82%
-                }
-            }
-
-            .tool-btn:hover {
-                animation: rainbow 2s ease infinite;
             }
 
             /* SOCIAL MEDIA */
@@ -233,6 +205,14 @@
                 background-color: #178cd1;
             }
 
+            .tumblr {
+                background-color: #35465c;
+            }
+
+            .tumblr:hover {
+                background-color: #2c3b4d;
+            }
+
             .linkedin {
                 background-color: #0077b5;
             }
@@ -256,26 +236,66 @@
             .telegram:hover {
                 background-color: #0072a1;
             }
-
-            /* Added footer padding */
-            footer {
-                margin-bottom: 30px;
-                padding-bottom: 30px;
-            }
         </style>
     </head>
     <body>
+        <!-- <header>
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="../assets/logo.jpg" alt="Δίσκολος λόγω" class="logo" width="250" height="auto">
+                </div>
+                <div class="header-text">
+                    <p class="site-description">Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
+                </div>
+            </div>
+        </header> -->
         <main>
             <article class="story-container">
                 <header class="story-header">
-                    <h1 class="story-headline">{{STORY_TITLE}}</h1>
+                    <h1 class="story-headline">Ἡ Ἀπάτη τοῦ Δημαγωγοῦ</h1>
                     <div class="story-meta">
                         <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
                         <br>
-                        <span class="story-date">{{STORY_DATE}}</span>
+                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span></span>
                     </div>
                 </header>
-                {{STORY_CONTENT_WITH_TOOLTIPS}}
+                
+        <div class="text greek" id="continue-reading">
+            Ὦ ἄνδρες Ἀθηναῖοι, περὶ μεγάλων πραγμάτων νυνὶ βουλευόμεθα. τῆς γὰρ <span class="highlighted-word">ναυμαχίας<span class="tooltip">proelium navale</span></span> ἐγγὺς οὔσης, δεῖ πάντας ἡμᾶς <span class="highlighted-word">ὁμονοεῖν<span class="tooltip">concordare</span></span> καὶ τῇ πατρίδι βοηθεῖν. ἐγὼ μὲν οὖν, ὃς πολλάκις ὑπὲρ ὑμῶν ἐκινδύνευσα καὶ οὗ πλεῖσται τριήρεις εἰς τὸν πόλεμον <span class="highlighted-word">εἰσενήνοχα<span class="tooltip">intuli</span></span>, γνώμην <span class="highlighted-word">ἀποφαίνομαι<span class="tooltip">declaro</span></span> ὅτι δεῖ πάσῃ τῇ δυνάμει ἐπὶ τοὺς πολεμίους πλεῖν.
+        </div>
+        
+        <div class="text greek">
+            Οἶδα γὰρ <span class="highlighted-word">ἀκριβῶς<span class="tooltip">accurate</span></span>, ὦ ἄνδρες Ἀθηναῖοι, τὰς τῶν πολεμίων ναῦς οὐ πλείους τῶν ἑβδομήκοντα οὔσας, τὰς δὲ ἡμετέρας ἑκατὸν καὶ πεντήκοντα. τί οὖν <span class="highlighted-word">δεδιέναι<span class="tooltip">timere</span></span> χρή; οὐ γὰρ <span class="highlighted-word">πώποτε<span class="tooltip">umquam</span></span> οἱ Ἀθηναῖοι τὸ πλῆθος τῶν πολεμίων ἐφοβήθησαν, ἀλλ' ἀεὶ τῇ τόλμῃ καὶ τῇ ἀρετῇ τοὺς <span class="highlighted-word">ἐναντίους<span class="tooltip">adversarios</span></span> ἐνίκησαν.
+        </div>
+        
+        <div class="text greek">
+            Καὶ μὴν τῶν χρημάτων ἕνεκα οὐδὲν ἡμῖν <span class="highlighted-word">ἐμποδὼν<span class="tooltip">impedimento</span></span> ἔσται· πλεῖστα γὰρ ἐν τῇ ἀκροπόλει <span class="highlighted-word">ἀπόκειται<span class="tooltip">repositum est</span></span>, καὶ οἱ σύμμαχοι πολλὰ <span class="highlighted-word">εἰσφέρουσιν<span class="tooltip">conferunt</span></span>. εἰ δέ τις ἀντιλέγει καὶ τὴν εἰρήνην συμβουλεύει, οὗτος οὐ τῇ πόλει <span class="highlighted-word">εὔνους<span class="tooltip">benevolus</span></span> ἐστίν, ἀλλὰ προδότης καὶ τῶν πολεμίων φίλος.
+        </div>
+        
+        <div class="text greek">
+            [Ἐκ τοῦ πλήθους· "Εὖ γε! Εὖ λέγεις!"]
+        </div>
+        
+        <div class="text greek">
+            Ἀκούω δέ τινας λέγοντας ὅτι τὸν χειμῶνα οὐ χρὴ ναυμαχεῖν. ἀλλὰ ταῦτα λέγουσιν οἱ τὴν πόλιν <span class="highlighted-word">ἀσθενῆ<span class="tooltip">infirmam</span></span> ποιῆσαι βουλόμενοι. οἱ γὰρ πατέρες ἡμῶν οὐδέποτε τὰς ὥρας <span class="highlighted-word">ἐσκόπουν<span class="tooltip">considerabant</span></span>, ἀλλὰ τὸ τῆς πόλεως <span class="highlighted-word">συμφέρον<span class="tooltip">utile</span></span>. καὶ νῦν, ἐὰν ταχέως πλεύσωμεν, τοὺς πολεμίους <span class="highlighted-word">ἀπαρασκεύους<span class="tooltip">imparatos</span></span> <span class="highlighted-word">καταληψόμεθα<span class="tooltip">deprehendemus</span></span>.
+        </div>
+        
+        <div class="text greek">
+            [Γέρων τις ἐγείρεται] "Ὦ ῥῆτορ, οὐκ ἀληθῆ λέγεις. οἱ γὰρ κατάσκοποι ἡμῖν ἀπήγγειλαν διακοσίας ναῦς τῶν πολεμίων εἶναι, καὶ τὰ χρήματα ἡμῶν ὀλίγα ἐστίν. διὰ τί οὖν ψεύδῃ;"
+        </div>
+        
+        <div class="text greek">
+            Ὦ ἄνδρες Ἀθηναῖοι, μὴ προσέχετε τούτῳ τῷ γέροντι· ὑπὸ γὰρ τοῦ γήρως οὐκέτι σωφρονεῖ. ἐγὼ δὲ ὑμῖν τὴν ἀλήθειαν λέγω, καὶ ὑπὲρ τούτων τὴν ἐμαυτοῦ κεφαλὴν ὑποτίθημι. εἰ δέ τις ἄλλος ἀντιλέγειν βούλεται, παρελθὼν λεγέτω.
+        </div>
+        
+        <div class="text greek">
+            [Θόρυβος ἐν τῇ ἐκκλησίᾳ, πολλῶν ἅμα βοώντων]
+        </div>
+        
+        <div class="text greek">
+            Ὁρᾶτε, ὦ ἄνδρες, οὐδεὶς τολμᾷ πρὸς ταῦτα ἀντιλέγειν. ψηφίσασθε οὖν ὡς ἐγὼ γνώμην ἀποφαίνομαι, καὶ οὐ μετανοήσετε. τῶν γὰρ προγόνων ἀξίως πολιτευσόμεθα, καὶ τοῖς ἐπιγιγνομένοις καλὸν ὑπόδειγμα καταλείψομεν.
+        </div>
+        
                 <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
             </article>
         </main>
@@ -335,41 +355,44 @@
         </script>
         <footer>
             <div class="container">
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <p style="margin: 0;">&copy;2025 Αττικές Ιστορίες</p>
-                    <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" class="tool-btn" title="Donate!" style="margin-left: 10px;">Donate</button>
-                </div>
+                <p style="text-align: center;">&copy;2025 Αττικές Ιστορίες</p>
             </div>
             <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
             <div class="social-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://dyscolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.diskolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-facebook-f"></i>
                     Facebook
-    
+        
                 
                 </a>
-                <a href="https://twitter.com/intent/tweet?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/intent/tweet?url=https://www.diskolos.com&text=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-twitter"></i>
                     Twitter 
-    
+        
                 
                 </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dyscolos.com&title=Αττικές%20Ιστορίες&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tumblr.com/share/link?url=https://www.diskolos.com&name=Δύσκολος&description=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn tumblr" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tumblr"></i>
+                    Tumblr
+        
+                
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.diskolos.com&title=Δύσκολος&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i>
                     LinkedIn
-    
+        
                 
                 </a>
-                <a href="https://reddit.com/submit?url=https://dyscolos.com&title=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
+                <a href="https://reddit.com/submit?url=https://www.diskolos.com&title=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-reddit-alien"></i>
                     Reddit
-    
+        
                 
                 </a>
-                <a href="https://t.me/share/url?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/share/url?url=https://www.diskolos.com&text=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-telegram-plane"></i>
                     Telegram
-    
+        
                 
                 </a>
             </div>

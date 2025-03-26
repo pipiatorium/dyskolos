@@ -11,6 +11,7 @@ import inspect
 from difflib import SequenceMatcher
 import random
 import time
+from bs4 import BeautifulSoup
 
 # Print script location to check which file is actually running
 print(f"Running script from: {inspect.getfile(inspect.currentframe())}")
@@ -778,94 +779,109 @@ def save_to_website(story, corrected_story, vocab_data, metadata):
         print(f"Error saving story: {e}")
         return
     
+    # Create excerpt from actual story content, not the title
+    if len(paragraphs) >= 2:
+        # Use the second paragraph for the excerpt
+        excerpt = paragraphs[1][:100] + "..." if len(paragraphs[1]) > 100 else paragraphs[1]
+    elif len(paragraphs) == 1:
+        # If there's only one paragraph, use it but check it's not just the title
+        if paragraphs[0].strip() != headline.strip():
+            excerpt = paragraphs[0][:100] + "..." if len(paragraphs[0]) > 100 else paragraphs[0]
+        else:
+            excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
+    else:
+        excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
+        
+    # Story card for new story
+    new_story_card = f'''
+    <div class="story-card">
+        <h3 class="story-title">{headline}</h3>
+        <div class="story-meta">
+            {date_span}
+        </div>
+        <p class="story-excerpt">{excerpt}</p>
+        <a href="stories/{filename}#continue-reading" class="read-more">Συνέχισε →</a>
+    </div>
+    '''
+    
+    # Featured story for top of page
+    featured_story = f'''
+    <div class="story-card featured">
+        <h2 class="story-title">{headline}</h2>
+        <div class="story-meta">
+            {date_span}
+        </div>
+        <div class="story-excerpt">
+            <p>{excerpt}</p>
+            <a href="stories/{filename}#continue-reading" class="read-more">Συνέχισε →</a>
+        </div>
+    </div>
+    '''
+
     # Update index page
     index_path = os.path.join(docs_path, "index.html")
     try:
         with open(index_path, "r", encoding="utf-8") as f:
             index_content = f.read()
+        
+        # Parse the HTML using BeautifulSoup
+        soup = BeautifulSoup(index_content, 'html.parser')
+        
+        # 1. Update featured story section
+        featured_section = soup.select_one('.featured-story')
+        if featured_section:
+            # Get current featured story before replacing it
+            current_featured = featured_section.select_one('.story-card.featured')
             
-        # Create excerpt from actual story content, not the title
-        if len(paragraphs) >= 2:
-            # Use the second paragraph for the excerpt
-            excerpt = paragraphs[1][:100] + "..." if len(paragraphs[1]) > 100 else paragraphs[1]
-        elif len(paragraphs) == 1:
-            # If there's only one paragraph, use it but check it's not just the title
-            if paragraphs[0].strip() != headline.strip():
-                excerpt = paragraphs[0][:100] + "..." if len(paragraphs[0]) > 100 else paragraphs[0]
+            # Replace with new featured story
+            new_featured_soup = BeautifulSoup(featured_story, 'html.parser')
+            if current_featured:
+                current_featured.replace_with(new_featured_soup)
             else:
-                excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
-        else:
-            excerpt = "Συνέχισε για να διαβάσεις την ιστορία..."
+                # If no featured story exists yet, append it
+                featured_section.append(new_featured_soup)
+        
+        # 2. Handle the story grid (recent stories)
+        story_grid = soup.select_one('.story-grid')
+        if story_grid and current_featured:
+            # Convert featured to regular card
+            card_html = current_featured.decode()
+            card_html = card_html.replace('class="story-card featured"', 'class="story-card"')
+            card_html = card_html.replace('<h2 class="story-title">', '<h3 class="story-title">')
+            card_html = card_html.replace('</h2>', '</h3>')
+            card_soup = BeautifulSoup(card_html, 'html.parser')
             
-        # Story card for story grid
-        story_card = f'''
-        <div class="story-card">
-            <h3 class="story-title">{headline}</h3>
-            <div class="story-meta">
-                {date_span}
-            </div>
-            <p class="story-excerpt">{excerpt}</p>
-            <a href="stories/{filename}#continue-reading" class="read-more">Συνέχισε →</a>
-        </div>
-        '''
+            # Get current story title to avoid duplicates
+            title_elem = card_soup.select_one('.story-title')
+            current_title = title_elem.text if title_elem else ""
+            
+            # Check for duplicates
+            existing_cards = story_grid.select('.story-card')
+            is_duplicate = False
+            for card in existing_cards:
+                title = card.select_one('.story-title')
+                if title and title.text == current_title:
+                    is_duplicate = True
+                    break
+            
+            # Insert at the beginning if not a duplicate
+            if not is_duplicate:
+                # Insert at the beginning (before any existing cards)
+                if existing_cards:
+                    existing_cards[0].insert_before(card_soup)
+                else:
+                    story_grid.append(card_soup)
+            
+            # Limit to 4 most recent stories
+            all_cards = story_grid.select('.story-card')
+            for i, card in enumerate(all_cards):
+                if i >= 4:  # Keep only the first 4
+                    card.decompose()
         
-        # Featured story for top of page
-        featured_story = f'''
-        <div class="story-card featured">
-            <h2 class="story-title">{headline}</h2>
-            <div class="story-meta">
-                {date_span}
-            </div>
-            <div class="story-excerpt">
-                <p>{excerpt}</p>
-                <a href="stories/{filename}#continue-reading" class="read-more">Συνέχισε →</a>
-            </div>
-        </div>
-        '''
-        
-        # Update featured story section
-        featured_pattern = r'<div class="story-card featured">[\s\S]*?</div>\s*</div>'
-        if re.search(featured_pattern, index_content):
-            index_content = re.sub(featured_pattern, featured_story, index_content, flags=re.DOTALL)
-            print("Updated featured story section in index.html")
-        else:
-            # If no featured story section, add after featured-story section tag
-            featured_section = r'<section class="featured-story">'
-            if featured_section in index_content:
-                index_content = re.sub(featured_section, f'{featured_section}\n{featured_story}', index_content)
-                print("Added featured story to featured-story section")
-        
-        # Add new story to grid (at beginning) - BUT ONLY if it's not already in the index
-        story_grid = r'<div class="story-grid">'
-        if story_grid in index_content:
-            # Extract all existing story cards (removed filename check)
-            story_grid_pattern = r'<div class="story-grid">([\s\S]*?)</div>\s*</section>'
-            match = re.search(story_grid_pattern, index_content, re.DOTALL)
-
-            if match:
-                existing_cards = match.group(1)
-                
-                # Extract individual story cards
-                card_pattern = r'<div class="story-card">[\s\S]*?</div>\s*'
-                card_matches = re.findall(card_pattern, existing_cards)
-                
-                # Keep only the most recent 3 cards (plus our new one = 4 total)
-                limited_cards = card_matches[:3] if len(card_matches) > 3 else card_matches
-                
-                # Create new story grid content with new card at the top
-                new_grid_content = f'{story_grid}\n{story_card}\n{"".join(limited_cards)}'
-                
-                # Replace entire story grid section
-                index_content = re.sub(story_grid_pattern, new_grid_content + '</div>\n</section>', index_content, flags=re.DOTALL)
-                print(f"Added new story card to story grid and limited to 4 total stories")
-            else:
-                # If pattern not found, just add the new card
-                index_content = re.sub(story_grid, f'{story_grid}\n{story_card}', index_content)
-                print(f"Added new story card to empty story grid")  
-        # Write updated index.html
+        # Write the updated content back
         with open(index_path, "w", encoding="utf-8") as f:
-            f.write(index_content)
-            
+            f.write(str(soup))
+        
         print(f"Index.html updated successfully")
         
     except Exception as e:
@@ -873,6 +889,7 @@ def save_to_website(story, corrected_story, vocab_data, metadata):
         print("This is non-critical - the story page was still created successfully")
 
 # ==============END SAVE STORY==================
+
 # ==============record story generation==========
 def record_story_generation(metadata, tokens):
     """Record story generation details for analytics"""

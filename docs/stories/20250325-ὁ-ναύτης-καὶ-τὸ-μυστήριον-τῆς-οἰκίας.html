@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{STORY_TITLE}} | Αττικές Ιστορίες</title>
+        <title>Ὁ Ναύτης καὶ τὸ Μυστήριον τῆς Οἰκίας | Αττικές Ιστορίες</title>
         <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@
                 margin-bottom: 15px;
             }
 
-            /* Desktop and general styles */
+            /* Text content */
             .text {
                 line-height: 1.6;
                 font-size: 1.25rem;
@@ -59,10 +59,11 @@
                 hyphens: auto;
             }
 
-            /* Mobile styles only */
             @media (max-width: 768px) {
                 .text {
-                    text-align: left !important;
+                    font-size: 1.10rem;
+                    padding: 0.4rem 0.5rem;
+                    text-align: justify;
                 }
             }
 
@@ -127,8 +128,7 @@
 
             .back-link {
                 display: inline-block;
-                margin-top: 10px;
-                margin-bottom: 20px;
+                margin-top: 40px;
                 font-weight: 600;
                 text-decoration: none;
                 color: #ea2d2d;
@@ -159,34 +159,6 @@
                 border-bottom: 1px solid rgba(212, 185, 110, 0.3);
                 padding-bottom: 0.5rem;
                 font-style: italic;
-            }
-
-            /* Donate button */
-            .tool-btn {
-                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-                background-size: 1800% 1800%;
-                color: white;
-                animation: rainbow 8s ease infinite;
-                border-radius: 8px;
-                /* Rounds the corners */
-            }
-
-            @keyframes rainbow {
-                0% {
-                    background-position: 0% 82%
-                }
-
-                50% {
-                    background-position: 100% 19%
-                }
-
-                100% {
-                    background-position: 0% 82%
-                }
-            }
-
-            .tool-btn:hover {
-                animation: rainbow 2s ease infinite;
             }
 
             /* SOCIAL MEDIA */
@@ -233,6 +205,14 @@
                 background-color: #178cd1;
             }
 
+            .tumblr {
+                background-color: #35465c;
+            }
+
+            .tumblr:hover {
+                background-color: #2c3b4d;
+            }
+
             .linkedin {
                 background-color: #0077b5;
             }
@@ -256,26 +236,58 @@
             .telegram:hover {
                 background-color: #0072a1;
             }
-
-            /* Added footer padding */
-            footer {
-                margin-bottom: 30px;
-                padding-bottom: 30px;
-            }
         </style>
     </head>
     <body>
+        <!-- <header>
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="../assets/logo.jpg" alt="Δίσκολος λόγω" class="logo" width="250" height="auto">
+                </div>
+                <div class="header-text">
+                    <p class="site-description">Ἁπλαῖ ἱστορίαι τῆς Ἀττικῆς διαλέκτου</p>
+                </div>
+            </div>
+        </header> -->
         <main>
             <article class="story-container">
                 <header class="story-header">
-                    <h1 class="story-headline">{{STORY_TITLE}}</h1>
+                    <h1 class="story-headline">Ὁ Ναύτης καὶ τὸ Μυστήριον τῆς Οἰκίας</h1>
                     <div class="story-meta">
                         <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
                         <br>
-                        <span class="story-date">{{STORY_DATE}}</span>
+                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών ἕκτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 25, 2025</span></span>
                     </div>
                 </header>
-                {{STORY_CONTENT_WITH_TOOLTIPS}}
+                
+        <div class="text greek" id="continue-reading">
+            Ἄνδρες, βούλομαι ὑμῖν <span class="highlighted-word">διηγήσασθαι<span class="tooltip">narrare</span></span> πρᾶγμα <span class="highlighted-word">παράδοξον<span class="tooltip">mirum</span></span> ὃ ἤκουσα παρὰ Φορμίωνος τοῦ <span class="highlighted-word">ναυκλήρου<span class="tooltip">navicularii</span></span> <span class="highlighted-word">πέρυσιν<span class="tooltip">anno priore</span></span>, ἐπειδὴ ἡμεῖς τε <span class="highlighted-word">πεπώκαμεν<span class="tooltip">bibimus</span></span> ἱκανῶς καὶ καιρός ἐστι τοιούτων λόγων.
+        </div>
+        
+        <div class="text greek">
+            Οὗτος ὁ Φορμίων, ἀνὴρ <span class="highlighted-word">ἐμπειρότατος<span class="tooltip">peritissimus</span></span> τῶν περὶ θάλατταν, ἐπειδὴ <span class="highlighted-word">κατέπλευσεν<span class="tooltip">navigavit</span></span> ἐκ Ῥόδου καὶ ἤδη ἑσπέρα ἦν, <span class="highlighted-word">καταλύει<span class="tooltip">deversatur</span></span> παρ' ἀνδρὶ ξένῳ αὐτῷ ὄντι ἐν Πειραιεῖ. ἡ δὲ οἰκία ἦν παλαιὰ καὶ ἐγγὺς τοῦ τείχους, ὥστε ὀλίγοι τῶν γειτόνων <span class="highlighted-word">ᾤκουν<span class="tooltip">habitabant</span></span> ἐκεῖ.
+        </div>
+        
+        <div class="text greek">
+            Περὶ μέσας νύκτας, ὁ Φορμίων <span class="highlighted-word">ἐξηγέρθη<span class="tooltip">excitatus est</span></span> ὑπὸ <span class="highlighted-word">ψόφου<span class="tooltip">strepitus</span></span> τινὸς ὡς ἀνθρώπων <span class="highlighted-word">βαδιζόντων<span class="tooltip">ambulantium</span></span> ἄνω καὶ κάτω. ἐπειδὴ δὲ ἔδοξεν αὐτῷ ὅτι οὐδεὶς ἄλλος ἦν ἐν τῇ οἰκίᾳ πλὴν αὐτοῦ τε καὶ τοῦ ξένου καθεύδοντος, ἐθαύμασε μὲν τὸ πρᾶγμα, οὐ μέντοι ἐφοβήθη <span class="highlighted-word">ἅτε<span class="tooltip">quippe</span></span> ἀνὴρ θαλάττιος ὢν καὶ πολλὰ δεινὰ ἤδη <span class="highlighted-word">πεπονθώς<span class="tooltip">passus</span></span>.
+        </div>
+        
+        <div class="text greek">
+            <span class="highlighted-word">Ἐξαίφνης<span class="tooltip">subito</span></span> δὲ <span class="highlighted-word">λύχνον<span class="tooltip">lucernam</span></span> εἶδεν ἐν τῷ κάτω <span class="highlighted-word">οἰκήματι<span class="tooltip">aedificio</span></span>, καίτοι οὐδεὶς ἦν ὁρατὸς ὁ τὸν λύχνον κομίζων. προσέτι δὲ ψιθυρισμοὺς ἤκουσεν ὥσπερ ἀνθρώπων βουλευομένων. τότε δὴ ὁ Φορμίων ἀναλαβὼν <span class="highlighted-word">ἐγχειρίδιον<span class="tooltip">pugio</span></span> ὃ ἀεὶ εἶχε μεθ' ἑαυτοῦ, κατέβη κατὰ τοὺς βαθμοὺς ἡσυχῇ.
+        </div>
+        
+        <div class="text greek">
+            Τί δὲ οἴεσθε εὑρεῖν αὐτόν, ὦ ἄνδρες; οὐ <span class="highlighted-word">φάσματα<span class="tooltip">spectra</span></span> οὐδὲ δαίμονας, ἀλλὰ δύο ἄνδρας <span class="highlighted-word">ὀρύττοντας<span class="tooltip">fodientes</span></span> τὸ <span class="highlighted-word">ἔδαφος<span class="tooltip">solum</span></span>, ὡς ἔοικε θησαυρὸν ζητοῦντας ὃν ὁ τῆς οἰκίας πρότερος δεσπότης ἐκεῖ <span class="highlighted-word">ἔκρυψεν<span class="tooltip">occultavit</span></span>. τούτους δὲ ὁ Φορμίων καταλαβὼν φεύγειν ἠνάγκασεν, τὸν δὲ <span class="highlighted-word">θησαυρόν<span class="tooltip">thesaurum</span></span> – εἰ ἐξεῦρον ἢ μή, οὐκ ἔφη σαφῶς εἰδέναι.
+        </div>
+        
+        <div class="text greek">
+            Ἕωθεν δὲ τῷ ξένῳ τὸ πρᾶγμα διηγησάμενος, ἔμαθεν ὅτι ἡ οἰκία ἐκείνη τοῦ Καλλίου τοῦ πλουσίου πρότερον ἦν, ὃς ἐλέγετο πολλὰ τῶν χρημάτων οὐ φανερῶς κεκτῆσθαι.
+        </div>
+        
+        <div class="text greek">
+            Τοιαῦτα, ὦ ἄνδρες, συμβαίνει ἐνίοτε τοῖς ναυτικοῖς, οὐ μόνον ἐν θαλάττῃ ἀλλὰ καὶ ἐν γῇ. ἀλλὰ φέρε δή, παῖ, ἔγχεον ἄκρατον ἡμῖν.
+        </div>
+        
                 <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
             </article>
         </main>
@@ -335,41 +347,44 @@
         </script>
         <footer>
             <div class="container">
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <p style="margin: 0;">&copy;2025 Αττικές Ιστορίες</p>
-                    <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" class="tool-btn" title="Donate!" style="margin-left: 10px;">Donate</button>
-                </div>
+                <p style="text-align: center;">&copy;2025 Αττικές Ιστορίες</p>
             </div>
             <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
             <div class="social-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://dyscolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.diskolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-facebook-f"></i>
                     Facebook
-    
+        
                 
                 </a>
-                <a href="https://twitter.com/intent/tweet?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/intent/tweet?url=https://www.diskolos.com&text=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-twitter"></i>
                     Twitter 
-    
+        
                 
                 </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dyscolos.com&title=Αττικές%20Ιστορίες&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tumblr.com/share/link?url=https://www.diskolos.com&name=Δύσκολος&description=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn tumblr" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tumblr"></i>
+                    Tumblr
+        
+                
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.diskolos.com&title=Δύσκολος&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i>
                     LinkedIn
-    
+        
                 
                 </a>
-                <a href="https://reddit.com/submit?url=https://dyscolos.com&title=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
+                <a href="https://reddit.com/submit?url=https://www.diskolos.com&title=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-reddit-alien"></i>
                     Reddit
-    
+        
                 
                 </a>
-                <a href="https://t.me/share/url?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/share/url?url=https://www.diskolos.com&text=Δύσκολος%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-telegram-plane"></i>
                     Telegram
-    
+        
                 
                 </a>
             </div>
