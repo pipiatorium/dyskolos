@@ -20,11 +20,20 @@
                 margin-top: 0px;
             }
 
-            .logo {
-                max-width: 100%;
-                height: auto;
-                width: auto;
-                /* This will override the inline width */
+            @media (max-width: 768px) {
+                .header-logo img {
+                    width: 100%;
+                    /* Fills the parent container width */
+                    max-width: 100%;
+                    /* Prevents overflow */
+                }
+
+                .header-logo {
+                    width: 100%;
+                    /* Ensures the container takes full width */
+                    padding: 0 10px;
+                    /* Optional: adds some padding on the sides */
+                }
             }
 
             /* Donate button */
@@ -261,4 +270,6 @@
         </footer>
     </body>
 </html>
+
+
 
