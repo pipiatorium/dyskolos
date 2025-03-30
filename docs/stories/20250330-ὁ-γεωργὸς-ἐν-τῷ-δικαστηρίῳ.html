@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ὁ Γεωργὸς ἐν τῷ Δικαστηρίῳ | Αττικές Ιστορίες</title>
+        <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            .story-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .story-container {
+                    padding: 0 15px;
+                }
+            }
+
+            .story-header {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .story-headline {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                line-height: 1.1;
+                font-family: 'GFS Didot', serif;
+            }
+
+            @media (max-width: 768px) {
+                .story-headline {
+                    font-size: 1.6rem;
+                }
+            }
+
+            .story-meta {
+                font-style: italic;
+                color: var(--color-dark-gray, #555);
+                margin-bottom: 15px;
+            }
+
+            /* Desktop and general styles */
+            .text {
+                line-height: 1.6;
+                font-size: 1.25rem;
+                font-family: 'GFS Didot', serif;
+                padding: 0.5rem 1.5rem;
+                margin-bottom: 0.5rem;
+                text-align: justify;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+            }
+
+            /* Mobile styles only */
+            @media (max-width: 768px) {
+                .text {
+                    text-align: left !important;
+                }
+            }
+
+            /* Tooltip styles */
+            .highlighted-word {
+                background-color: rgba(255, 255, 220, 0.3);
+                border-bottom: 1px dotted #aaa;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .tooltip {
+                visibility: hidden;
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #f9f9f9;
+                color: #333;
+                text-align: center;
+                padding: 8px 12px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #f9f9f9 transparent transparent transparent;
+            }
+
+            .highlighted-word:hover .tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* For mobile, show tooltips on touch */
+            @media (max-width: 768px) {
+                .tooltip {
+                    width: 200px;
+                    white-space: normal;
+                }
+
+                .social-btn {
+                    padding: 6px 10px;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    min-width: 80px;
+                }
+            }
+
+            .back-link {
+                display: inline-block;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-weight: 600;
+                text-decoration: none;
+                color: #ea2d2d;
+            }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+
+            /* Smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Style for the continue-reading anchor */
+            #continue-reading {
+                scroll-margin-top: 20px;
+            }
+
+            .site-description {
+                font-family: 'GFS Didot', serif;
+                font-size: 1.4rem;
+                letter-spacing: 0.05em;
+                color: #d4b96e;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+                margin: 0.5rem 0;
+                font-weight: 400;
+                border-bottom: 1px solid rgba(212, 185, 110, 0.3);
+                padding-bottom: 0.5rem;
+                font-style: italic;
+            }
+
+            /* Donate button */
+            .tool-btn {
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                color: white;
+                animation: rainbow 8s ease infinite;
+                border-radius: 8px;
+                /* Rounds the corners */
+            }
+
+            @keyframes rainbow {
+                0% {
+                    background-position: 0% 82%
+                }
+
+                50% {
+                    background-position: 100% 19%
+                }
+
+                100% {
+                    background-position: 0% 82%
+                }
+            }
+
+            .tool-btn:hover {
+                animation: rainbow 2s ease infinite;
+            }
+
+            /* SOCIAL MEDIA */
+            .social-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .social-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 3px 4px;
+                font-size: 12px;
+                font-weight: bold;
+                text-decoration: none;
+                border-radius: 5px;
+                color: #fff;
+                transition: background-color 0.3s ease;
+                min-width: 70px;
+                text-align: center;
+            }
+
+            .social-btn i {
+                margin-right: 0px;
+            }
+
+            .facebook {
+                background-color: #3b5998;
+            }
+
+            .facebook:hover {
+                background-color: #324d84;
+            }
+
+            .twitter {
+                background-color: #1da1f2;
+            }
+
+            .twitter:hover {
+                background-color: #178cd1;
+            }
+
+            .linkedin {
+                background-color: #0077b5;
+            }
+
+            .linkedin:hover {
+                background-color: #005f93;
+            }
+
+            .reddit {
+                background-color: #ff4500;
+            }
+
+            .reddit:hover {
+                background-color: #cc3700;
+            }
+
+            .telegram {
+                background-color: #0088cc;
+            }
+
+            .telegram:hover {
+                background-color: #0072a1;
+            }
+
+            /* Added footer padding */
+            footer {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article class="story-container">
+                <header class="story-header">
+                    <h1 class="story-headline">Ὁ Γεωργὸς ἐν τῷ Δικαστηρίῳ</h1>
+                    <div class="story-meta">
+                        <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
+                        <br>
+                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών πρώτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 30, 2025</span></span>
+                    </div>
+                </header>
+                
+        <div class="text greek" id="continue-reading">
+            Ἐγὼ Φιλόδημος ὁ Ἀχαρνεύς, γεωργὸς ὢν καὶ οὐ <span class="highlighted-word">πολυπράγμων<span class="tooltip">curiosus</span></span>, εἰς τὸ δικαστήριον χθὲς παρῆλθον οὐχ ἑκών. Τοιαύτη γὰρ συμφορὰ κατέλαβέ με ὥστε ἀναγκασθῆναι εἰς δικαστήριον εἰσελθεῖν. Ὁ γὰρ γείτων μου Κτησίας, πλούσιος ὤν, <span class="highlighted-word">ᾐτιᾶτό<span class="tooltip">accusabat</span></span> με ὡς τῆς γῆς τι μέρος αὐτοῦ ἐγεώργουν, τοὺς <span class="highlighted-word">ὅρους<span class="tooltip">terminos</span></span> ὑπερβάς.
+        </div>
+        
+        <div class="text greek">
+            <span class="highlighted-word">Ἕωθεν<span class="tooltip">mane</span></span> οὖν ἀναστὰς εἰς ἄστυ ἐπορευόμην, φαύλην <span class="highlighted-word">ἐσθῆτα<span class="tooltip">vestem</span></span> ἐνδεδυμένος καὶ τῇ ψυχῇ <span class="highlighted-word">ἀθυμῶν<span class="tooltip">maestus</span></span>. Οὐ γὰρ <span class="highlighted-word">εἴωθα<span class="tooltip">soleo</span></span> λόγους ποιεῖσθαι ἐναντίον πολλῶν ἀνθρώπων, ἀλλ' ἀεὶ τοὺς ἀγροὺς ἐθεράπευον καὶ τοῖς ἐμαυτοῦ πράγμασι προσεῖχον τὸν νοῦν.
+        </div>
+        
+        <div class="text greek">
+            Ἐπειδὴ δὲ εἰς τὴν <span class="highlighted-word">Ἡλιαίαν<span class="tooltip">Heliaeam</span></span> παρῆλθον, πολλοὺς εἶδον ἐκεῖ καθημένους, τούς τε δικαστὰς καὶ τοὺς θεατάς. Ὁ δὲ Κτησίας παρελθὼν εὐθὺς λόγον μακρὸν <span class="highlighted-word">διεξῄει<span class="tooltip">narrabat</span></span>, ψευδόμενος περὶ τῶν ὅρων καὶ ἐμὲ <span class="highlighted-word">συκοφαντῶν<span class="tooltip">calumnians</span></span> ὡς πονηρόν τινα καὶ <span class="highlighted-word">πλεονέκτην<span class="tooltip">avarum</span></span>.
+        </div>
+        
+        <div class="text greek">
+            Ὅτε δέ μοι λέγειν <span class="highlighted-word">ἐξῆν<span class="tooltip">licebat</span></span>, ἀνέστην τρέμων καὶ τοιάδε εἶπον· "Ὦ ἄνδρες δικασταί, γεωργός εἰμι ἀπράγμων, ἑξήκοντα ἔτη βεβιωκὼς ἐν τῷ αὐτῷ τόπῳ. Οἱ δὲ ὅροι τῶν ἀγρῶν οἱ αὐτοί εἰσιν οὓς οἱ πατέρες ἡμῶν <span class="highlighted-word">ἔθεσαν<span class="tooltip">posuerunt</span></span>. Μάρτυρας δ' ὑμῖν παρέξομαι τούς τε γείτονας καὶ τοὺς πρεσβυτέρους τῶν <span class="highlighted-word">δημοτῶν<span class="tooltip">civium</span></span>."
+        </div>
+        
+        <div class="text greek">
+            <span class="highlighted-word">Προσεκαλεσάμην<span class="tooltip">advocavi</span></span> οὖν τοὺς μάρτυρας, οἳ πάντες <span class="highlighted-word">ἐμαρτύρησαν<span class="tooltip">testificati sunt</span></span> ὅτι οὐδὲν ἠδίκουν. Καὶ τέλος οἱ δικασταὶ τὴν <span class="highlighted-word">ψῆφον ἔθεντο<span class="tooltip">suffragium tulerunt</span></span> ὑπὲρ ἐμοῦ. <span class="highlighted-word">Ἀπῄειν<span class="tooltip">abibam</span></span> οὖν χαίρων εἰς τὸν ἀγρόν, εὐχόμενος μηδέποτε πάλιν εἰς δικαστήριον ἐλθεῖν.
+        </div>
+        
+                <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
+            </article>
+        </main>
+        <script>
+            // Add touch support for mobile devices
+            document.addEventListener('DOMContentLoaded', function() {
+                const highlightedWords = document.querySelectorAll('.highlighted-word');
+
+                // For mobile devices, toggle tooltip visibility on touch
+                if ('ontouchstart'in window || navigator.maxTouchPoints) {
+                    highlightedWords.forEach(word => {
+                        word.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+
+                            // Hide all other tooltips first
+                            highlightedWords.forEach(w => {
+                                if (w !== word) {
+                                    const tooltip = w.querySelector('.tooltip');
+                                    if (tooltip) {
+                                        tooltip.style.visibility = 'hidden';
+                                        tooltip.style.opacity = '0';
+                                    }
+                                }
+                            }
+                            );
+
+                            // Toggle current tooltip
+                            const tooltip = word.querySelector('.tooltip');
+                            if (tooltip) {
+                                if (tooltip.style.visibility === 'visible') {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                } else {
+                                    tooltip.style.visibility = 'visible';
+                                    tooltip.style.opacity = '1';
+                                }
+                            }
+                        });
+                    }
+                    );
+
+                    // Close tooltips when tapping elsewhere
+                    document.addEventListener('touchstart', function(e) {
+                        if (!e.target.closest('.highlighted-word')) {
+                            highlightedWords.forEach(word => {
+                                const tooltip = word.querySelector('.tooltip');
+                                if (tooltip) {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                }
+                            }
+                            );
+                        }
+                    });
+                }
+            });
+        </script>
+        <footer>
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <p style="margin: 0;">&copy;2025 Αττικές Ιστορίες</p>
+                    <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" class="tool-btn" title="Donate!" style="margin-left: 10px;">Donate</button>
+                </div>
+            </div>
+            <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://dyscolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+    
+                
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                    Twitter 
+    
+                
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dyscolos.com&title=Αττικές%20Ιστορίες&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                    LinkedIn
+    
+                
+                </a>
+                <a href="https://reddit.com/submit?url=https://dyscolos.com&title=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-reddit-alien"></i>
+                    Reddit
+    
+                
+                </a>
+                <a href="https://t.me/share/url?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-telegram-plane"></i>
+                    Telegram
+    
+                
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>
