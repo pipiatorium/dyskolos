@@ -194,67 +194,28 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 10px;
+                gap: 20px;
                 flex-wrap: wrap;
+                margin-top: 15px;
             }
 
-            .social-btn {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 3px 4px;
-                font-size: 12px;
-                font-weight: bold;
-                text-decoration: none;
-                border-radius: 5px;
-                color: #fff;
-                transition: background-color 0.3s ease;
-                min-width: 70px;
-                text-align: center;
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+                /* Add filter for dark mode compatibility */
+                filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
             }
 
-            .social-btn i {
-                margin-right: 0px;
+            /* Apply inversion in dark mode */
+            @media (prefers-color-scheme: dark) {
+                .social-icon {
+                    filter: invert(1) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+                }
             }
 
-            .facebook {
-                background-color: #3b5998;
-            }
-
-            .facebook:hover {
-                background-color: #324d84;
-            }
-
-            .twitter {
-                background-color: #1da1f2;
-            }
-
-            .twitter:hover {
-                background-color: #178cd1;
-            }
-
-            .linkedin {
-                background-color: #0077b5;
-            }
-
-            .linkedin:hover {
-                background-color: #005f93;
-            }
-
-            .reddit {
-                background-color: #ff4500;
-            }
-
-            .reddit:hover {
-                background-color: #cc3700;
-            }
-
-            .telegram {
-                background-color: #0088cc;
-            }
-
-            .telegram:hover {
-                background-color: #0072a1;
+            .social-icon:hover {
+                transform: scale(1.1);
             }
 
             /* Added footer padding */
@@ -272,42 +233,120 @@
                     <div class="story-meta">
                         <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
                         <br>
-                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών δευτέρᾳ ἱσταμένου, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 2, 2025</span></span>
+                        <span class="story-date">
+                            <span class="story-date" title="Ἐλαφηβολιών δευτέρᾳ ἱσταμένου, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 2, 2025</span>
+                        </span>
                     </div>
                 </header>
-                
-        <div class="text greek" id="continue-reading">
-            Ἐγὼ μὲν Λυσίμαχος, στρατηγὸς τῶν Ἀθηναίων, χθὲς εἰς τὸ γυμνάσιον ἦλθον ὥσπερ <span class="highlighted-word">εἰώθειν<span class="tooltip">solebam (ὑπερσ. ὁριστ. ἐνεργ. α' ἑν.) — a verbo 'εἴωθα', plusquamperfectum vim imperfecti habens</span></span>. τὸ σῶμα γὰρ γυμνάζειν ἀεὶ βούλομαι, καὶ μάλιστα ὅταν μεγάλαι φροντίδες τὴν ψυχὴν <span class="highlighted-word">βαρύνωσιν<span class="tooltip">gravent (ὑποτ. ἐνεστ. ἐνεργ. γ' πλ.) — verbum quod significat 'gravare' vel 'onerare'</span></span>. κατ' ἐκείνην δὲ τὴν ἡμέραν μεγίστη φροντὶς ἦν μοι· δίκη γάρ μοι ἦν πρὸς Καλλίαν τὸν <span class="highlighted-word">ἔμπορον<span class="tooltip">mercatorem (ὀνομ. αἰτ. ἑν. ἀρσ.) — nomen significans hominem qui res vendit et emit, praesertim in navibus</span></span> περὶ πλοίου ὃ ἔφη με <span class="highlighted-word">διεφθαρκέναι<span class="tooltip">perdidisse (ἀπαρ. παρακ. ἐνεργ.) — infinitivus perfecti activi a verbo 'διαφθείρω'</span></span> στρατιώταις ἐμοῖς.
-        </div>
+                <div class="text greek" id="continue-reading">
+                    Ἐγὼ μὲν Λυσίμαχος, στρατηγὸς τῶν Ἀθηναίων, χθὲς εἰς τὸ γυμνάσιον ἦλθον ὥσπερ 
+                    <span class="highlighted-word">
+                        εἰώθειν<span class="tooltip">solebam (ὑπερσ. ὁριστ. ἐνεργ. α' ἑν.) — a verbo 'εἴωθα', plusquamperfectum vim imperfecti habens</span>
+                    </span>
+                    . τὸ σῶμα γὰρ γυμνάζειν ἀεὶ βούλομαι, καὶ μάλιστα ὅταν μεγάλαι φροντίδες τὴν ψυχὴν 
+                    <span class="highlighted-word">
+                        βαρύνωσιν<span class="tooltip">gravent (ὑποτ. ἐνεστ. ἐνεργ. γ' πλ.) — verbum quod significat 'gravare' vel 'onerare'</span>
+                    </span>
+                    . κατ' ἐκείνην δὲ τὴν ἡμέραν μεγίστη φροντὶς ἦν μοι· δίκη γάρ μοι ἦν πρὸς Καλλίαν τὸν 
+                    <span class="highlighted-word">
+                        ἔμπορον<span class="tooltip">mercatorem (ὀνομ. αἰτ. ἑν. ἀρσ.) — nomen significans hominem qui res vendit et emit, praesertim in navibus</span>
+                    </span>
+                    περὶ πλοίου ὃ ἔφη με 
+                    <span class="highlighted-word">
+                        διεφθαρκέναι<span class="tooltip">perdidisse (ἀπαρ. παρακ. ἐνεργ.) — infinitivus perfecti activi a verbo 'διαφθείρω'</span>
+                    </span>
+                    στρατιώταις ἐμοῖς.
         
-        <div class="text greek">
-            <span class="highlighted-word">Ἀλειψάμενος<span class="tooltip">unctus (μτχ. ἀορ. μέσ. ὀνομ. ἑν. ἀρσ.) — a verbo 'ἀλείφω', participium aoristi medii; significat 'postquam se unxit oleo'</span></span> οὖν <span class="highlighted-word">ἐπάλαιον<span class="tooltip">luctabar (παρατ. ὁριστ. ἐνεργ. α' ἑν.) — imperfectum verbi 'παλαίω', quod ad artem luctandi pertinet</span></span> μετὰ τοῦ Χαρμίδου, νεανίου ὃς ἀεὶ παρῆν ἐν τῷ γυμνασίῳ. ἐπαλαίομεν μὲν σφοδρῶς, ἐγὼ δὲ τὴν νίκην ἔσχον, <span class="highlighted-word">καίπερ πρεσβύτερος ὤν<span class="tooltip">quamvis senior essem (ἐναντιωματ. μτχ.) — constructio concessiva cum participio</span></span>. μετὰ δὲ τὴν πάλην παρῆν Φορμίων, ῥήτωρ δεινός, ὃς ἔτυχεν ἐλθὼν εἰς τὸ γυμνάσιον. οὗτος προσῆλθέ μοι καὶ εἶπεν·
-        </div>
+                </div>
+                <div class="text greek">
+                    <span class="highlighted-word">
+                        Ἀλειψάμενος<span class="tooltip">unctus (μτχ. ἀορ. μέσ. ὀνομ. ἑν. ἀρσ.) — a verbo 'ἀλείφω', participium aoristi medii; significat 'postquam se unxit oleo'</span>
+                    </span>
+                    οὖν 
+                    <span class="highlighted-word">
+                        ἐπάλαιον<span class="tooltip">luctabar (παρατ. ὁριστ. ἐνεργ. α' ἑν.) — imperfectum verbi 'παλαίω', quod ad artem luctandi pertinet</span>
+                    </span>
+                    μετὰ τοῦ Χαρμίδου, νεανίου ὃς ἀεὶ παρῆν ἐν τῷ γυμνασίῳ. ἐπαλαίομεν μὲν σφοδρῶς, ἐγὼ δὲ τὴν νίκην ἔσχον, 
+                    <span class="highlighted-word">
+                        καίπερ πρεσβύτερος ὤν<span class="tooltip">quamvis senior essem (ἐναντιωματ. μτχ.) — constructio concessiva cum participio</span>
+                    </span>
+                    . μετὰ δὲ τὴν πάλην παρῆν Φορμίων, ῥήτωρ δεινός, ὃς ἔτυχεν ἐλθὼν εἰς τὸ γυμνάσιον. οὗτος προσῆλθέ μοι καὶ εἶπεν·
         
-        <div class="text greek">
-            "ὦ Λυσίμαχε, ἀκούω σε εἰς <span class="highlighted-word">δικαστήριον<span class="tooltip">iudicium (ὀνομ. αἰτ. ἑν.) — locus ubi iudicia exercentur</span></span> αὔριον <span class="highlighted-word">εἰσιέναι<span class="tooltip">introire (ἀπαρ. ἐνεστ. ἐνεργ.) — verbum compositum ex 'εἰς' et 'ἰέναι'; infinitivus verbi 'εἴσειμι'</span></span>. πῶς <span class="highlighted-word">παρεσκεύασαι<span class="tooltip">paratus es (παρακ. ὁριστ. μέσ. β' ἑν.) — forma perfecti medii a verbo 'παρασκευάζω'</span></span> πρὸς τὴν <span class="highlighted-word">ἀπολογίαν<span class="tooltip">defensionem (ὀνομ. αἰτ. ἑν.) — oratio qua quis se defendit in iudicio</span></span>;"
-        </div>
+                </div>
+                <div class="text greek">
+                    "ὦ Λυσίμαχε, ἀκούω σε εἰς 
+                    <span class="highlighted-word">
+                        δικαστήριον<span class="tooltip">iudicium (ὀνομ. αἰτ. ἑν.) — locus ubi iudicia exercentur</span>
+                    </span>
+                    αὔριον 
+                    <span class="highlighted-word">
+                        εἰσιέναι<span class="tooltip">introire (ἀπαρ. ἐνεστ. ἐνεργ.) — verbum compositum ex 'εἰς' et 'ἰέναι'; infinitivus verbi 'εἴσειμι'</span>
+                    </span>
+                    . πῶς 
+                    <span class="highlighted-word">
+                        παρεσκεύασαι<span class="tooltip">paratus es (παρακ. ὁριστ. μέσ. β' ἑν.) — forma perfecti medii a verbo 'παρασκευάζω'</span>
+                    </span>
+                    πρὸς τὴν 
+                    <span class="highlighted-word">
+                        ἀπολογίαν<span class="tooltip">defensionem (ὀνομ. αἰτ. ἑν.) — oratio qua quis se defendit in iudicio</span>
+                    </span>
+                    ;"
         
-        <div class="text greek">
-            "οὐκ εὖ," ἔφην ἐγώ. "τίς γὰρ στρατηγὸς περὶ λόγους δεινός; ἐγὼ μὲν τὰ τοῦ πολέμου ἐπίσταμαι, τὰ δὲ τῶν δικαστηρίων οὐδαμῶς."
+                </div>
+                <div class="text greek">"οὐκ εὖ," ἔφην ἐγώ. "τίς γὰρ στρατηγὸς περὶ λόγους δεινός; ἐγὼ μὲν τὰ τοῦ πολέμου ἐπίσταμαι, τὰ δὲ τῶν δικαστηρίων οὐδαμῶς."
         </div>
-        
-        <div class="text greek">
-            ὁ δὲ Φορμίων ἐμειδίασε καὶ εἶπεν· "ἀλλ' ὁ ἀγὼν δικανικὸς οὐδὲν διαφέρει τῆς μάχης. δεῖ γὰρ καὶ ἐνταῦθα κἀκεῖ στρατηγίας."
+                <div class="text greek">ὁ δὲ Φορμίων ἐμειδίασε καὶ εἶπεν· "ἀλλ' ὁ ἀγὼν δικανικὸς οὐδὲν διαφέρει τῆς μάχης. δεῖ γὰρ καὶ ἐνταῦθα κἀκεῖ στρατηγίας."
         </div>
+                <div class="text greek">
+                    ἐγὼ δὲ 
+                    <span class="highlighted-word">
+                        ἠπόρουν<span class="tooltip">dubitabam (παρατ. ὁριστ. ἐνεργ. α' ἑν.) — a verbo 'ἀπορέω', significat 'in dubio sum', 'nescio quid faciam'</span>
+                    </span>
+                    καὶ 
+                    <span class="highlighted-word">
+                        ἠρόμην<span class="tooltip">interrogavi (ἀορ. β' ὁριστ. μέσ. α' ἑν.) — a verbo 'ἔρομαι', aoristus verbi quod significat 'interrogare'</span>
+                    </span>
+                    · "πῶς τοῦτο λέγεις;"
         
-        <div class="text greek">
-            ἐγὼ δὲ <span class="highlighted-word">ἠπόρουν<span class="tooltip">dubitabam (παρατ. ὁριστ. ἐνεργ. α' ἑν.) — a verbo 'ἀπορέω', significat 'in dubio sum', 'nescio quid faciam'</span></span> καὶ <span class="highlighted-word">ἠρόμην<span class="tooltip">interrogavi (ἀορ. β' ὁριστ. μέσ. α' ἑν.) — a verbo 'ἔρομαι', aoristus verbi quod significat 'interrogare'</span></span>· "πῶς τοῦτο λέγεις;"
-        </div>
+                </div>
+                <div class="text greek">
+                    "ὥσπερ ἐν τῇ μάχῃ," ἔφη, "δεῖ σε 
+                    <span class="highlighted-word">
+                        γνῶναι<span class="tooltip">cognoscere (ἀορ. β' ἀπαρ. ἐνεργ.) — infinitivus aoristi a verbo 'γιγνώσκω'</span>
+                    </span>
+                    τοὺς πολεμίους, οὕτω καὶ ἐν τῷ δικαστηρίῳ τοὺς 
+                    <span class="highlighted-word">
+                        ἀντιδίκους<span class="tooltip">adversarios (ὀνομ. αἰτ. πληθ. ἀρσ.) — qui contra aliquem in iudicio litigat</span>
+                    </span>
+                    . ὥσπερ ἐκεῖ τοὺς στρατιώτας 
+                    <span class="highlighted-word">
+                        τάττεις<span class="tooltip">instruis (ἐνεστ. ὁριστ. ἐνεργ. β' ἑν.) — a verbo 'τάττω', significat 'ordino', 'colloco'</span>
+                    </span>
+                    , οὕτω καὶ τοὺς λόγους ἐνταῦθα. πρῶτον παρασκευάζεις τὰ ἰσχυρότατα, εἶτα τὰ ἀσθενέστερα ἐν μέσῳ κρύπτεις, τέλος δὲ πάλιν 
+                    <span class="highlighted-word">
+                        ἰσχυροῖς χρῇ<span class="tooltip">validis uteris (ἐπιθ. δοτ. πληθ. + ἐνεστ. ὁριστ. μέσ. β' ἑν.) — χρῇ est forma contracta verbi 'χράομαι' quod dativo iungitur</span>
+                    </span>
+                    ."
         
-        <div class="text greek">
-            "ὥσπερ ἐν τῇ μάχῃ," ἔφη, "δεῖ σε <span class="highlighted-word">γνῶναι<span class="tooltip">cognoscere (ἀορ. β' ἀπαρ. ἐνεργ.) — infinitivus aoristi a verbo 'γιγνώσκω'</span></span> τοὺς πολεμίους, οὕτω καὶ ἐν τῷ δικαστηρίῳ τοὺς <span class="highlighted-word">ἀντιδίκους<span class="tooltip">adversarios (ὀνομ. αἰτ. πληθ. ἀρσ.) — qui contra aliquem in iudicio litigat</span></span>. ὥσπερ ἐκεῖ τοὺς στρατιώτας <span class="highlighted-word">τάττεις<span class="tooltip">instruis (ἐνεστ. ὁριστ. ἐνεργ. β' ἑν.) — a verbo 'τάττω', significat 'ordino', 'colloco'</span></span>, οὕτω καὶ τοὺς λόγους ἐνταῦθα. πρῶτον παρασκευάζεις τὰ ἰσχυρότατα, εἶτα τὰ ἀσθενέστερα ἐν μέσῳ κρύπτεις, τέλος δὲ πάλιν <span class="highlighted-word">ἰσχυροῖς χρῇ<span class="tooltip">validis uteris (ἐπιθ. δοτ. πληθ. + ἐνεστ. ὁριστ. μέσ. β' ἑν.) — χρῇ est forma contracta verbi 'χράομαι' quod dativo iungitur</span></span>."
-        </div>
+                </div>
+                <div class="text greek">
+                    <span class="highlighted-word">
+                        τῇ ὑστεραίᾳ<span class="tooltip">postridie (ἐπιθ. δοτ. ἑν. θηλ.) — formula temporalis quae significat 'die sequenti'</span>
+                    </span>
+                    τούτοις τοῖς λόγοις 
+                    <span class="highlighted-word">
+                        χρησάμενος<span class="tooltip">usus (μτχ. ἀορ. μέσ. ὀνομ. ἑν. ἀρσ.) — a verbo 'χράομαι', participium aoristi quod dativo iungitur</span>
+                    </span>
+                    <span class="highlighted-word">
+                        τὴν δίκην ἐνίκησα<span class="tooltip">causam vici (αἰτ. ἑν. + ἀορ. ὁριστ. ἐνεργ. α' ἑν.) — phrasis communis quae significat 'in iudicio vincere'</span>
+                    </span>
+                    . οὐ γὰρ ἄλλο τι ἐστὶν ἡ ῥητορικὴ 
+                    <span class="highlighted-word">
+                        ἢ στρατηγία τις<span class="tooltip">nisi ars imperatoria quaedam (συνδ. + ὀνομ. ὀνομ. ἑν. θηλ. + ἀόρ. ὀνομ. ἑν.) — in comparatione post negationem 'οὐ... ἄλλο τι... ἢ' ('nihil aliud quam')</span>
+                    </span>
+                    περὶ τοὺς λόγους.
         
-        <div class="text greek">
-            <span class="highlighted-word">τῇ ὑστεραίᾳ<span class="tooltip">postridie (ἐπιθ. δοτ. ἑν. θηλ.) — formula temporalis quae significat 'die sequenti'</span></span> τούτοις τοῖς λόγοις <span class="highlighted-word">χρησάμενος<span class="tooltip">usus (μτχ. ἀορ. μέσ. ὀνομ. ἑν. ἀρσ.) — a verbo 'χράομαι', participium aoristi quod dativo iungitur</span></span> <span class="highlighted-word">τὴν δίκην ἐνίκησα<span class="tooltip">causam vici (αἰτ. ἑν. + ἀορ. ὁριστ. ἐνεργ. α' ἑν.) — phrasis communis quae significat 'in iudicio vincere'</span></span>. οὐ γὰρ ἄλλο τι ἐστὶν ἡ ῥητορικὴ <span class="highlighted-word">ἢ στρατηγία τις<span class="tooltip">nisi ars imperatoria quaedam (συνδ. + ὀνομ. ὀνομ. ἑν. θηλ. + ἀόρ. ὀνομ. ἑν.) — in comparatione post negationem 'οὐ... ἄλλο τι... ἢ' ('nihil aliud quam')</span></span> περὶ τοὺς λόγους.
-        </div>
-        
+                </div>
                 <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
             </article>
         </main>
@@ -367,43 +406,30 @@
         </script>
         <footer>
             <div class="container">
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <p style="margin: 0;">&copy;2025 Αττικές Ιστορίες</p>
-                    <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" class="tool-btn" title="Donate!" style="margin-left: 10px;">Donate</button>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                        <button class="tool-btn" onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" title="Donate!">Donate</button>
+                    </div>
+                    <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+                    <div class="social-buttons">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.dyskolos.com&amp;title=Αττικές%20Ιστορίες&amp;summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on LinkedIn" class="social-icon" src="../assets/in.png"/>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.dyskolos.com" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on Facebook" class="social-icon" src="../assets/fb.png"/>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on X" class="social-icon" src="../assets/x.png"/>
+                        </a>
+                        <a href="https://telegram.me/share/url?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on Telegram" class="social-icon" src="../assets/inst.png"/>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <img alt="YouTube" class="social-icon" src="../assets/yt.png"/>
+                        </a>
+                    </div>
+                    <p style="margin-top: 15px; text-align: center;">©2025 Αττικές Ιστορίες</p>
                 </div>
-            </div>
-            <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
-            <div class="social-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://dyscolos.com" class="social-btn facebook" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-facebook-f"></i>
-                    Facebook
-    
-                
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-twitter"></i>
-                    Twitter 
-    
-                
-                </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://dyscolos.com&title=Αττικές%20Ιστορίες&summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin-in"></i>
-                    LinkedIn
-    
-                
-                </a>
-                <a href="https://reddit.com/submit?url=https://dyscolos.com&title=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn reddit" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-reddit-alien"></i>
-                    Reddit
-    
-                
-                </a>
-                <a href="https://t.me/share/url?url=https://dyscolos.com&text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-telegram-plane"></i>
-                    Telegram
-    
-                
-                </a>
             </div>
         </footer>
     </body>
