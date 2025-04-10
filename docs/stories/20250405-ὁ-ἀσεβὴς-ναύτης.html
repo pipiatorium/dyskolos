@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ὁ Ἀσεβὴς Ναύτης | Αττικές Ιστορίες</title>
+        <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            .story-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .story-container {
+                    padding: 0 15px;
+                }
+            }
+
+            .story-header {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .story-headline {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                line-height: 1.1;
+                font-family: 'GFS Didot', serif;
+            }
+            .story-date {
+                font-size: 0.9rem;
+            }
+            @media (max-width: 768px) {
+                .story-headline {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .story-meta {
+                font-style: italic;
+                color: var(--color-dark-gray, #555);
+                margin-bottom: 15px;
+            }
+
+            /* Desktop and general styles */
+            .text {
+                line-height: 1.6;
+                font-size: 1.25rem;
+                font-family: 'GFS Didot', serif;
+                padding: 0.5rem 1.5rem;
+                margin-bottom: 0.5rem;
+                text-align: justify;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+            }
+
+            /* Mobile styles only */
+            @media (max-width: 768px) {
+                .text {
+                    text-align: left !important;
+                }
+            }
+
+            /* Tooltip styles */
+            .highlighted-word {
+                background-color: rgba(255, 255, 220, 0.3);
+                border-bottom: 1px dotted #aaa;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .tooltip {
+                visibility: hidden;
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #f9f9f9;
+                color: #333;
+                text-align: center;
+                padding: 8px 12px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #f9f9f9 transparent transparent transparent;
+            }
+
+            .highlighted-word:hover .tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* For mobile, show tooltips on touch */
+            @media (max-width: 768px) {
+                .tooltip {
+                    width: 200px;
+                    white-space: normal;
+                }
+            }
+
+            .back-link {
+                display: inline-block;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-weight: 600;
+                text-decoration: none;
+                color: #ea2d2d;
+            }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+
+            /* Smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Style for the continue-reading anchor */
+            #continue-reading {
+                scroll-margin-top: 20px;
+            }
+
+            .site-description {
+                font-family: 'GFS Didot', serif;
+                font-size: 1.4rem;
+                letter-spacing: 0.05em;
+                color: #d4b96e;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+                margin: 0.5rem 0;
+                font-weight: 400;
+                border-bottom: 1px solid rgba(212, 185, 110, 0.3);
+                padding-bottom: 0.5rem;
+                font-style: italic;
+            }
+
+            /* Donate button */
+            .tool-btn {
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                color: white;
+                animation: rainbow 8s ease infinite;
+                border-radius: 8px;
+                /* Rounds the corners */
+                padding: 10px 18px;
+                /* Adjust padding for size */
+                font-size: 14px;
+                /* Adjust font size for size */
+            }
+
+            @keyframes rainbow {
+                0% {
+                    background-position: 0% 82%
+                }
+
+                50% {
+                    background-position: 100% 19%
+                }
+
+                100% {
+                    background-position: 0% 82%
+                }
+            }
+
+            .tool-btn:hover {
+                animation: rainbow 2s ease infinite;
+            }
+
+            /* SOCIAL MEDIA */
+            .social-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+                /* Add filter for dark mode compatibility */
+                filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+            }
+
+            /* Apply inversion in dark mode */
+            @media (prefers-color-scheme: dark) {
+                .social-icon {
+                    filter: invert(1) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+                }
+            }
+
+            .social-icon:hover {
+                transform: scale(1.1);
+            }
+
+            /* Added footer padding */
+            footer {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article class="story-container">
+                <header class="story-header">
+                    <h1 class="story-headline">Ὁ Ἀσεβὴς Ναύτης</h1>
+                    <div class="story-meta">
+                        <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
+                        <br>
+                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών πέμπτῃ ἱσταμένου, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 5, 2025</span></span>
+                    </div>
+                </header>
+                
+        <div class="text greek" id="continue-reading">
+            Ἦν ποτε ναύτης τις ὀνόματι Λυσίμαχος, ὃς πολλὰς μὲν θαλάττας <span class="highlighted-word">διέπλευσε<span class="tooltip">transnavigavit (ἀόρ. ὁριστ. ἐνεργ. γ' ἑν.) — verbum compositum ex 'διά' et 'πλέω', significat 'per mare navigare'</span></span>, πολλὰς δὲ πόλεις <span class="highlighted-word">ἐθεάσατο<span class="tooltip">spectavit (ἀόρ. ὁριστ. μέσ. γ' ἑν.) — a verbo 'θεάομαι', significat 'videre, spectare'</span></span>, ὀλίγον δὲ τοὺς θεοὺς ἐτίμα. οὗτος οὖν, ἐπειδὴ ποτε εἰς τὰς Ἀθήνας <span class="highlighted-word">κατέπλευσεν<span class="tooltip">appulit (ἀόρ. ὁριστ. ἐνεργ. γ' ἑν.) — verbum compositum ex 'κατά' et 'πλέω', significat 'navigando pervenire ad'</span></span>, εἰς τὴν ἀγορὰν ἦλθεν ἵνα καὶ <span class="highlighted-word">ὠνοῖτο καὶ πωλοῖτο<span class="tooltip">emeret et venderet (εὐκτ. παρατ. μέσ. γ' ἑν.) — par verborum in modo optativo, significant 'emere et vendere'</span></span> <span class="highlighted-word">τὰ ἐπιτήδεια<span class="tooltip">necessaria (οὐσ. αἰτ. πλ. οὐδ.) — substantivum plurale quod significat 'res necessariae ad vitam'</span></span>.
+        </div>
+        
+        <div class="text greek">
+            Ἐν δὲ τῇ ἀγορᾷ <span class="highlighted-word">θυσία<span class="tooltip">sacrificium (οὐσ. ὀνομ. ἑν. θηλ.) — actio offerendi dona vel victimas diis</span></span> τις ἐγίγνετο τῇ Ἀθηνᾷ <span class="highlighted-word">τῇ Πολιάδι<span class="tooltip">Urbis Praesidi (ἐπίθ. δοτ. ἑν. θηλ.) — epitheton Minervae ut deae protectricis urbis Athenarum</span></span>, καὶ πολλοὶ μὲν τῶν πολιτῶν παρῆσαν, πολλὴ δὲ σπουδὴ ἦν περὶ τὰ ἱερά. ὁ δὲ Λυσίμαχος οὐδὲν τούτων ἐφρόντιζεν, ἀλλὰ διὰ τοῦ πλήθους <span class="highlighted-word">ὠθούμενος<span class="tooltip">propulsus (μτχ. παρατ. μέσ. ὀνομ. ἑν. ἀρσ.) — a verbo 'ὠθέω', significat 'impellere, trudere'</span></span> προσῆλθε τῷ βωμῷ μετὰ γέλωτος καὶ <span class="highlighted-word">καταφρονήσεως<span class="tooltip">contemptus (οὐσ. γεν. ἑν. θηλ.) — actio despiciendi vel parvi aestimandi</span></span>.
+        </div>
+        
+        <div class="text greek">
+            "Τί δὴ ταῦτα τὰ <span class="highlighted-word">ἄχρηστα<span class="tooltip">inutilia (ἐπίθ. αἰτ. πλ. οὐδ.) — adiectivum quod significat 'quod usu caret' vel 'inutile'</span></span> <span class="highlighted-word">σφάγια<span class="tooltip">victimae (οὐσ. αἰτ. πλ. οὐδ.) — substantivum quod significat 'animalia ad sacrificium mactata'</span></span>;" ἔφη ὁ Λυσίμαχος. "Οὐδεὶς γὰρ θεὸς <span class="highlighted-word">ἐπιμελεῖται<span class="tooltip">curat (ὁριστ. ἐνεστ. μέσ. γ' ἑν.) — verbum deponens quod significat 'curam gerit, sollicitus est de'</span></span> τῶν <span class="highlighted-word">ἀνθρωπίνων πραγμάτων<span class="tooltip">rerum humanarum (ἐπίθ.+οὐσ. γεν. πλ.) — locutio quae significat 'negotia vel res ad homines pertinentes'</span></span>."
+        </div>
+        
+        <div class="text greek">
+            Ἀκούσαντες δὲ ταῦτα οἱ <span class="highlighted-word">περιεστῶτες<span class="tooltip">circumstantes (μτχ. παρακ. ἐνεργ. ὀνομ. πλ. ἀρσ.) — participium perfecti a verbo 'περιίστημι', significat 'qui circum stant'</span></span> <span class="highlighted-word">ἐξεπλάγησαν<span class="tooltip">obstupefacti sunt (ὁριστ. ἀορ. παθ. γ' πλ.) — forma aoristi passivi a verbo 'ἐκπλήσσω', significat 'perculsi sunt terrore vel admiratione'</span></span> τῇ <span class="highlighted-word">ἀσεβείᾳ<span class="tooltip">impietate (οὐσ. δοτ. ἑν. θηλ.) — substantivum quod significat 'defectus reverentiae erga deos'</span></span> καὶ ἐκέλευον αὐτὸν σιγᾶν. ἀλλ' ὁ ναύτης οὐκ ἐπείθετο, μᾶλλον δὲ καὶ τοῦ ἱεροῦ κρέατος <span class="highlighted-word">ἥρπασε<span class="tooltip">rapuit (ὁριστ. ἀορ. ἐνεργ. γ' ἑν.) — forma aoristi a verbo 'ἁρπάζω', significat 'vi vel celeritate cepit'</span></span> καὶ τοῖς κυσὶν ἔρριψεν.
+        </div>
+        
+        <div class="text greek">
+            Εὐθὺς δὲ <span class="highlighted-word">ζόφος<span class="tooltip">tenebrae (οὐσ. ὀνομ. ἑν. ἀρσ.) — substantivum quod significat 'obscuritas, caligo'</span></span> ἐγένετο, καὶ βροντὴ μεγάλη <span class="highlighted-word">ἠκούσθη<span class="tooltip">audita est (ὁριστ. ἀορ. παθ. γ' ἑν.) — forma aoristi passivi a verbo 'ἀκούω'</span></span>. οἱ μὲν ἄλλοι πάντες ἔφυγον φοβούμενοι, ὁ δὲ Λυσίμαχος μόνος <span class="highlighted-word">κατελείφθη<span class="tooltip">relictus est (ὁριστ. ἀορ. παθ. γ' ἑν.) — forma aoristi passivi a verbo 'καταλείπω', significat 'solus manere coactus est'</span></span> ἔμπροσθεν τοῦ βωμοῦ, τρέμων καὶ ὠχρός.
+        </div>
+        
+        <div class="text greek">
+            Τῇ δὲ <span class="highlighted-word">ὑστεραίᾳ<span class="tooltip">postera die (δοτ. ἑν. θηλ.) — significat diem sequentem, cum articulo 'τῇ' saepe usurpatur</span></span> εὗρον αὐτὸν οἱ πολῖται κείμενον παρὰ τὸν βωμόν, ἄφωνον καὶ <span class="highlighted-word">παραλελυμένον<span class="tooltip">paralyticum (μτχ. παρακ. μέσ./παθ. αἰτ. ἑν. ἀρσ.) — a verbo 'παραλύω', significat aliquem cuius membra dissoluta sunt vel inutilia facta</span></span>, οὐδὲ κινεῖσθαι οὐδὲ λαλεῖν δυνάμενον. οὕτω <span class="highlighted-word">διετέλεσε<span class="tooltip">perseveravit (ἀορ. ὁριστ. ἐνεργ. γ' ἑν.) — a verbo 'διατελέω', significat permanere in aliquo statu per tempus</span></span> τὸν λοιπὸν βίον, ζῶν μὲν κατὰ τὸ σῶμα, τεθνηκὼς δὲ κατὰ τὴν ψυχήν.
+        </div>
+        
+        <div class="text greek">
+            Δῆλον οὖν ἐκ τούτου τοῦ μύθου ὅτι χρὴ τοὺς θεοὺς τιμᾶν καὶ μὴ <span class="highlighted-word">καταφρονεῖν<span class="tooltip">contemnere (ἀπαρ. ἐνεστ. ἐνεργ.) — verbum compositum ex 'κατά' et 'φρονέω', significat despicere vel parvi aestimare</span></span> τῶν ἱερῶν ἐθῶν. τῇ γὰρ <span class="highlighted-word">ὕβρει<span class="tooltip">superbiae (δοτ. ἑν. θηλ.) — substantivum significans arrogantiam vel superbiam adversus deos vel leges</span></span> ταχεῖα ἕπεται ἡ <span class="highlighted-word">τίσις<span class="tooltip">ultio (ὀνομ. ἑν. θηλ.) — substantivum significans vindictam vel poenam, praesertim a diis impositam</span></span>, καὶ οὐδεὶς ἀσεβὴς <span class="highlighted-word">λανθάνει<span class="tooltip">latet (ἐνεστ. ὁριστ. ἐνεργ. γ' ἑν.) — verbum significans 'latere' vel 'effugere notitiam', saepe cum accusativo personae</span></span> τοὺς ἀθανάτους.
+        </div>
+        
+                <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
+            </article>
+        </main>
+        <script>
+            // Add touch support for mobile devices
+            document.addEventListener('DOMContentLoaded', function() {
+                const highlightedWords = document.querySelectorAll('.highlighted-word');
+
+                // For mobile devices, toggle tooltip visibility on touch
+                if ('ontouchstart'in window || navigator.maxTouchPoints) {
+                    highlightedWords.forEach(word => {
+                        word.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+
+                            // Hide all other tooltips first
+                            highlightedWords.forEach(w => {
+                                if (w !== word) {
+                                    const tooltip = w.querySelector('.tooltip');
+                                    if (tooltip) {
+                                        tooltip.style.visibility = 'hidden';
+                                        tooltip.style.opacity = '0';
+                                    }
+                                }
+                            }
+                            );
+
+                            // Toggle current tooltip
+                            const tooltip = word.querySelector('.tooltip');
+                            if (tooltip) {
+                                if (tooltip.style.visibility === 'visible') {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                } else {
+                                    tooltip.style.visibility = 'visible';
+                                    tooltip.style.opacity = '1';
+                                }
+                            }
+                        });
+                    }
+                    );
+
+                    // Close tooltips when tapping elsewhere
+                    document.addEventListener('touchstart', function(e) {
+                        if (!e.target.closest('.highlighted-word')) {
+                            highlightedWords.forEach(word => {
+                                const tooltip = word.querySelector('.tooltip');
+                                if (tooltip) {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                }
+                            }
+                            );
+                        }
+                    });
+                }
+            });
+        </script>
+<footer>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                <button class="tool-btn" onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" title="Donate!">Donate</button>
+            </div>
+            <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+            <div class="social-buttons">
+                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.dyskolos.com&amp;title=Αττικές%20Ιστορίες&amp;summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on LinkedIn" class="social-icon" src="../assets/in.png"/>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.dyskolos.com" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on Facebook" class="social-icon" src="../assets/fb.png"/>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on X" class="social-icon" src="../assets/x.png"/>
+                </a>
+                <a href="https://telegram.me/share/url?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on Telegram" class="social-icon" src="../assets/inst.png"/>
+                </a>
+                <a href="javascript:void(0)">
+                    <img alt="YouTube" class="social-icon" src="../assets/yt.png"/>
+                </a>
+            </div>
+            <p style="margin-top: 15px; text-align: center;">©2025 Αττικές Ιστορίες</p>
+        </div>
+    </div>
+</footer>
+    </body>
+</html>
