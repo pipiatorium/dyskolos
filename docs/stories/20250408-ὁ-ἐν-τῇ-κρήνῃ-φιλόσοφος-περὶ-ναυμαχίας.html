@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ὁ ἐν τῇ κρήνῃ φιλόσοφος περὶ ναυμαχίας | Αττικές Ιστορίες</title>
+        <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            .story-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .story-container {
+                    padding: 0 15px;
+                }
+            }
+
+            .story-header {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .story-headline {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                line-height: 1.1;
+                font-family: 'GFS Didot', serif;
+            }
+            .story-date {
+                font-size: 0.9rem;
+            }
+            @media (max-width: 768px) {
+                .story-headline {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .story-meta {
+                font-style: italic;
+                color: var(--color-dark-gray, #555);
+                margin-bottom: 15px;
+            }
+
+            /* Desktop and general styles */
+            .text {
+                line-height: 1.6;
+                font-size: 1.25rem;
+                font-family: 'GFS Didot', serif;
+                padding: 0.5rem 1.5rem;
+                margin-bottom: 0.5rem;
+                text-align: justify;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+            }
+
+            /* Mobile styles only */
+            @media (max-width: 768px) {
+                .text {
+                    text-align: left !important;
+                }
+            }
+
+            /* Tooltip styles */
+            .highlighted-word {
+                background-color: rgba(255, 255, 220, 0.3);
+                border-bottom: 1px dotted #aaa;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .tooltip {
+                visibility: hidden;
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #f9f9f9;
+                color: #333;
+                text-align: center;
+                padding: 8px 12px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #f9f9f9 transparent transparent transparent;
+            }
+
+            .highlighted-word:hover .tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* For mobile, show tooltips on touch */
+            @media (max-width: 768px) {
+                .tooltip {
+                    width: 200px;
+                    white-space: normal;
+                }
+            }
+
+            .back-link {
+                display: inline-block;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-weight: 600;
+                text-decoration: none;
+                color: #ea2d2d;
+            }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+
+            /* Smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Style for the continue-reading anchor */
+            #continue-reading {
+                scroll-margin-top: 20px;
+            }
+
+            .site-description {
+                font-family: 'GFS Didot', serif;
+                font-size: 1.4rem;
+                letter-spacing: 0.05em;
+                color: #d4b96e;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+                margin: 0.5rem 0;
+                font-weight: 400;
+                border-bottom: 1px solid rgba(212, 185, 110, 0.3);
+                padding-bottom: 0.5rem;
+                font-style: italic;
+            }
+
+            /* Donate button */
+            .tool-btn {
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                color: white;
+                animation: rainbow 8s ease infinite;
+                border-radius: 8px;
+                /* Rounds the corners */
+                padding: 10px 18px;
+                /* Adjust padding for size */
+                font-size: 14px;
+                /* Adjust font size for size */
+            }
+
+            @keyframes rainbow {
+                0% {
+                    background-position: 0% 82%
+                }
+
+                50% {
+                    background-position: 100% 19%
+                }
+
+                100% {
+                    background-position: 0% 82%
+                }
+            }
+
+            .tool-btn:hover {
+                animation: rainbow 2s ease infinite;
+            }
+
+            /* SOCIAL MEDIA */
+            .social-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+                /* Add filter for dark mode compatibility */
+                filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+            }
+
+            /* Apply inversion in dark mode */
+            @media (prefers-color-scheme: dark) {
+                .social-icon {
+                    filter: invert(1) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+                }
+            }
+
+            .social-icon:hover {
+                transform: scale(1.1);
+            }
+
+            /* Added footer padding */
+            footer {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article class="story-container">
+                <header class="story-header">
+                    <h1 class="story-headline">Ὁ ἐν τῇ κρήνῃ φιλόσοφος περὶ ναυμαχίας</h1>
+                    <div class="story-meta">
+                        <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
+                        <br>
+                        <span class="story-date"><span class="story-date" title="Ἐλαφηβολιών ὀγδόῃ ἱσταμένου, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Ἐλαφηβολιών 8, 2025</span></span>
+                    </div>
+                </header>
+                
+        <div class="text greek" id="continue-reading">
+            ΣΩΚΡΑΤΗΣ: Ὦ ἄνδρες Ἀθηναῖοι, οὐ φαίνεται ὑμῖν <span class="highlighted-word">παράδοξον<span class="tooltip">inopinatum (ὀνομ. ἑν. οὐδ.) — quod est contra opinionem vel exspectationem</span></span> εἶναι ὅτι <span class="highlighted-word">ἐνθάδε<span class="tooltip">hic (ἐπίρ.) — adverbium loci, significans 'in hoc loco'</span></span> <span class="highlighted-word">κάθημαι<span class="tooltip">sedeo (ὁριστ. ἐνεστ. μέσ. α' ἑν.) — verbum deponens, statum sedentis indicans</span></span> ἐν τῇ κρήνῃ τοὺς πόδας <span class="highlighted-word">βρέχων<span class="tooltip">madefaciens (μτχ. ἐνεστ. ἐνεργ. ὀνομ. ἑν. ἀρσ.) — participium a verbo 'βρέχω', humectans aliquid</span></span>;
+        </div>
+        
+        <div class="text greek">
+            ΠΡΩΤΑΓΟΡΑΣ: Παράδοξον <span class="highlighted-word">μὲν οὖν<span class="tooltip">quidem igitur (μόρ.) — particulae coniunctae ad affirmandum cum emphasi</span></span>, ὦ Σώκρατες. τί δὲ δὴ τοῦτο <span class="highlighted-word">ποιεῖς<span class="tooltip">facis (ὁριστ. ἐνεστ. ἐνεργ. β' ἑν.) — a verbo 'ποιέω', actionem voluntariam indicans</span></span>;
+        </div>
+        
+        <div class="text greek">
+            ΣΩΚΡΑΤΗΣ: <span class="highlighted-word">Σκοπῶ<span class="tooltip">considero (ὁριστ. ἐνεστ. ἐνεργ. α' ἑν.) — verbum primae coniugationis significans 'examinare' vel 'contemplari'</span></span>, ὦ Πρωταγόρα, πῶς τὸ ὕδωρ ῥεῖ καὶ πῶς αἱ <span class="highlighted-word">τριήρεις<span class="tooltip">triremes (ὀνομ. θηλ. γ' κλ.) — naves longae tres ordines remorum habentes, praecipuum genus navium bellicarum Atheniensium</span></span> ἐν τῇ θαλάττῃ πλέουσιν. ἡ γὰρ <span class="highlighted-word">ναυμαχία<span class="tooltip">proelium navale (ὀνομ. θηλ. α' κλ.) — pugna navalis, compositum ex 'ναῦς' (navis) et 'μάχη' (pugna)</span></span> οὐ μόνον σωμάτων ἀλλὰ καὶ ψυχῶν <span class="highlighted-word">ἀγών<span class="tooltip">certamen (ὀνομ. ἀρσ. γ' κλ.) — contentio vel certamen, saepe in ludis publicis, hic metaphorice usurpatum</span></span> ἐστιν.
+        </div>
+        
+        <div class="text greek">
+            ΠΡΩΤΑΓΟΡΑΣ: Πῶς τοῦτο λέγεις; ἡ ναυμαχία οὐ περὶ <span class="highlighted-word">τάχους<span class="tooltip">celeritatis (γεν. ἑν. οὐδ. γ' κλ.) — velocitas vel celeritas, hic in contextu navium</span></span> καὶ <span class="highlighted-word">ῥώμης<span class="tooltip">roboris (γεν. ἑν. θηλ. α' κλ.) — vis corporea, fortitudo vel potentia</span></span> ἐστίν;
+        </div>
+        
+        <div class="text greek">
+            ΣΩΚΡΑΤΗΣ: Οὐ μόνον, ὦ ἄριστε. <span class="highlighted-word">ἐπίστασαι<span class="tooltip">scis (ὁριστ. ἐνεστ. μέσ. β' ἑν.) — verbum deponens significans 'scire' vel 'cognoscere'</span></span> γὰρ ὅτι ἡ τῶν Ἀθηναίων ἰσχὺς ἐν ταῖς ναυσὶ <span class="highlighted-word">κεῖται<span class="tooltip">sita est (ὁριστ. ἐνεστ. μέσ. γ' ἑν.) — iacet vel posita est, hic metaphorice de potentia</span></span>. καὶ ὥσπερ τὸ ὕδωρ τοῦτο ἐν τῇ κρήνῃ ἀεὶ κινεῖται, οὕτω καὶ ἡ τύχη τῆς πόλεως ἐν τῇ θαλάττῃ <span class="highlighted-word">μεταβάλλεται<span class="tooltip">mutatur (ὁριστ. ἐνεστ. μέσ. γ' ἑν.) — verbum significans 'mutari' vel 'converti', compositum ex 'μετά' et 'βάλλω'</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: <span class="highlighted-word">Ἴδετε<span class="tooltip">Videte (προστ. ἀορ. β' ἐνεργ. β' πλ.) — forma imperativi a verbo 'ὁράω', iubet spectare vel aspicere</span></span> τὸν σοφὸν ἄνδρα, ὡς <span class="highlighted-word">βαθέα<span class="tooltip">profunda (ἐπίθ. αἰτ. πλ. οὐδ.) — adiectivum quod significat res altas vel profundas, hic metaphorice de sententiis philosophicis</span></span> λέγει περὶ τῶν ἁπλῶν πραγμάτων. ἐν κρήνῃ <span class="highlighted-word">καθήμενος<span class="tooltip">sedens (μτχ. ἐνεστ. μέσ. ὀνομ. ἑν. ἀρσ.) — participium a verbo 'κάθημαι', indicat positionem sedentis</span></span> τὴν τῆς πόλεως τύχην <span class="highlighted-word">θεωρεῖ<span class="tooltip">contemplatur (ὁριστ. ἐνεστ. ἐνεργ. γ' ἑν.) — verbum quod significat contemplari vel speculari, saepe de observatione philosophica</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΠΡΩΤΑΓΟΡΑΣ: Ἀλλὰ <span class="highlighted-word">πότερον<span class="tooltip">utrum (ἐρωτ. ἐπίρ.) — adverbium interrogativum in interrogatione disiunctiva</span></span>, ὦ Σώκρατες, <span class="highlighted-word">ἄμεινόν ἐστι<span class="tooltip">melius est (συγκρ. ἐπίθ. + ὁριστ. ἐνεστ.) — comparativus a 'ἀγαθός' cum verbo 'εἰμί', exprimit iudicium de praeferentia</span></span> τὴν <span class="highlighted-word">ναυμαχίαν ἐπιχειρεῖν<span class="tooltip">proelium navale aggredi (αἰτ. + ἀπαρ. ἐνεστ.) — constructio accusativi cum infinitivo, significat incipere vel suscipere pugnam navalem</span></span> ἢ τὴν <span class="highlighted-word">εἰρήνην ἄγειν<span class="tooltip">pacem agere (αἰτ. + ἀπαρ. ἐνεστ.) — locutio quae significat pacem conservare vel in pace vivere</span></span>;
+        </div>
+        
+        <div class="text greek">
+            ΣΩΚΡΑΤΗΣ: <span class="highlighted-word">Ἕπου<span class="tooltip">Sequere (προστ. ἐνεστ. μέσ. β' ἑν.) — imperativus a verbo 'ἕπομαι', hortatur ad sequendum vel attendendum</span></span> μοι <span class="highlighted-word">τῷ λόγῳ<span class="tooltip">rationem/argumentum (δοτ. ἑν.) — dativus qui indicat id quod sequi debet auditor, scilicet argumentationem philosophicam</span></span>, ὦ φίλε. τί ἐστιν ἡ ναυμαχία; οὐχὶ ἀνθρώπων πρὸς ἀνθρώπους ἀγών; καὶ <span class="highlighted-word">τίνος ἕνεκα<span class="tooltip">cuius gratia (ἐρωτ. γεν. + πρόθ.) — locutio interrogativa quae quaerit causam vel finem</span></span>; ἆρα οὐχ <span class="highlighted-word">ὑπὲρ δόξης ἢ ἀρχῆς<span class="tooltip">pro gloria aut imperio (πρόθ. + γεν.) — praepositio cum genitivo indicans causam vel finem propter quem fit actio</span></span>;
+        </div>
+        
+        <div class="text greek">
+            ΠΡΩΤΑΓΟΡΑΣ: Ναί, ὑπὲρ τούτων.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: <span class="highlighted-word">Ὁρᾶτε<span class="tooltip">videte (προστ. ἐνεστ. ἐνεργ. β' πλ.) — imperativus praesentis a verbo 'ὁράω', visum percipere</span></span> νῦν ὡς εἰς τὸν τῆς <span class="highlighted-word">ἀρετῆς<span class="tooltip">virtutis (οὐσ. γεν. ἑν. θηλ.) — substantivum significans 'virtutem', 'excellentiam'</span></span> λόγον <span class="highlighted-word">εἰσέρχεται<span class="tooltip">intrat (ὁριστ. ἐνεστ. μέσ. γ' ἑν.) — verbum compositum ex 'εἰς' et 'ἔρχομαι'</span></span>. πάντα γὰρ εἰς τοῦτο <span class="highlighted-word">ἀνάγει<span class="tooltip">reducit (ὁριστ. ἐνεστ. ἐνεργ. γ' ἑν.) — verbum compositum ex 'ἀνά' et 'ἄγω', reducere ad principium</span></span> ὁ φιλόσοφος.
+        </div>
+        
+        <div class="text greek">
+            ΣΩΚΡΑΤΗΣ: <span class="highlighted-word">Οὐκοῦν<span class="tooltip">Nonne (ἐπίρ.) — particula interrogativa exspectans responsionem affirmativam</span></span> εἰ <span class="highlighted-word">ἄμεινον<span class="tooltip">melius (ἐπίθ. συγκρ. ὀνομ. ἑν. οὐδ.) — comparativus ab 'ἀγαθός', significans 'melius'</span></span> ἦν μὴ πολεμεῖν, ἡ <span class="highlighted-word">ναυμαχία<span class="tooltip">pugna navalis (οὐσ. ὀνομ. ἑν. θηλ.) — substantivum compositum ex 'ναῦς' et 'μάχη'</span></span> οὐκ ἂν ἦν καλόν; εἰ δὲ ἀναγκαῖόν ἐστιν ὑπὲρ τῆς ἐλευθερίας <span class="highlighted-word">ἀγωνίζεσθαι<span class="tooltip">certare (ἀπαρ. ἐνεστ. μέσ.) — infinitivus verbi 'ἀγωνίζομαι', pugnare, certare</span></span>, πῶς οὐχὶ <span class="highlighted-word">καλλίστη<span class="tooltip">pulcherrima (ἐπίθ. ὑπερθ. ὀνομ. ἑν. θηλ.) — superlativus ab 'καλός', significans 'pulcherrimus, -a, -um'</span></span> ἡ ναυμαχία;
+        </div>
+        
+        <div class="text greek">
+            ΠΡΩΤΑΓΟΡΑΣ: <span class="highlighted-word">Ἀληθῆ<span class="tooltip">vera (αἰτ. πλ. οὐδ.) — adiectivum neutrum plurale quod significat 'vera, non falsa'</span></span> λέγεις. ἀλλὰ τί ταῦτα <span class="highlighted-word">πρὸς τὴν κρήνην ἔχει<span class="tooltip">ad fontem pertinet (ἔχει: γ' ἑν. ὁριστ. ἐνεστ. ἐνεργ.) — locutio idiomatica quae significat 'relationem habet cum aliqua re'</span></span>;
+        </div>
+        
+        <div class="text greek">
+            ΣΩΚΡΑΤΗΣ: <span class="highlighted-word">Ὥσπερ<span class="tooltip">sicut (σύνδ.) — coniunctio comparativa</span></span> τὸ ὕδωρ τοῦτο καθαρόν ἐστιν, οὕτω καὶ τὴν <span class="highlighted-word">διάνοιαν<span class="tooltip">mentem (αἰτ. ἑν.) — facultas cogitandi vel intellectus</span></span> καθαρὰν εἶναι <span class="highlighted-word">δεῖ<span class="tooltip">oportet (γ' ἑν. ὁριστ. ἐνεστ.) — verbum impersonale quod necessitatem indicat</span></span> ὅταν περὶ τῶν μεγίστων <span class="highlighted-word">βουλευώμεθα<span class="tooltip">deliberemus (α' πλ. ὑποτ. ἐνεστ. μέσ.) — verbum medium quod significat 'consilium capere'</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: Θαυμάζετε, ὦ <span class="highlighted-word">θεαταί<span class="tooltip">spectatores (ὀνομ. πλ.) — qui spectant vel observant rem aliquam</span></span>, τὴν τοῦ ἀνδρὸς σοφίαν, ὃς ἐκ τῶν <span class="highlighted-word">φαινομένων<span class="tooltip">apparentibus (μτχ. ἐνεστ. μέσ. γεν. πλ.) — participium a verbo 'φαίνω', significat 'quae apparent vel videntur'</span></span> τὰ <span class="highlighted-word">ἀφανῆ<span class="tooltip">invisibilia (αἰτ. πλ. οὐδ.) — adiectivum neutrum plurale quod significat 'non manifesta, occulta'</span></span> <span class="highlighted-word">τεκμαίρεται<span class="tooltip">colligit (γ' ἑν. ὁριστ. ἐνεστ. μέσ.) — verbum medium quod significat 'deducere vel inferre ex indiciis'</span></span>. ἐν τῇ κρήνῃ τὴν σοφίαν εὑρίσκει, ἐν τῷ ὕδατι τὴν ἀλήθειαν.
+        </div>
+        
+        <div class="text greek">
+            ΠΡΩΤΑΓΟΡΑΣ: <span class="highlighted-word">Ὀρθῶς<span class="tooltip">Recte (ἐπίρ.) — adverbium derivatum ab adiectivo 'ὀρθός', significat 'recte' vel 'vere'</span></span> λέγεις, ὦ Σώκρατες. ἀλλ' ἤδη <span class="highlighted-word">ἀπιέναι<span class="tooltip">abire (ἀπαρ. ἐνεστ. ἐνεργ.) — infinitivus praesentis verbi compositi 'ἄπειμι' (ex 'ἀπό' et 'εἶμι')</span></span> με <span class="highlighted-word">δεῖ<span class="tooltip">oportet (γ' ἑν. ἐνεστ. ὁριστ.) — verbum impersonale significans necessitatem vel obligationem</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΣΩΚΡΑΤΗΣ: <span class="highlighted-word">Πορεύου<span class="tooltip">Proficiscere (β' ἑν. προστ. ἐνεστ. μέσ.) — imperativus praesentis medii verbi 'πορεύομαι'</span></span>, ὦ φίλε. ἐγὼ δὲ ἔτι βούλομαι <span class="highlighted-word">ἐνθάδε<span class="tooltip">hic (ἐπίρ.) — adverbium loci significans 'in hoc loco' vel 'hic'</span></span> <span class="highlighted-word">καθήμενος<span class="tooltip">sedens (μτχ. ἐνεστ. μέσ. ὀνομ. ἑν. ἀρσ.) — participium praesentis medii verbi 'κάθημαι'</span></span> τοὺς ἐμαυτοῦ λογισμοὺς <span class="highlighted-word">διασκοπεῖν<span class="tooltip">examinare (ἀπαρ. ἐνεστ. ἐνεργ.) — infinitivus praesentis verbi compositi 'διασκοπέω' (ex 'διά' et 'σκοπέω')</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: Καὶ <span class="highlighted-word">οὕτως<span class="tooltip">sic (ἐπίρ.) — adverbium modi significans 'sic' vel 'ita'</span></span> ὁ φιλόσοφος ἐν τῇ <span class="highlighted-word">κρήνῃ<span class="tooltip">fonte (δοτ. ἑν. θηλ.) — nomen significans 'fontem' vel 'puteum'</span></span> μένει, τοῖς μὲν πολλοῖς <span class="highlighted-word">γελοῖος<span class="tooltip">ridiculus (ὀνομ. ἑν. ἀρσ.) — adiectivum significans 'ridiculum' vel 'absurdum'</span></span> <span class="highlighted-word">φαινόμενος<span class="tooltip">apparens (μτχ. ἐνεστ. μέσ. ὀνομ. ἑν. ἀρσ.) — participium praesentis medii verbi 'φαίνομαι'</span></span>, τοῖς δὲ σοφοῖς θαυμαστός. τοιαῦτά ἐστι τὰ τῶν φιλοσόφων ἔργα.
+        </div>
+        
+                <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
+            </article>
+        </main>
+        <script>
+            // Add touch support for mobile devices
+            document.addEventListener('DOMContentLoaded', function() {
+                const highlightedWords = document.querySelectorAll('.highlighted-word');
+
+                // For mobile devices, toggle tooltip visibility on touch
+                if ('ontouchstart'in window || navigator.maxTouchPoints) {
+                    highlightedWords.forEach(word => {
+                        word.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+
+                            // Hide all other tooltips first
+                            highlightedWords.forEach(w => {
+                                if (w !== word) {
+                                    const tooltip = w.querySelector('.tooltip');
+                                    if (tooltip) {
+                                        tooltip.style.visibility = 'hidden';
+                                        tooltip.style.opacity = '0';
+                                    }
+                                }
+                            }
+                            );
+
+                            // Toggle current tooltip
+                            const tooltip = word.querySelector('.tooltip');
+                            if (tooltip) {
+                                if (tooltip.style.visibility === 'visible') {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                } else {
+                                    tooltip.style.visibility = 'visible';
+                                    tooltip.style.opacity = '1';
+                                }
+                            }
+                        });
+                    }
+                    );
+
+                    // Close tooltips when tapping elsewhere
+                    document.addEventListener('touchstart', function(e) {
+                        if (!e.target.closest('.highlighted-word')) {
+                            highlightedWords.forEach(word => {
+                                const tooltip = word.querySelector('.tooltip');
+                                if (tooltip) {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                }
+                            }
+                            );
+                        }
+                    });
+                }
+            });
+        </script>
+<footer>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                <button class="tool-btn" onclick="window.open('https://www.paypal.com/donate?hosted_button_id=TQ85ECP29THVY', '_blank')" title="Donate!">Donate</button>
+            </div>
+            <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+            <div class="social-buttons">
+                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.dyskolos.com&amp;title=Αττικές%20Ιστορίες&amp;summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on LinkedIn" class="social-icon" src="../assets/in.png"/>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.dyskolos.com" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on Facebook" class="social-icon" src="../assets/fb.png"/>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on X" class="social-icon" src="../assets/x.png"/>
+                </a>
+                <a href="https://telegram.me/share/url?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                    <img alt="Share on Telegram" class="social-icon" src="../assets/inst.png"/>
+                </a>
+                <a href="javascript:void(0)">
+                    <img alt="YouTube" class="social-icon" src="../assets/yt.png"/>
+                </a>
+            </div>
+            <p style="margin-top: 15px; text-align: center;">©2025 Αττικές Ιστορίες</p>
+        </div>
+    </div>
+</footer>
+    </body>
+</html>
