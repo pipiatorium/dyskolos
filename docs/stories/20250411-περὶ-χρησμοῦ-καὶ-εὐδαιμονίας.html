@@ -85,14 +85,19 @@
                 cursor: pointer;
                 display: inline-block;
                 vertical-align: baseline;
-                font-size: inherit;
-                /* These additional properties may help ensure text renders at the correct size */
-                white-space: normal;
-                /* Prevents unusual whitespace handling */
-                box-sizing: border-box;
-                /* Ensures padding/borders don't affect the size */
-                line-height: normal;
-                /* Inherit the parent's line height */
+                /* Force the text to match surrounding text exactly */
+                font-size: 1.25rem !important;
+                /* Match exactly the size from .text */
+                font-family: 'GFS Didot', serif !important;
+                /* Match the font family */
+                line-height: 1.6 !important;
+                /* Match the line height */
+                font-weight: normal !important;
+                /* Ensure consistent weight */
+                letter-spacing: normal !important;
+                /* Consistent letter spacing */
+                /* Reset any possibly inherited transformations */
+                transform: none !important;
             }
 
             /* Tooltip */
@@ -274,15 +279,20 @@
                     
                     
                     
-                    <span class="highlighted-word">Χαῖρε<span class="tooltip">Salve (προστ. ἐνεστ. β' ἑν.) — forma salutationis communis apud Graecos</span></span>
+                    
+                    <span class="highlighted-word">
+                        Χαῖρε<span class="tooltip">Salve (προστ. ἐνεστ. β' ἑν.) — forma salutationis communis apud Graecos</span>
+                    </span>
                     , ὦ Λασθένεια. Τί ποιεῖς 
 
+                    
                     
                     
                     <span class="highlighted-word">
                         ἐνταῦθα<span class="tooltip">hic (ἐπίρρ. τοπικόν) — adverbium loci quod indicat 'in hoc loco'</span>
                     </span>
                     μόνη 
+                    
                     
                     
                     
@@ -298,9 +308,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΛΑΣΘΕΝΕΙΑ**: Καὶ 
+                    
                     
                     
                     
@@ -315,6 +327,7 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         Σκοπῶ<span class="tooltip">Contemplor (ῥῆμ. ἐνεστ. ὁριστ. ἐνεργ. α' ἑν.) — verbum quod significat observare vel considerare attente</span>
                     </span>
@@ -324,10 +337,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         διανοοῦμαι<span class="tooltip">cogito (ῥῆμ. ἐνεστ. ὁριστ. μέσ. α' ἑν.) — verbum medium quod significat meditari vel secum cogitare</span>
                     </span>
                     περὶ τοῦ 
+                    
                     
                     
                     
@@ -343,9 +358,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΝΙΚΙΑΣ**: Τίνα χρησμὸν λέγεις; τί σοι εἶπεν ἡ 
+                    
                     
                     
                     
@@ -361,9 +378,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΛΑΣΘΕΝΕΙΑ**: "Ὁ 
+                    
                     
                     
                     
@@ -378,6 +397,7 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ὅστις<span class="tooltip">quisquis (ὀνομ. ἑν. ἀναφ. ἀντων.) — pronomen relativum indefinitum</span>
                     </span>
@@ -387,10 +407,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         οἶδεν<span class="tooltip">scit (ὁριστ. παρακ. ἐνεργ. γ' ἑν.) — perfectum cum significatione praesentis a verbo 'οἶδα'</span>
                     </span>
                     ." Ἆρα οὐκ 
+                    
                     
                     
                     
@@ -406,10 +428,12 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΧΟΡΟΣ**: Ἀεὶ τοιούτους χρησμοὺς δίδωσιν ὁ θεός,
 
+                    
                     
                     
                     
@@ -424,10 +448,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         βροτοῖς<span class="tooltip">mortalibus (δοτ. πληθ. β' κλ.) — homines, qui mortales sunt, in contrario deorum</span>
                     </span>
                     , 
+                    
                     
                     
                     
@@ -443,11 +469,13 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ζήτησις<span class="tooltip">inquisitio (ὀνομ. ἑν. γ' κλ.) — actio quaerendi vel investigandi</span>
                     </span>
                     τῆς ἀληθείας
 
+                    
                     
                     
                     
@@ -463,9 +491,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΝΙΚΙΑΣ**: Οἶμαι τὸν Σωκράτη τοῦτό ποτε 
+                    
                     
                     
                     
@@ -480,6 +510,7 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ταράττου<span class="tooltip">turbaris (προστ. μεσ. β' ἑν.) — imperativus praesentis medii cum negatione μή, significat 'ne confundaris'</span>
                     </span>
@@ -489,10 +520,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         σκεψώμεθα<span class="tooltip">consideremus (ἀορ. ὑποτ. μεσ. α' πλ.) — coniunctivus aoristi medii hortativus a verbo σκέπτομαι</span>
                     </span>
                     τί βούλεται 
+                    
                     
                     
                     
@@ -508,9 +541,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΛΑΣΘΕΝΕΙΑ**: Πῶς 
+                    
                     
                     
                     
@@ -525,10 +560,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         μηδὲν εἰδώς<span class="tooltip">nihil sciens (μτχ. παρακ. ἐνεργ. ὀνομ. ἑν. ἀρσ.) — participium perfecti a verbo οἶδα cum negatione μηδέν</span>
                     </span>
                     ; 
+                    
                     
                     
                     
@@ -544,9 +581,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΝΙΚΙΑΣ**: 
+                    
                     
                     
                     
@@ -561,6 +600,7 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ἡ ἀρχὴ τῆς σοφίας<span class="tooltip">principium sapientiae (ὀνομ. θηλ. ἑν. + γεν. θηλ. ἑν.) — phrasis nominalis quae conceptum philosophicum exprimit</span>
                     </span>
@@ -570,10 +610,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         τὸ εἰδέναι<span class="tooltip">scire (ἀπαρ. οὐσιαστ.) — infinitivus perfecti substantivatus cum articulo τό</span>
                     </span>
                     ὅτι οὐ πάντα 
+                    
                     
                     
                     
@@ -589,9 +631,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΧΟΡΟΣ**: Ὅρα πῶς φῶς ἐκ 
+                    
                     
                     
                     
@@ -607,10 +651,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ἀπορίας<span class="tooltip">inopiae (γεν. ἑν.) — difficultas, dubitatio, status sine solutione</span>
                     </span>
                     ῥεῖ 
+                    
                     
                     
                     
@@ -627,6 +673,7 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ὁδεύουσιν<span class="tooltip">iter faciunt (ὁριστ. ἐνεστ. ἐνεργ. γ' πλ.) — viam carpunt, procedunt versus aliquem finem</span>
                     </span>
@@ -637,9 +684,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΛΑΣΘΕΝΕΙΑ**: Ἀλλ' οἱ πολλοὶ 
+                    
                     
                     
                     
@@ -657,10 +706,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ἴσασι<span class="tooltip">sciunt (ὁριστ. παρακ. ἐνεργ. γ' πλ.) — forma perfecti a verbo οἶδα, sensu praesentis</span>
                     </span>
                     , καὶ διὰ τοῦτο οὐδὲ 
+                    
                     
                     
                     
@@ -676,9 +727,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΝΙΚΙΑΣ**: Ὀρθῶς λέγεις. Ὁ μὲν 
+                    
                     
                     
                     
@@ -693,10 +746,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         μαθήσεται<span class="tooltip">discet (ὁριστ. μέλλ. μέσ. γ' ἑν.) — futurum a verbo μανθάνω (disco)</span>
                     </span>
                     · ὁ δὲ γιγνώσκων τὴν 
+                    
                     
                     
                     
@@ -715,9 +770,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΛΑΣΘΕΝΕΙΑ**: Ἆρα ἡ 
+                    
                     
                     
                     
@@ -727,6 +784,7 @@
                         εὐδαιμονία<span class="tooltip">felicitas (ὀνομ. θηλ. α' κλ.) — status hominis beati vel fortunati</span>
                     </span>
                     ἐν τῇ 
+                    
                     
                     
                     
@@ -744,11 +802,13 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         εὑρηκέναι<span class="tooltip">invenisse (ἀπαρ. παρακ. ἐνεργ.) — infinitivus perfecti a verbo 'εὑρίσκω', significans 'invenisse'</span>
                     </span>
                     ;
         
+                
                 
                 
                 
@@ -762,10 +822,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         διατριβή<span class="tooltip">commoratio (ὀνομ. θηλ. α' κλ.) — occupatio vel tempus impensum in aliqua re</span>
                     </span>
                     , οὐ μόνον ἡ 
+                    
                     
                     
                     
@@ -784,9 +846,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΧΟΡΟΣ**: Εὖ γε, σοφοὶ παιδαγωγοί, 
+                    
                     
                     
                     
@@ -805,11 +869,13 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ἔφεσις<span class="tooltip">appetitio (ὀνομ. θηλ. γ' κλ.) — desiderium vel impetus ad aliquid assequendum</span>
                     </span>
                     ,
 αὕτη καθ' αὑτὴν εὐδαιμονίαν 
+                    
                     
                     
                     
@@ -825,9 +891,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΛΑΣΘΕΝΕΙΑ**: Δεῖ 
+                    
                     
                     
                     
@@ -842,10 +910,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         ἀπορεῖν<span class="tooltip">dubitare (ἀπαρ. ἐνεστ. ἐνεργ.) — verbum quod significat 'dubitare' vel 'quaerere'; ab ἀ- privativo et πόρος 'via'</span>
                     </span>
                     καὶ ἐρωτᾶν, οὐ μόνον 
+                    
                     
                     
                     
@@ -861,9 +931,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΝΙΚΙΑΣ**: Ναί. Τοῦτο γάρ ἐστιν ἡ ἀληθὴς 
+                    
                     
                     
                     
@@ -878,10 +950,12 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         πλήρωσις τοῦ ἀγγείου<span class="tooltip">impletio vasis (ὀνομ. θηλ. γ' κλ. + γεν. οὐδ. β' κλ.) — metaphora quae comparat mentem cum vase quod impletur</span>
                     </span>
                     ἀλλ' ἡ 
+                    
                     
                     
                     
@@ -897,9 +971,11 @@
                 
                 
                 
+                
                 </div>
                 <div class="text greek">
                     **ΧΟΡΟΣ**: Οὕτως 
+                    
                     
                     
                     
@@ -915,11 +991,13 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         χρησμοῦ<span class="tooltip">oraculi (γεν. ἑν. ἀρσ. β' κλ.) — responsum divinum ex oraculo datum</span>
                     </span>
                     .
 
+                    
                     
                     
                     
@@ -934,12 +1012,14 @@
                     
                     
                     
+                    
                     <span class="highlighted-word">
                         τούτοιν μαθητεύουσιν<span class="tooltip">hos duos sequuntur ut magistros (δοτ. δυϊκ. + γ' πλ. ἐνεστ. ὁριστ. ἐνεργ.) — verbum μαθητεύω cum dativo personae significat 'aliquem sequi ut magistrum'</span>
                     </span>
                     ·
 σοφίας γὰρ ἀληθοῦς σπέρματα λήψονται.
         
+                
                 
                 
                 
