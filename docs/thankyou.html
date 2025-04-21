@@ -88,7 +88,7 @@
         <h1>Thank You!</h1>
         <p>Your generous donation is greatly appreciated. We are grateful for your support!</p>
         <div class="heart">💖</div>
-        <a href="https://www.paypal.com/ncp/payment/PMWMHAY55RZSE" class="donate-link">
+        <a href="https://www.paypal.com/ncp/payment/PMWMHAY55RZSE" class="donate-link" id="donate-again">
             Click here to donate again
         </a>
     </div>
@@ -115,6 +115,15 @@
                 });
             }
             fireConfetti();
+
+            // Prevent the default link behavior and load in the same page
+            const donateAgainLink = document.getElementById('donate-again');
+            if (donateAgainLink) {
+                donateAgainLink.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+                    window.location.href = this.href; // Load the URL in the current window
+                });
+            }
         });
     </script>
 </body>
