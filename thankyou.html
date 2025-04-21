@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <script src="https://unpkg.com/canvas-confetti@1.9.0/dist/confetti.browser.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+            font-family: 'Nunito', sans-serif; /* More modern font */
+            color: #333;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .message-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px; /* Slightly more rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-align: center;
+            max-width: 90%;
+            margin-bottom: 20px;
+            animation: popIn 0.5s ease;
+        }
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        h1 {
+            color: #4CAF50; /* Cheerful green */
+            margin-bottom: 15px;
+            font-size: 2.5em; /* Slightly larger heading */
+        }
+        p {
+            font-size: 1.1em; /* Slightly larger body text */
+            margin-bottom: 20px;
+            line-height: 1.6; /* Improved line height for readability */
+            color: #555; /* Slightly darker text for better contrast */
+        }
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allows clicks to go through */
+            z-index: 1000;
+        }
+        .heart {
+            font-size: 2em;
+            color: #FF6B81; /* A nice pink color */
+            animation: pulse 2s infinite;
+            margin-top: 10px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="message-container">
+        <h1>Thank You!</h1>
+        <p>Your generous donation is greatly appreciated. We are grateful for your support!</p>
+        <div class="heart">💖</div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            const confettiInstance = confetti.create(canvas, {
+                resize: true,
+                useWorker: true
+            });
+
+            function fireConfetti() {
+                confettiInstance({
+                    particleCount: 200, // More particles!
+                    spread: 70,
+                    origin: { y: 0.6 }, // Shoot from a bit higher
+                    colors: ['#FFC300', '#FF6B6B', '#81C784', '#42A5F5'], // Brighter colors
+                    shapes: ['square', 'circle'], // Use both squares and circles
+                    gravity: 0.8, // More gravity
+                    decay: 0.9,    // Slower decay
+                    startVelocity: 30, // Increased velocity
+                    scalar: 1.2 // Make the confetti bigger
+                });
+            }
+            fireConfetti();
+        });
+    </script>
+</body>
+</html>
