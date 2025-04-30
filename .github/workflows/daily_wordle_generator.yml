@@ -25,7 +25,7 @@ jobs:
           python-version: '3.x' # Or '3.10', '3.11', etc.
 
       - name: Run Wordle generator script
-        run: python generate_wordle_encodd_2.py # Ensure this path is correct
+        run: python scripts/lexitera/generate_wordle_encodd_2.py
 
       - name: Configure Git
         run: |
