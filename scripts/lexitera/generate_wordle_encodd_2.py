@@ -4,11 +4,14 @@ import json
 import datetime
 import base64
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+def get_data_path(filename): return os.path.join(SCRIPT_DIR, filename)
+
 THEMES = {
-    "Μυθολογία": "mythology_words_encoded.txt",
-    "Φιλοσοφία": "philosophy_words_encoded.txt",
-    "Ἀθήναις": "Ἀθήναις_words_encoded.txt",
-    "Θέατρον": "theatre_words_encoded.txt",
+    "Μυθολογία": get_data_path("mythology_words_encoded.txt"),
+    "Φιλοσοφία": get_data_path("philosophy_words_encoded.txt"), # This is the one causing the error
+    "Ἀθήναις": get_data_path("Ἀθήναις_words_encoded.txt"), # Adjust filenames as needed
+    "Θέατρον": get_data_path("theatre_words_encoded.txt"), # Adjust filenames as needed
 }
 POSSIBLE_LENGTHS = [4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6]
 
@@ -522,39 +525,43 @@ def choose_target_word(word_list):
          return random.choice(word_list)
 
 
-def generate_html_file(output_filename, theme_name, word_length, target_word, word_list):
+# Function signature updated to accept the full path
+def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list):
+    # 1. Prepare JavaScript variables (theme_name_for_js, etc.)
+    #    - This logic is UNCHANGED by the filename/path modifications.
     theme_name_for_js = theme_name
     word_length_js = str(word_length)
     target_word_js = json.dumps(target_word)
     word_list_js = json.dumps(word_list)
 
-    html_content = HTML_TEMPLATE
+    # 2. Get the HTML template content
+    html_content = HTML_TEMPLATE # Assumes HTML_TEMPLATE is defined elsewhere
+
+    # 3. Replace placeholders in the HTML template
     html_content = html_content.replace("{theme_name_placeholder}", theme_name_for_js)
     html_content = html_content.replace("{word_length}", word_length_js)
     html_content = html_content.replace("{target_word_placeholder}", target_word_js)
     html_content = html_content.replace("{word_list_placeholder}", word_list_js)
 
-    placeholders_found = []
-    if "{theme_name_placeholder}" in html_content: placeholders_found.append("{theme_name_placeholder}")
-    if "{word_length}" in html_content: placeholders_found.append("{word_length}")
-    if "{target_word_placeholder}" in html_content: placeholders_found.append("{target_word_placeholder}")
-    if "{word_list_placeholder}" in html_content: placeholders_found.append("{word_list_placeholder}")
-    if placeholders_found:
-        print("\n--- WARNING: Placeholders NOT replaced ---")
-        for p in placeholders_found: print(f"- {p}")
-        print("Check the .replace() calls in generate_html_file.")
-        print("------------------------------------------\n")
 
+    placeholders_found = []
+    # ...(placeholder checks)...
     try:
-        with open(output_filename, 'w', encoding='utf-8') as f: f.write(html_content)
-        print(f"Successfully generated game file: '{output_filename}'")
+        # Use the full filepath passed into the function
+        with open(output_filepath, 'w', encoding='utf-8') as f: # <-- Uses the full path
+            f.write(html_content)
+        # Print messages using the full filepath
+        print(f"Successfully generated game file: '{output_filepath}'")
         print(f"Theme: {theme_name}, Length: {word_length}, Target Word: {target_word.upper()}")
-        if not placeholders_found: print(f"Open '{output_filename}' in your web browser to play.")
-    except IOError as e: print(f"Error writing file '{output_filename}': {e}")
+        if not placeholders_found: print(f"Open '{output_filepath}' in your web browser to play.")
+    except IOError as e: print(f"Error writing file '{output_filepath}': {e}")
     except Exception as e: print(f"Unexpected error writing file: {e}")
 
 if __name__ == "__main__":
     print(f"--- Generating Attic Greek Wordle HTML Game ---")
+    print(f"Script location: {SCRIPT_DIR}")
+
+    # Use the THEMES dictionary that uses get_data_path() for word lists
     theme, length, words_for_length, source_file = choose_theme_and_length(THEMES, POSSIBLE_LENGTHS)
 
     if theme and length and words_for_length and source_file:
@@ -562,14 +569,39 @@ if __name__ == "__main__":
         target = choose_target_word(words_for_length)
 
         if target:
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            safe_theme_name_for_file = os.path.splitext(os.path.basename(source_file))[0]
-            output_filename = f"greek_wordle_{safe_theme_name_for_file}_{length}_{timestamp}.html"
-            print(f"Generating HTML file '{output_filename}'...")
-            generate_html_file(output_filename, theme, length, target, words_for_length)
+            # --- CONSTRUCT NEW FILENAME ---
+            current_date = datetime.datetime.now()
+            formatted_date = current_date.strftime("%Y-%m-%d")
+            output_filename_base = f"λεξιτήερα-{formatted_date}.html"
+            # --- END CONSTRUCT NEW FILENAME ---
+
+            # --- CALCULATE OUTPUT PATH RELATIVE TO SCRIPT ---
+            # 1. Go up one directory from the script's directory
+            parent_dir = os.path.dirname(SCRIPT_DIR)
+            # 2. Go up another directory (to the repository root)
+            repo_root_dir = os.path.dirname(parent_dir)
+            # 3. Define the target directory relative to the root
+            target_subdir = 'docs'
+            # 4. Construct the full absolute path to the target directory
+            output_dir_absolute = os.path.join(repo_root_dir, target_subdir)
+
+            print(f"Calculated repository root: {repo_root_dir}")
+            print(f"Target output directory: {output_dir_absolute}")
+
+            # 5. Ensure the target output directory exists
+            os.makedirs(output_dir_absolute, exist_ok=True)
+
+            # 6. Join the target directory path and base filename
+            output_filepath = os.path.join(output_dir_absolute, output_filename_base)
+            # --- END CALCULATE OUTPUT PATH ---
+
+            print(f"Generating HTML file '{output_filepath}'...")
+            # Call generate_html_file with the calculated full path
+            # (Ensure generate_html_file function accepts the full path)
+            generate_html_file(output_filepath, theme, length, target, words_for_length)
         else:
             print("Error: Could not choose target word.")
     else:
         print("Could not prepare game data. Halting.")
-
     print("------------------------------------------------------------------")
+
