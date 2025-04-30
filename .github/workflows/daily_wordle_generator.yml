@@ -3,40 +3,40 @@ name: Generate Daily Wordle Game
 on:
   schedule:
     # Runs every day at 00:00 UTC (Midnight).
-    - cron: '0 0 * * *' # <-- CHANGED TIME
-  # Allows you to run this workflow manually from the Actions tab
+    - cron: '0 0 * * *'
   workflow_dispatch:
+
+# --- ADDED ---
+permissions:
+  contents: write # Allow workflow to commit back to the repository
+# -------------
 
 jobs:
   generate_game:
-    runs-on: ubuntu-latest # Use the latest available Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out your repository code
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x' # Specify your desired Python version
+          python-version: '3.x' # Or '3.10', '3.11', etc.
 
-      # Step 3: Run your Python script
       - name: Run Wordle generator script
-        run: python generate_wordle_encodd_2.py # <-- CHANGED FILENAME
+        run: python generate_wordle_encodd_2.py # Ensure this path is correct
 
-      # Step 4: Configure Git
       - name: Configure Git
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      # Step 5: Add and Commit generated HTML file
       - name: Add & Commit HTML file
         run: |
           git pull
-          git add *.html # Add all generated HTML files
+          git add *.html # Stage generated HTML files
+          # Commit only if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
