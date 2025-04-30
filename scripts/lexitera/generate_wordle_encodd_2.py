@@ -71,7 +71,7 @@ HTML_TEMPLATE = f"""
         @keyframes reveal {{ 0% {{ transform: scale(1); background-color: #eee; }} 50% {{ transform: scale(1.1); background-color: #6aaa64; color: white; }} 100% {{ transform: scale(1); background-color: #6aaa64; }} }} .tile.revealed {{ animation: reveal 0.6s ease-out; background-color: #6aaa64; border-color: #6aaa64; color: white; }}
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-between min-h-screen p-2 sm:p-4">
+<body class="bg-gray-100 flex flex-col items-center justify-start min-h-screen p-2 sm:p-4">
 
     <header class="text-center mb-4">
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Λεξιθήρα</h1>
@@ -79,7 +79,7 @@ HTML_TEMPLATE = f"""
     </header>
     <div id="message-container" class="h-8 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
     <div id="grid-container" class="grid grid-rows-6 gap-1 mb-4"></div>
-    <div id="keyboard" class="mt-auto w-full max-w-xl p-1 bg-gray-200 rounded-md"></div>
+    <div id="keyboard" class="w-full max-w-xl p-1 bg-gray-200 rounded-md"></div>
     <div class="flex space-x-4 mt-4">
         <button id="reveal-letter" class="action-button px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed">
             {GREEK_UI['reveal_button_label']}
@@ -572,7 +572,7 @@ if __name__ == "__main__":
             # --- CONSTRUCT NEW FILENAME ---
             current_date = datetime.datetime.now()
             formatted_date = current_date.strftime("%Y-%m-%d")
-            output_filename_base = f"λεξιτήερα-{formatted_date}.html"
+            output_filename_base = f"λεξιτήρα-{formatted_date}.html"
             # --- END CONSTRUCT NEW FILENAME ---
 
             # --- CALCULATE OUTPUT PATH RELATIVE TO SCRIPT ---
