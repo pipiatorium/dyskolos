@@ -74,7 +74,7 @@ HTML_TEMPLATE = f"""
 <body class="bg-gray-100 flex flex-col items-center justify-start min-h-screen p-2 sm:p-4">
 
     <header class="text-center mb-4">
-        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Λεξιθήρα</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Λεξιτήρα</h1>
         <p class="text-sm text-gray-600">{GREEK_UI['theme_label']} {{theme_name_placeholder}} - {{word_length}} {GREEK_UI['letters_label']}</p>
     </header>
     <div id="message-container" class="h-8 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
