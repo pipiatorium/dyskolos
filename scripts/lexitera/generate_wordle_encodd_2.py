@@ -99,18 +99,23 @@ HTML_TEMPLATE = f"""
     <div id="message-container" class="h-4 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
     <div id="grid-container" class="grid grid-rows-6 gap-1 mb-4"></div>
     <div id="keyboard" class="w-full max-w-xl p-1 bg-gray-200 rounded-md"></div>
-    <div class="flex space-x-4 mt-4">
-        <button id="reveal-letter" class="action-button px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed">
+    <div class="flex space-x-4 mt-4 items-center">
+        <button id="reveal-letter" class="action-button px-2 py-1 bg-yellow-500 text-white font-normal rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed text-sm">
             {GREEK_UI['reveal_button_label']}
         </button>
-        <button id="play-again" class="action-button px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 hidden">
+        <button id="play-again" class="action-button px-2 py-1 bg-blue-600 text-white font-normal rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 hidden text-sm">
             {GREEK_UI['play_again_button_label']}
         </button>
-            <div class="social-icons-row">
-                <a href="https://www.paypal.com/donate/?hosted_button_id=FLR49G2DRY2SL" target="_blank" aria-label="Donate">
-                    <i class="fas fa-hand-holding-usd" style="font-size: 36px;"></i>
-                </a>
-            </div>
+        <a href="https://script.google.com/macros/s/AKfycbxVB75zc_jiDkF_4Iw2adalq_VLDb32xoWyX7c8CLzm0k0bzwy_wDivuCAkVBGPY1iE/exec"
+        target="_blank"
+        class="action-button px-2 py-1 bg-green-500 text-white font-normal rounded-lg shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75 text-sm">
+            Subscribe
+        </a>
+        <div class="social-icons-row">
+            <a href="https://www.paypal.com/donate/?hosted_button_id=FLR49G2DRY2SL" target="_blank" aria-label="Donate">
+                <i class="fas fa-hand-holding-usd" style="font-size: 36px;"></i>
+            </a>
+        </div>
     </div>
 
     <script>
@@ -742,7 +747,7 @@ if __name__ == "__main__":
             # --- CONSTRUCT NEW FILENAME ---
             current_date = datetime.datetime.now()
             formatted_date = current_date.strftime("%Y-%m-%d")
-            output_filename_base = f"λεξιτήρα-{formatted_date}.html"
+            output_filename_base = f"λεξιτήρα.html"
             # --- END CONSTRUCT NEW FILENAME ---
 
             # --- CALCULATE OUTPUT PATH RELATIVE TO SCRIPT ---
