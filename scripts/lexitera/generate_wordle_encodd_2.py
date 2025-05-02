@@ -43,33 +43,50 @@ HTML_TEMPLATE = f"""
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {{ font-family: 'Inter', sans-serif; touch-action: manipulation; }}
-        .tile {{ width: 55px; height: 55px; border: 2px solid #d3d6da; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: bold; text-transform: uppercase; transition: transform 0.3s ease, background-color 0.5s ease, border-color 0.5s ease; box-sizing: border-box; }}
-        .tile.filled {{ border-color: #878a8c; }}
-        .tile.flip {{ transform: rotateX(180deg); }}
-        .correct {{ background-color: #6aaa64; border-color: #6aaa64; color: white; }}
-        .present {{ background-color: #c9b458; border-color: #c9b458; color: white; }}
-        .absent {{ background-color: #787c7e; border-color: #787c7e; color: white; }}
-        .key {{ height: 50px; min-width: 35px; padding: 0 8px; margin: 2px; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1rem; font-weight: bold; background-color: #d3d6da; cursor: pointer; text-transform: uppercase; transition: background-color 0.2s ease; box-sizing: border-box; }}
-        .key:hover {{ background-color: #b0b3b8; }}
-        .key.wide {{/* ... */ }}
-        .key[data-key="enter"] {{ font-size: 1.5rem; color: #10B981; font-weight: bold; }}
-        .key.disabled-key {{
-            opacity: 0.6; /* Dim the key */
-            cursor: not-allowed; /* Show disabled cursor */
-            pointer-events: none; /* Optional: Prevent click events directly via CSS */
-        }}
-        .key.disabled-key:hover {{
-             background-color: #787c7e; /* Keep hover same as absent color */
-        }}
+    body {{ font-family: 'Inter', sans-serif; touch-action: manipulation; }}
+    .tile {{ width: 55px; height: 55px; border: 2px solid #d3d6da; display: flex; justify-content: center; align-items: center; font-size: 3rem; font-weight: bold; text-transform: uppercase; transition: transform 0.3s ease, background-color 0.5s ease, border-color 0.5s ease; box-sizing: border-box; }}
+    .tile.filled {{ border-color: #878a8c; }}
+    .tile.flip {{ transform: rotateX(180deg); }}
+    .correct {{ background-color: #6aaa64; border-color: #6aaa64; color: white; }}
+    .present {{ background-color: #c9b458; border-color: #c9b458; color: white; }}
+    .absent {{ background-color: #787c7e; border-color: #787c7e; color: white; }}
+    .key {{ height: 50px; min-width: 35px; padding: 0 8px; margin: 2px; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 1rem; font-weight: bold; background-color: #d3d6da; cursor: pointer; text-transform: uppercase; transition: background-color 0.2s ease; box-sizing: border-box; }}
+    .key:hover {{ background-color: #b0b3b8; }}
+    .key.wide {{/* ... */ }}
+    .key[data-key="enter"] {{ font-size: 1.5rem; color: #10B981; font-weight: bold; }}
+    .key.disabled-key {{
+        opacity: 0.6; /* Dim the key */
+        cursor: not-allowed; /* Show disabled cursor */
+        pointer-events: none; /* Optional: Prevent click events directly via CSS */
+    }}
+    .key.disabled-key:hover {{
+        background-color: #787c7e; /* Keep hover same as absent color */
+    }}
         button:disabled {{ /* ... */ }}       
         button:disabled {{ background-color: #cccccc; color: #666666; cursor: not-allowed; opacity: 0.7; }}
-        @media (max-width: 640px) {{ .tile {{ width: 15vw; height: 15vw; max-width: 50px; max-height: 50px; font-size: 1.5rem; }} .key {{ height: 45px; min-width: 7vw; padding: 0 4px; font-size: 0.9rem; margin: 1px; }} .key.wide {{ min-width: 12vw; padding: 0 8px; }} #keyboard {{ padding: 5px 1px; }} .action-button {{ font-size: 0.9rem; padding: 6px 10px;}} }}
+        @media (max-width: 640px) {{ .tile {{ width: 15vw; height: 15vw; max-width: 50px; max-height: 50px; font-size: 1.8rem; }} .key {{ height: 45px; min-width: 7vw; padding: 0 4px; font-size: 1.6rem; margin: 1px; }} .key.wide {{ min-width: 12vw; padding: 0 8px; }} #keyboard {{ padding: 5px 1px; }} .action-button {{ font-size: 0.9rem; padding: 6px 10px;}} }}
         @media (max-width: 380px) {{ .key {{ min-width: 9vw; padding: 0 2px; font-size: 0.8rem; }} .key.wide {{ min-width: 15vw; padding: 0 5px; }} }}
         @keyframes shake {{ 0%, 100% {{ transform: translateX(0); }} 10%, 30%, 50%, 70%, 90% {{ transform: translateX(-5px); }} 20%, 40%, 60%, 80% {{ transform: translateX(5px); }} }} .animate-shake {{ animation: shake 0.5s ease-in-out; }}
         @keyframes dance {{ 0%, 100% {{ transform: translateY(0); }} 50% {{ transform: translateY(-8px) scale(1.03); }} }} .animate-dance {{ animation: dance 0.5s ease-in-out; }}
         @keyframes reveal {{ 0% {{ transform: scale(1); background-color: #eee; }} 50% {{ transform: scale(1.1); background-color: #6aaa64; color: white; }} 100% {{ transform: scale(1); background-color: #6aaa64; }} }} .tile.revealed {{ animation: reveal 0.6s ease-out; background-color: #6aaa64; border-color: #6aaa64; color: white; }}
-    </style>
+    .tile.correct, .key.correct {{ 
+    background-color: #6aaa64 !important; 
+    border-color: #6aaa64 !important; 
+    color: white !important; 
+}}
+
+.tile.present, .key.present {{ 
+    background-color: #c9b458 !important; 
+    border-color: #c9b458 !important; 
+    color: white !important; 
+}}
+
+.tile.absent, .key.absent {{ 
+    background-color: #787c7e !important; 
+    border-color: #787c7e !important; 
+    color: white !important; 
+}}
+</style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-start min-h-screen p-2 sm:p-4">
 
@@ -122,6 +139,20 @@ HTML_TEMPLATE = f"""
             ['α', 'σ', 'δ', 'φ', 'γ', 'η', 'ξ', 'κ', 'λ'],
             ['Enter', 'ζ', 'χ', 'ψ', 'ω', 'β', 'ν', 'μ', 'Backspace']
         ];
+        function initializeKeyboardWithCaseInsensitivity() {{
+    // This function should be called at the beginning of the game
+    // Add event listeners to all keyboard buttons with case insensitivity
+    document.querySelectorAll('.key').forEach(key => {{
+        const keyChar = key.dataset.key; // This gets the lowercase data-key
+        if (keyChar && keyChar.length === 1 && 'αβγδεζηθικλμνξοπρστυφχψω'.includes(keyChar.toLowerCase())) {{
+            // Store both lowercase and uppercase versions for comparison
+            key.dataset.keyNormalized = normalizeSigma(keyChar.toLowerCase());
+            
+            // Also add the uppercase version for easier lookup
+            key.dataset.keyUpper = keyChar.toUpperCase();
+        }}
+    }});
+}}
 
         function initializeGame() {{
             currentRowIndex = 0; currentColIndex = 0;
@@ -145,21 +176,143 @@ HTML_TEMPLATE = f"""
             }}
         }}
 
-        function createKeyboard() {{
-            keyboardContainer.innerHTML = '';
-            keyboardLayout.forEach(rowKeys => {{
-                const rowDiv = document.createElement('div'); rowDiv.classList.add('flex', 'justify-center', 'flex-wrap', 'mb-1');
-                rowKeys.forEach(key => {{
-                    const button = document.createElement('button'); button.classList.add('key');
-                    if (key === 'Enter') {{ button.textContent = '✔'; }} else if (key === 'Backspace') {{ button.textContent = '⌫'; }} else {{ button.textContent = key; }}
-                    button.dataset.key = key.toLowerCase();
-                    if (key === 'Enter' || key === 'Backspace') {{ button.classList.add('wide'); }}
-                    const state = keyStates[key.toLowerCase()]; if (state) {{ button.classList.add(state); }}
-                    button.addEventListener('click', () => handleKeyPress(key.toLowerCase())); rowDiv.appendChild(button);
-                }}); keyboardContainer.appendChild(rowDiv);
-            }});
-        }}
+function createKeyboard() {{
+    keyboardContainer.innerHTML = '';
+    keyboardLayout.forEach(rowKeys => {{
+        const rowDiv = document.createElement('div'); 
+        rowDiv.classList.add('flex', 'justify-center', 'flex-wrap', 'mb-1');
+        rowKeys.forEach(key => {{
+            const button = document.createElement('button'); 
+            button.classList.add('key');
+            if (key === 'Enter') {{ 
+                button.textContent = '✔'; 
+            }} else if (key === 'Backspace') {{ 
+                button.textContent = '⌫'; 
+            }} else {{ 
+                button.textContent = key;
+            }}
+            
+            // Always store lowercase in data-key attribute for consistency
+            button.dataset.key = key.toLowerCase();
+            
+            // Add normalized and uppercase versions for easier matching
+            if (key.length === 1 && 'αβγδεζηθικλμνξοπρστυφχψω'.includes(key.toLowerCase())) {{
+                button.dataset.keyNormalized = normalizeSigma(key.toLowerCase());
+                button.dataset.keyUpper = key.toUpperCase();
+            }}
+            
+            if (key === 'Enter' || key === 'Backspace') {{ 
+                button.classList.add('wide'); 
+            }}
+            
+            const state = keyStates[key.toLowerCase()]; 
+            if (state) {{ button.classList.add(state); }}
+            
+            button.addEventListener('click', () => handleKeyPress(key.toLowerCase())); 
+            rowDiv.appendChild(button);
+        }}); 
+        keyboardContainer.appendChild(rowDiv);
+    }});
+}}
 
+        // This function should be defined globally before any other functions that use it
+function normalizeSigma(word) {{
+    // Return the word if it's not a string or is empty
+    if (typeof word !== 'string' || !word) {{
+        return word;
+    }}
+    // Replace all final sigma (ς) with medial sigma (σ)
+    return word.replace(/ς/g, 'σ');
+}}
+
+function forceKeyboardColors() {{
+    // For each letter in the target word, directly mark its keyboard key
+    const targetLetters = targetWord.split('');
+    
+    // Track which letters are in correct positions and which are just present
+    const correctPositions = new Array(WORD_LENGTH).fill(false);
+    const correctLetters = new Set();
+    const presentLetters = new Set();
+    
+    // First, analyze the current grid state to identify correct and present letters
+    for (let r = 0; r <= currentRowIndex; r++) {{
+        const rowGuess = guesses[r];
+        if (!rowGuess || !rowGuess.join('')) continue;
+        
+        // First pass: mark correct positions
+        for (let c = 0; c < WORD_LENGTH; c++) {{
+            const guessLetter = rowGuess[c];
+            if (!guessLetter) continue;
+            
+            const normalizedGuess = normalizeSigma(guessLetter);
+            const normalizedTarget = normalizeSigma(targetLetters[c]);
+            
+            if (normalizedGuess === normalizedTarget) {{
+                correctPositions[c] = true;
+                correctLetters.add(normalizedGuess.toUpperCase());
+            }}
+        }}
+        
+        // Second pass: mark present letters (that aren't already correct)
+        for (let c = 0; c < WORD_LENGTH; c++) {{
+            const guessLetter = rowGuess[c];
+            if (!guessLetter) continue;
+            
+            const normalizedGuess = normalizeSigma(guessLetter);
+            const normalizedGuessUpper = normalizedGuess.toUpperCase();
+            
+            // Skip if this position was correct
+            if (correctPositions[c]) continue;
+            
+            // Check if this letter exists anywhere in the target word
+            if (targetLetters.some(targetChar => 
+                normalizeSigma(targetChar) === normalizedGuess)) {{
+                presentLetters.add(normalizedGuessUpper);
+            }}
+        }}
+    }}
+    
+    // Apply the colors to the keyboard
+    // Important: Greek alphabet includes both uppercase and lowercase
+    const greekAlphabet = 'αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ';
+    
+    for (let letter of greekAlphabet) {{
+        // Try both cases - important for keys like Τ vs τ
+        const possibleSelectors = [
+            `[data-key="${{letter.toLowerCase()}}"]`,
+            `[data-key="${{letter.toUpperCase()}}"]`,
+            `[data-key="${{letter}}"]`
+        ];
+        
+        for (const selector of possibleSelectors) {{
+            const keyElement = keyboardContainer.querySelector(selector);
+            if (!keyElement) continue;
+            
+            // Normalize for checking
+            const normalizedLetter = normalizeSigma(letter).toUpperCase();
+            
+            // Clear previous state classes
+            keyElement.classList.remove('correct', 'present', 'absent');
+            
+            // Apply the appropriate class and force the color
+            if (correctLetters.has(normalizedLetter)) {{
+                keyElement.classList.add('correct');
+                keyElement.style.backgroundColor = '#6aaa64';
+                keyElement.style.borderColor = '#6aaa64';
+                keyElement.style.color = 'white';
+            }} else if (presentLetters.has(normalizedLetter)) {{
+                keyElement.classList.add('present');
+                keyElement.style.backgroundColor = '#c9b458';
+                keyElement.style.borderColor = '#c9b458';
+                keyElement.style.color = 'white';
+            }}
+        }}
+    }}
+    
+    // Debug output - uncomment if needed for troubleshooting
+    // console.log('Correct letters:', Array.from(correctLetters));
+    // console.log('Present letters:', Array.from(presentLetters));
+}}
         function addEventListeners() {{
             document.removeEventListener('keydown', handlePhysicalKeyboard); document.addEventListener('keydown', handlePhysicalKeyboard);
             playAgainButton.removeEventListener('click', initializeGame); playAgainButton.addEventListener('click', initializeGame);
@@ -282,25 +435,31 @@ HTML_TEMPLATE = f"""
                  if(tile) {{ tile.textContent = ''; tile.classList.remove('filled'); }}
             }}
         }}
-       async function submitGuess() {{
-            if (currentColIndex !== WORD_LENGTH) {{ showMessage(MSG_NOT_ENOUGH_LETTERS); shakeRow(currentRowIndex); return; }}
-            const currentGuess = guesses[currentRowIndex].join('');
-            isProcessing = true; revealLetterButton.disabled = true;
-            const result = checkGuess(currentGuess, targetWord);
-            await animateGuessResult(currentRowIndex, result); updateKeyboard(currentGuess, result);
-            if (currentGuess === targetWord) {{
-                showMessage(MSG_EXCELLENT); isGameOver = true; playAgainButton.classList.remove('hidden'); revealLetterButton.disabled = true; danceRow(currentRowIndex);
-            }} else if (currentRowIndex === MAX_GUESSES - 1) {{
-                showMessage(`${{LABEL_WORD_WAS}} ${{targetWord.toUpperCase()}}`); isGameOver = true; playAgainButton.classList.remove('hidden'); revealLetterButton.disabled = true;
-            }} else {{
-                currentRowIndex++; currentColIndex = 0; if (!revealUsed) {{ revealLetterButton.disabled = false; }}
-            }}
-            isProcessing = false; if (isGameOver || revealUsed) {{ revealLetterButton.disabled = true; revealLetterButton.classList.add('opacity-50', 'cursor-not-allowed'); }}
-        }}
-        function normalizeSigma(word) {{ // Doubled braces
-        // Replace all final sigma (ς) with medial sigma (σ)
-        return word.replace(/ς/g, 'σ'); 
-        }} 
+async function submitGuess() {{
+    if (currentColIndex !== WORD_LENGTH) {{ showMessage(MSG_NOT_ENOUGH_LETTERS); shakeRow(currentRowIndex); return; }}
+    const currentGuess = guesses[currentRowIndex].join('');
+    isProcessing = true; revealLetterButton.disabled = true;
+    const result = checkGuess(currentGuess, targetWord);
+    await animateGuessResult(currentRowIndex, result); updateKeyboard(currentGuess, result);
+    forceKeyboardColors();
+    
+    // More lenient equality check for the win condition
+    // Normalize both words to lowercase with no accents
+    const normalizedGuess = currentGuess.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const normalizedTarget = targetWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    
+    // Compare the normalized versions
+    const isCorrect = normalizedGuess === normalizedTarget || currentGuess.toLowerCase() === targetWord.toLowerCase();
+    
+    if (isCorrect) {{
+        showMessage(MSG_EXCELLENT); isGameOver = true; playAgainButton.classList.remove('hidden'); revealLetterButton.disabled = true; danceRow(currentRowIndex);
+    }} else if (currentRowIndex === MAX_GUESSES - 1) {{
+        showMessage(`${{LABEL_WORD_WAS}} ${{targetWord.toUpperCase()}}`); isGameOver = true; playAgainButton.classList.remove('hidden'); revealLetterButton.disabled = true;
+    }} else {{
+        currentRowIndex++; currentColIndex = 0; if (!revealUsed) {{ revealLetterButton.disabled = false; }}
+    }}
+    isProcessing = false; if (isGameOver || revealUsed) {{ revealLetterButton.disabled = true; revealLetterButton.classList.add('opacity-50', 'cursor-not-allowed'); }}
+}}
         
 function checkGuess(guess, target) {{ // Doubled braces
         // Normalize both guess and target to use only medial sigma (σ)
@@ -348,73 +507,77 @@ function checkGuess(guess, target) {{ // Doubled braces
         function getRowElement(row) {{ return gridContainer.querySelector(`[data-row="${{row}}"]`); }}
         function showMessage(msg, duration = 2000) {{ messageElement.textContent = msg; if (duration > 0) {{ setTimeout(() => {{ if (messageElement.textContent === msg) {{ messageElement.textContent = ''; }} }}, duration); }} }}
 
-        async function animateGuessResult(rowIndex, result) {{ // Doubled braces
-                    // Using standard JS concatenation to avoid potential f-string/JS literal conflict
-                    const rowTiles = gridContainer.querySelectorAll('[data-row="' + rowIndex + '"] .tile'); 
-                    
-                    if (!rowTiles) return;
-                    for (let i = 0; i < WORD_LENGTH; i++) {{ // Doubled braces
-                        const tile = rowTiles[i];
-                        if (!tile) continue;
-                        const state = result[i]; 
+async function animateGuessResult(rowIndex, result) {{ 
+    // Using standard JS concatenation to avoid potential f-string/JS literal conflict
+    const rowTiles = gridContainer.querySelectorAll('[data-row="' + rowIndex + '"] .tile'); 
+    
+    if (!rowTiles) return;
+    for (let i = 0; i < WORD_LENGTH; i++) {{ 
+        const tile = rowTiles[i];
+        if (!tile) continue;
+        const state = result[i]; 
 
-                        // Apply the flip animation ONLY if the state is 'absent'
-                        if (state === 'absent') {{ // Doubled braces
-                            tile.classList.add('flip');
-                        }} // Doubled braces
-                        
-                        // Wait for the first half of the potential flip animation (or just a delay)
-                        await new Promise(resolve => setTimeout(resolve, 150));
-                        
-                        // Apply the state class (correct, present, absent) to change color/style
-                        tile.classList.add(state);
-                        
-                        // Wait for the second half of the flip ONLY if it was actually flipping (state was 'absent')
-                        if (state === 'absent') {{ // Doubled braces
-                            await new Promise(resolve => setTimeout(resolve, 150));
-                        }} // Doubled braces
-                    }} // Doubled braces
-                }} // Doubled braces
+        // Apply the flip animation ONLY if the state is 'absent'
+        if (state === 'absent') {{ 
+            tile.classList.add('flip');
+        }} 
+        
+        // Wait for the first half of the potential flip animation (or just a delay)
+        await new Promise(resolve => setTimeout(resolve, 150));
+        
+        // Apply the state class (correct, present, absent) to change color/style
+        tile.classList.add(state);
+        
+        // Wait for the second half of the flip ONLY if it was actually flipping (state was 'absent')
+        if (state === 'absent') {{ 
+            await new Promise(resolve => setTimeout(resolve, 150));
+        }} 
+    }}
 
-        function updateKeyboard(guessOrLetter, resultOrState) {{ if (typeof guessOrLetter === 'string' && guessOrLetter.length === 1 && Array.isArray(resultOrState)) {{ const letter = guessOrLetter; const newState = resultOrState[0]; const currentKeyState = keyStates[letter]; let finalState = newState; if (currentKeyState === 'correct') {{ finalState = 'correct'; }} else if (currentKeyState === 'present' && newState === 'absent') {{ finalState = 'present'; }} keyStates[letter] = finalState; const keyElement = keyboardContainer.querySelector(`[data-key="${{letter}}"]`); if (keyElement) {{ keyElement.classList.remove('correct', 'present', 'absent'); keyElement.classList.add(finalState); }} }} else if (typeof guessOrLetter === 'string' && Array.isArray(resultOrState)) {{ const guessLetters = guessOrLetter.split(''); const result = resultOrState; for (let i = 0; i < WORD_LENGTH; i++) {{ const letter = guessLetters[i]; if (!letter) continue; const newState = result[i]; const currentKeyState = keyStates[letter]; let finalState = newState; if (currentKeyState === 'correct') {{ finalState = 'correct'; }} else if (currentKeyState === 'present' && newState === 'absent') {{ finalState = 'present'; }} keyStates[letter] = finalState; const keyElement = keyboardContainer.querySelector(`[data-key="${{letter}}"]`); if (keyElement) {{ keyElement.classList.remove('correct', 'present', 'absent'); keyElement.classList.add(finalState); }} }} }} }}
-        // Slightly condensed updateKeyboard function (still multi-line for clarity)
- function updateKeyboard(guessOrLetter, resultOrState) {{
-            const processLetter = (letter, newState) => {{
-                const normalizedLetter = normalizeSigma(letter);
-                const keyElement = keyboardContainer.querySelector(`[data-key="${{normalizedLetter}}"]`);
-                if (!keyElement || keyElement.classList.contains('correct')) {{ return; }}
+    // Force keyboard colors to update after animation is complete
+    forceKeyboardColors();
+}}
 
-                const currentKeyState = keyStates[normalizedLetter];
-                let finalState = newState;
+       function updateKeyboard(guessOrLetter, resultOrState) {{
+    const processLetter = (letter, newState) => {{
+        const normalizedLetter = normalizeSigma(letter);
+        const keyElement = keyboardContainer.querySelector(`[data-key="${{normalizedLetter}}"]`);
+        if (!keyElement || keyElement.classList.contains('correct')) {{ return; }}
 
-                if (currentKeyState === 'correct') {{
-                    finalState = 'correct';
-                }} else if (currentKeyState === 'present' && newState === 'absent') {{
-                    finalState = 'present';
-                }}
+        const currentKeyState = keyStates[normalizedLetter];
+        let finalState = newState;
 
-                if (finalState === 'absent' && currentKeyState !== 'correct' && currentKeyState !== 'present') {{
-                    keyElement.classList.add('disabled-key');
-                    keyElement.disabled = true;
-                }}
-
-                if (finalState !== 'absent' || currentKeyState !== 'present') {{
-                     keyElement.className = 'key' + (keyElement.classList.contains('wide') ? ' wide' : '') + ' ' + finalState + (keyElement.disabled ? ' disabled-key' : '');
-                }}
-
-                keyStates[normalizedLetter] = finalState;
-            }};
-
-            if (typeof guessOrLetter === 'string' && guessOrLetter.length === 1 && Array.isArray(resultOrState)) {{
-                processLetter(guessOrLetter, resultOrState[0]);
-            }} else if (typeof guessOrLetter === 'string' && Array.isArray(resultOrState)) {{
-                const guessLetters = guessOrLetter.split('');
-                const result = resultOrState;
-                for (let i = 0; i < WORD_LENGTH; i++) {{
-                    if (guessLetters[i]) {{ processLetter(guessLetters[i], result[i]); }}
-                }}
-            }}
+        if (currentKeyState === 'correct') {{
+            finalState = 'correct';
+        }} else if (currentKeyState === 'present' && newState === 'absent') {{
+            finalState = 'present';
         }}
+
+        // Remove all state classes first
+        keyElement.classList.remove('correct', 'present', 'absent');
+        
+        // Then add the appropriate state class
+        keyElement.classList.add(finalState);
+        
+        // Handle disabled state separately
+        if (finalState === 'absent' && currentKeyState !== 'correct' && currentKeyState !== 'present') {{
+            keyElement.classList.add('disabled-key');
+            keyElement.disabled = true;
+        }}
+
+        keyStates[normalizedLetter] = finalState;
+    }};
+
+    if (typeof guessOrLetter === 'string' && guessOrLetter.length === 1 && Array.isArray(resultOrState)) {{
+        processLetter(guessOrLetter, resultOrState[0]);
+    }} else if (typeof guessOrLetter === 'string' && Array.isArray(resultOrState)) {{
+        const guessLetters = guessOrLetter.split('');
+        const result = resultOrState;
+        for (let i = 0; i < WORD_LENGTH; i++) {{
+            if (guessLetters[i]) {{ processLetter(guessLetters[i], result[i]); }}
+        }}
+    }}
+}}
         function shakeRow(rowIndex) {{ const rowElement = getRowElement(rowIndex); if (rowElement) {{ rowElement.classList.add('animate-shake'); setTimeout(() => {{ rowElement.classList.remove('animate-shake'); }}, 500); }} }}
         function danceRow(rowIndex) {{ const rowTiles = gridContainer.querySelectorAll(`[data-row="${{rowIndex}}"] .tile`); if (!rowTiles) return; rowTiles.forEach((tile, index) => {{ if (!tile) return; setTimeout(() => {{ tile.classList.add('animate-dance'); }}, index * 100); }}); }}
 
