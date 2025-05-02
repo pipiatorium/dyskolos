@@ -42,7 +42,9 @@ HTML_TEMPLATE = f"""
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ 
+<style>
     body {{ font-family: 'Inter', sans-serif; touch-action: manipulation; }}
     .tile {{ width: 55px; height: 55px; border: 2px solid #d3d6da; display: flex; justify-content: center; align-items: center; font-size: 3rem; font-weight: bold; text-transform: uppercase; transition: transform 0.3s ease, background-color 0.5s ease, border-color 0.5s ease; box-sizing: border-box; }}
     .tile.filled {{ border-color: #878a8c; }}
@@ -94,7 +96,7 @@ HTML_TEMPLATE = f"""
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Λεξιτήρα</h1>
         <p class="text-sm text-gray-600">{GREEK_UI['theme_label']} {{theme_name_placeholder}} - {{word_length}} {GREEK_UI['letters_label']}</p>
     </header>
-    <div id="message-container" class="h-8 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
+    <div id="message-container" class="h-4 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
     <div id="grid-container" class="grid grid-rows-6 gap-1 mb-4"></div>
     <div id="keyboard" class="w-full max-w-xl p-1 bg-gray-200 rounded-md"></div>
     <div class="flex space-x-4 mt-4">
@@ -104,6 +106,11 @@ HTML_TEMPLATE = f"""
         <button id="play-again" class="action-button px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 hidden">
             {GREEK_UI['play_again_button_label']}
         </button>
+            <div class="social-icons-row">
+                <a href="https://www.paypal.com/donate/?hosted_button_id=FLR49G2DRY2SL" target="_blank" aria-label="Donate">
+                    <i class="fas fa-hand-holding-usd" style="font-size: 36px;"></i>
+                </a>
+            </div>
     </div>
 
     <script>
@@ -767,4 +774,3 @@ if __name__ == "__main__":
     else:
         print("Could not prepare game data. Halting.")
     print("------------------------------------------------------------------")
-
