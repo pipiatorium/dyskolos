@@ -1,31 +1,62 @@
+# .github/workflows/remove-old-stories.yml
+
 name: Remove Old Stories
 
 on:
   schedule:
+    # Runs at 08:00 UTC every day
     - cron: '0 8 * * *'
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    
+
+    # ----- Important Change: Grant Write Permissions -----
+    # This explicitly gives the GITHUB_TOKEN generated for this job
+    # the permission to write content (push) back to the repository.
+    permissions:
+      contents: write
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      # Checks out your repository's code so the workflow can access it.
+      # It will automatically use the GITHUB_TOKEN with the permissions
+      # defined above.
+      uses: actions/checkout@v4 # Using v4 is recommended
       with:
+        # fetch-depth: 0 fetches all history, necessary for some Git operations.
+        # If your script doesn't need full history, you might omit this or use a smaller depth.
         fetch-depth: 0
-    
+        # NOTE: We are NOT specifying 'token: ${{ secrets.STORYREMOVE }}' here.
+
     - name: Set up Python
-      uses: actions/setup-python@v4
+      # Installs the specified Python version.
+      uses: actions/setup-python@v5 # Using v5 is recommended
       with:
         python-version: '3.10'
-    
-    - name: Configure Git
+        # Optional: Caching dependencies can speed up subsequent runs
+        # cache: 'pip'
+    # - name: Install dependencies # Example if your script needs packages
+    #   run: pip install -r requirements.txt
+
+    - name: Configure Git User
+      # Configures the user details for the commits the action will make.
+      # Using the GitHub Actions bot identity is standard practice here.
       run: |
         git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "actions@github.com"
-        # This line configures Git to use your token for authentication
-        git remote set-url origin https://x-access-token:${{ secrets.STORYREMOVE }}@github.com/pipiatorium/dyskolos.git
-    
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    # ----- Removed Step -----
+    # The step configuring 'git remote set-url' with secrets.STORYREMOVE
+    # has been removed as we are now relying on the permissions granted
+    # to the default GITHUB_TOKEN used by checkout.
+
     - name: Run cleanup script
+      # Executes your Python script.
+      # Make sure this script performs the necessary Git commands:
+      # 1. git add <files_to_commit>
+      # 2. git commit -m "Your commit message"
+      # 3. git push origin <your_target_branch> (e.g., main or master)
       run: python scripts/remove_old_stories_from_git.py
