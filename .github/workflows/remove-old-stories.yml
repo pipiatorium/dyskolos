@@ -2,9 +2,7 @@ name: Remove Old Stories
 
 on:
   schedule:
-    # Run daily at 8:00 AM UTC
     - cron: '0 8 * * *'
-  # Optional: Allow manual triggering
   workflow_dispatch:
 
 jobs:
@@ -15,8 +13,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        # Need to fetch all history for git operations
         fetch-depth: 0
+        # Use PAT instead of GITHUB_TOKEN for authentication
+        token: ${{ secrets.STORYREMOVE }}
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -30,6 +29,6 @@ jobs:
     
     - name: Run cleanup script
       run: python scripts/remove_old_stories_from_git.py
-      env:
-        # Using the built-in GITHUB_TOKEN for authentication
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+        
+        
