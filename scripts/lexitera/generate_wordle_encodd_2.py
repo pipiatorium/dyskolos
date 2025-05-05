@@ -24,7 +24,7 @@ GREEK_UI = {
     "revealed": json.dumps("Ἐδείχθη:"),
     "cannot_reveal_full": json.dumps("Οὐ δύναμαι δεῖξαι - πλῆρες;"),
     "error_init": json.dumps("Σφάλμα ἐν ἀρχῇ."),
-    "theme_label": "Θέμαe·",
+    "theme_label": "Θέμα·",
     "letters_label": "Γράμματα",
     "word_was_label": "Ὁ λόγος ἦν:",
     "reveal_button_label": "Δεῖξον γράμμα (1 χρῆσις)",
