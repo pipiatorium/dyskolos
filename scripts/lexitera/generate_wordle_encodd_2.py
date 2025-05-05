@@ -106,7 +106,7 @@ HTML_TEMPLATE = f"""
         <button id="play-again" class="action-button px-2 py-1 bg-blue-600 text-white font-normal rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 hidden text-sm">
             {GREEK_UI['play_again_button_label']}
         </button>
-        <a href="https://script.google.com/macros/s/AKfycbxVB75zc_jiDkF_4Iw2adalq_VLDb32xoWyX7c8CLzm0k0bzwy_wDivuCAkVBGPY1iE/exec"
+        <a href="https://forms.gle/828Xt2x97G9FKP2DA"
         target="_blank"
         class="action-button px-2 py-1 bg-green-500 text-white font-normal rounded-lg shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75 text-sm">
             Subscribe
