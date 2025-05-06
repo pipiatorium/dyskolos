@@ -1,3 +1,6 @@
+
+# copyright 2025--DO NOT EDIT THE CODE IN THIS PAGE
+
 import random
 import os
 import json
@@ -9,9 +12,9 @@ def get_data_path(filename): return os.path.join(SCRIPT_DIR, filename)
 
 THEMES = {
     "Μυθολογία": get_data_path("mythology_words_encoded.txt"),
-    "Φιλοσοφία": get_data_path("philosophy_words_encoded.txt"), # This is the one causing the error
-    "Ἀθήναις": get_data_path("Ἀθήναις_words_encoded.txt"), # Adjust filenames as needed
-    "Θέατρον": get_data_path("theatre_words_encoded.txt"), # Adjust filenames as needed
+    "Φιλοσοφία": get_data_path("philosophy_words_encoded.txt"),
+    "Ἀθήναις": get_data_path("Ἀθήναις_words_encoded.txt"),
+    "Θέατρον": get_data_path("theatre_words_encoded.txt"),
 }
 POSSIBLE_LENGTHS = [4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6]
 
@@ -27,10 +30,13 @@ GREEK_UI = {
     "theme_label": "Θέμα·",
     "letters_label": "Γράμματα",
     "word_was_label": "Ὁ λόγος ἦν:",
+    "word_explanation_label": json.dumps("Λόγος σημαίνει:"),  # New: Word explanation label
     "reveal_button_label": "Δεῖξον γράμμα (1 χρῆσις)",
     "play_again_button_label": "Παῖζε Πάλιν"
 }
 
+# Enhanced HTML template with debugging capability
+# Simplified HTML template with reliable debugging
 HTML_TEMPLATE = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -88,6 +94,30 @@ HTML_TEMPLATE = f"""
     border-color: #787c7e !important; 
     color: white !important; 
 }}
+
+/* New styles for explanation container */
+.fade-out {{ opacity: 0; transition: opacity 0.5s ease-out; }}
+.fade-in {{ opacity: 1; transition: opacity 0.5s ease-in; }}
+#explanation {{ 
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    background-color: #f8f9fa; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+}}
+.explanation-header {{ 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    color: #333; 
+}}
+.explanation-content {{ 
+    font-size: 1rem; 
+    line-height: 1.5; 
+    color: #555; 
+}}
+
 </style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-start min-h-screen p-2 sm:p-4">
@@ -98,7 +128,10 @@ HTML_TEMPLATE = f"""
     </header>
     <div id="message-container" class="h-4 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
     <div id="grid-container" class="grid grid-rows-6 gap-1 mb-4"></div>
+    <!-- New explanation container, hidden by default -->
+    <div id="explanation" class="mb-4 hidden"></div>
     <div id="keyboard" class="w-full max-w-xl p-1 bg-gray-200 rounded-md"></div>
+    
     <div class="flex space-x-4 mt-4 items-center">
         <button id="reveal-letter" class="action-button px-2 py-1 bg-yellow-500 text-white font-normal rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed text-sm">
             {GREEK_UI['reveal_button_label']}
@@ -118,501 +151,56 @@ HTML_TEMPLATE = f"""
         </div>
     </div>
 
+    <!-- Pass UI constants to the JS file -->
     <script>
-        const WORD_LENGTH = {{word_length}};
-        const MAX_GUESSES = 6;
-        const targetWord = {{target_word_placeholder}};
-        const GREEK_WORDS = {{word_list_placeholder}};
-        const themeName = "{{theme_name_placeholder}}";
-
-        const MSG_NOT_ENOUGH_LETTERS = {GREEK_UI['not_enough_letters']};
-        const MSG_NOT_IN_WORD_LIST = {GREEK_UI['not_in_word_list']};
-        const MSG_EXCELLENT = {GREEK_UI['excellent']};
-        const MSG_REVEAL_USED = {GREEK_UI['reveal_used']};
-        const MSG_NO_MORE_REVEAL = {GREEK_UI['no_more_reveal']};
-        const MSG_REVEALED = {GREEK_UI['revealed']};
-        const MSG_CANNOT_REVEAL_FULL = {GREEK_UI['cannot_reveal_full']};
-        const MSG_ERROR_INIT = {GREEK_UI['error_init']};
-        const LABEL_WORD_WAS = "{GREEK_UI['word_was_label']}";
-
-        const gridContainer = document.getElementById('grid-container');
-        const keyboardContainer = document.getElementById('keyboard');
-        const messageElement = document.getElementById('message');
-        const playAgainButton = document.getElementById('play-again');
-        const revealLetterButton = document.getElementById('reveal-letter');
-
-        let currentRowIndex = 0; let currentColIndex = 0;
-        let guesses = Array(MAX_GUESSES).fill(null).map(() => Array(WORD_LENGTH).fill(''));
-        let isGameOver = false; let isProcessing = false;
-        let keyStates = {{}}; let revealUsed = false;
-
-        const keyboardLayout = [
-            ['ε', 'ρ', 'τ', 'υ', 'θ', 'ι', 'ο', 'π'],
-            ['α', 'σ', 'δ', 'φ', 'γ', 'η', 'ξ', 'κ', 'λ'],
-            ['Enter', 'ζ', 'χ', 'ψ', 'ω', 'β', 'ν', 'μ', 'Backspace']
-        ];
-        function initializeKeyboardWithCaseInsensitivity() {{
-    // This function should be called at the beginning of the game
-    // Add event listeners to all keyboard buttons with case insensitivity
-    document.querySelectorAll('.key').forEach(key => {{
-        const keyChar = key.dataset.key; // This gets the lowercase data-key
-        if (keyChar && keyChar.length === 1 && 'αβγδεζηθικλμνξοπρστυφχψω'.includes(keyChar.toLowerCase())) {{
-            // Store both lowercase and uppercase versions for comparison
-            key.dataset.keyNormalized = normalizeSigma(keyChar.toLowerCase());
+        // Define game config in a way that's easy to debug
+        const gameConfig = {{
+            WORD_LENGTH: parseInt("{{word_length}}"),
+            MAX_GUESSES: 6,
+            targetWord: {{target_word_placeholder}},
+            targetExplanation: {{target_explanation_placeholder}},
+            GREEK_WORDS: {{word_list_placeholder}},
+            themeName: "{{theme_name_placeholder}}",
+            // Pass all UI message constants
+            MSG_NOT_ENOUGH_LETTERS: {GREEK_UI['not_enough_letters']},
+            MSG_NOT_IN_WORD_LIST: {GREEK_UI['not_in_word_list']},
+            MSG_EXCELLENT: {GREEK_UI['excellent']},
+            MSG_REVEAL_USED: {GREEK_UI['reveal_used']},
+            MSG_NO_MORE_REVEAL: {GREEK_UI['no_more_reveal']},
+            MSG_REVEALED: {GREEK_UI['revealed']},
+            MSG_CANNOT_REVEAL_FULL: {GREEK_UI['cannot_reveal_full']},
+            MSG_ERROR_INIT: {GREEK_UI['error_init']},
+            LABEL_WORD_WAS: "{GREEK_UI['word_was_label']}",
             
-            // Also add the uppercase version for easier lookup
-            key.dataset.keyUpper = keyChar.toUpperCase();
-        }}
-    }});
-}}
+            LABEL_WORD_EXPLANATION: {GREEK_UI['word_explanation_label']}
+        }};
 
-        function initializeGame() {{
-            currentRowIndex = 0; currentColIndex = 0;
-            guesses = Array(MAX_GUESSES).fill(null).map(() => Array(WORD_LENGTH).fill(''));
-            isGameOver = false; isProcessing = false; keyStates = {{}}; revealUsed = false;
-            messageElement.textContent = '';
-            playAgainButton.classList.add('hidden');
-            revealLetterButton.disabled = false;
-            revealLetterButton.classList.remove('opacity-50', 'cursor-not-allowed');
-            console.log(`Theme: ${{themeName}}, Length: ${{WORD_LENGTH}}, Target: ${{targetWord}}`);
-            createGrid(); createKeyboard(); addEventListeners();
-        }}
-
-        function createGrid() {{
-            gridContainer.innerHTML = ''; gridContainer.style.maxWidth = `${{WORD_LENGTH * 65}}px`;
-            for (let r = 0; r < MAX_GUESSES; r++) {{
-                const row = document.createElement('div'); row.classList.add('grid', `grid-cols-${{WORD_LENGTH}}`, 'gap-1'); row.dataset.row = r;
-                for (let c = 0; c < WORD_LENGTH; c++) {{
-                    const tile = document.createElement('div'); tile.classList.add('tile'); tile.dataset.row = r; tile.dataset.col = c; row.appendChild(tile);
-                }} gridContainer.appendChild(row);
-            }}
-        }}
-
-function createKeyboard() {{
-    keyboardContainer.innerHTML = '';
-    keyboardLayout.forEach(rowKeys => {{
-        const rowDiv = document.createElement('div'); 
-        rowDiv.classList.add('flex', 'justify-center', 'flex-wrap', 'mb-1');
-        rowKeys.forEach(key => {{
-            const button = document.createElement('button'); 
-            button.classList.add('key');
-            if (key === 'Enter') {{ 
-                button.textContent = '✔'; 
-            }} else if (key === 'Backspace') {{ 
-                button.textContent = '⌫'; 
-            }} else {{ 
-                button.textContent = key;
-            }}
-            
-            // Always store lowercase in data-key attribute for consistency
-            button.dataset.key = key.toLowerCase();
-            
-            // Add normalized and uppercase versions for easier matching
-            if (key.length === 1 && 'αβγδεζηθικλμνξοπρστυφχψω'.includes(key.toLowerCase())) {{
-                button.dataset.keyNormalized = normalizeSigma(key.toLowerCase());
-                button.dataset.keyUpper = key.toUpperCase();
-            }}
-            
-            if (key === 'Enter' || key === 'Backspace') {{ 
-                button.classList.add('wide'); 
-            }}
-            
-            const state = keyStates[key.toLowerCase()]; 
-            if (state) {{ button.classList.add(state); }}
-            
-            button.addEventListener('click', () => handleKeyPress(key.toLowerCase())); 
-            rowDiv.appendChild(button);
-        }}); 
-        keyboardContainer.appendChild(rowDiv);
-    }});
-}}
-
-        // This function should be defined globally before any other functions that use it
-function normalizeSigma(word) {{
-    // Return the word if it's not a string or is empty
-    if (typeof word !== 'string' || !word) {{
-        return word;
-    }}
-    // Replace all final sigma (ς) with medial sigma (σ)
-    return word.replace(/ς/g, 'σ');
-}}
-
-function forceKeyboardColors() {{
-    // For each letter in the target word, directly mark its keyboard key
-    const targetLetters = targetWord.split('');
-    
-    // Track which letters are in correct positions and which are just present
-    const correctPositions = new Array(WORD_LENGTH).fill(false);
-    const correctLetters = new Set();
-    const presentLetters = new Set();
-    
-    // First, analyze the current grid state to identify correct and present letters
-    for (let r = 0; r <= currentRowIndex; r++) {{
-        const rowGuess = guesses[r];
-        if (!rowGuess || !rowGuess.join('')) continue;
-        
-        // First pass: mark correct positions
-        for (let c = 0; c < WORD_LENGTH; c++) {{
-            const guessLetter = rowGuess[c];
-            if (!guessLetter) continue;
-            
-            const normalizedGuess = normalizeSigma(guessLetter);
-            const normalizedTarget = normalizeSigma(targetLetters[c]);
-            
-            if (normalizedGuess === normalizedTarget) {{
-                correctPositions[c] = true;
-                correctLetters.add(normalizedGuess.toUpperCase());
-            }}
-        }}
-        
-        // Second pass: mark present letters (that aren't already correct)
-        for (let c = 0; c < WORD_LENGTH; c++) {{
-            const guessLetter = rowGuess[c];
-            if (!guessLetter) continue;
-            
-            const normalizedGuess = normalizeSigma(guessLetter);
-            const normalizedGuessUpper = normalizedGuess.toUpperCase();
-            
-            // Skip if this position was correct
-            if (correctPositions[c]) continue;
-            
-            // Check if this letter exists anywhere in the target word
-            if (targetLetters.some(targetChar => 
-                normalizeSigma(targetChar) === normalizedGuess)) {{
-                presentLetters.add(normalizedGuessUpper);
-            }}
-        }}
-    }}
-    
-    // Apply the colors to the keyboard
-    // Important: Greek alphabet includes both uppercase and lowercase
-    const greekAlphabet = 'αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ';
-    
-    for (let letter of greekAlphabet) {{
-        // Try both cases - important for keys like Τ vs τ
-        const possibleSelectors = [
-            `[data-key="${{letter.toLowerCase()}}"]`,
-            `[data-key="${{letter.toUpperCase()}}"]`,
-            `[data-key="${{letter}}"]`
-        ];
-        
-        for (const selector of possibleSelectors) {{
-            const keyElement = keyboardContainer.querySelector(selector);
-            if (!keyElement) continue;
-            
-            // Normalize for checking
-            const normalizedLetter = normalizeSigma(letter).toUpperCase();
-            
-            // Clear previous state classes
-            keyElement.classList.remove('correct', 'present', 'absent');
-            
-            // Apply the appropriate class and force the color
-            if (correctLetters.has(normalizedLetter)) {{
-                keyElement.classList.add('correct');
-                keyElement.style.backgroundColor = '#6aaa64';
-                keyElement.style.borderColor = '#6aaa64';
-                keyElement.style.color = 'white';
-            }} else if (presentLetters.has(normalizedLetter)) {{
-                keyElement.classList.add('present');
-                keyElement.style.backgroundColor = '#c9b458';
-                keyElement.style.borderColor = '#c9b458';
-                keyElement.style.color = 'white';
-            }}
-        }}
-    }}
-    
-    // Debug output - uncomment if needed for troubleshooting
-    // console.log('Correct letters:', Array.from(correctLetters));
-    // console.log('Present letters:', Array.from(presentLetters));
-}}
-        function addEventListeners() {{
-            document.removeEventListener('keydown', handlePhysicalKeyboard); document.addEventListener('keydown', handlePhysicalKeyboard);
-            playAgainButton.removeEventListener('click', initializeGame); playAgainButton.addEventListener('click', initializeGame);
-            revealLetterButton.removeEventListener('click', handleRevealLetter); revealLetterButton.addEventListener('click', handleRevealLetter);
-        }}
-
-        function handlePhysicalKeyboard(event) {{
-                    if (isGameOver || isProcessing) {{ return; }}
-                    const key = event.key.toLowerCase();
-
-                    const virtualKeyElement = keyboardContainer.querySelector(`[data-key="${{key}}"]`);
-                    if (virtualKeyElement && virtualKeyElement.disabled) {{
-                        return;
-                    }}
-
-                    if (key === 'enter') {{
-                        handleKeyPress('enter');
-                    }} else if (key === 'backspace') {{
-                        handleKeyPress('backspace');
-                    }} else if (key.length === 1 && 'αβγδεζηθικλμνξοπρστυφχψω'.includes(key)) {{
-                        handleKeyPress(key);
-                    }}
-                }}
-
-        function handleKeyPress(key) {{
-            if (isGameOver || isProcessing) return;
-            if (key === 'enter') {{ submitGuess(); }} else if (key === 'backspace') {{ deleteLetter(); }} else if ('αβγδεζηθικλμνξοπρστυφχψω'.includes(key)) {{ addLetter(key); }}
-        }}
-
-        function handleRevealLetter() {{ // Doubled braces
-            if (isGameOver || isProcessing || revealUsed) {{ // Doubled braces
-                if (revealUsed) {{ showMessage(MSG_REVEAL_USED, 1500); }} // Doubled braces
-                return;
-            }} // Doubled braces
-
-            // --- Simplified Selection Logic ---
-            let possibleHints = [];
-            const targetLetters = targetWord.split(''); // Target word (e.g., ['ε', 'π', 'ο', 'ς'])
-
-            for (let i = 0; i < WORD_LENGTH; i++) {{ // Iterate through each position
-                const targetLetter = targetLetters[i]; // Target letter for this position (e.g., 'ς' at index 3)
-                const isEmptyInCurrentGuess = !guesses[currentRowIndex][i]; // Is this slot empty now?
-
-                // Check if this position 'i' was already correctly guessed in a previous row
-                let previouslyCorrect = false;
-                for (let r = 0; r < currentRowIndex; r++) {{ // Doubled braces
-                    const prevTile = getTileElement(r, i);
-                    if (prevTile && prevTile.classList.contains('correct')) {{ // Doubled braces
-                        // Normalize comparison in case previous row showed σ for target ς
-                        if (normalizeSigma(prevTile.textContent.toLowerCase()) === normalizeSigma(targetLetter)) {{ // Doubled braces
-                           previouslyCorrect = true;
-                           break;
-                        }} // Doubled braces
-                    }} // Doubled braces
-                }} // Doubled braces
-
-                // If the slot is empty in the current guess AND wasn't correct previously at this position...
-                if (isEmptyInCurrentGuess && !previouslyCorrect) {{ // Doubled braces
-                    // ...then this is a potential hint. Store the letter and its correct index.
-                    possibleHints.push({{ letter: targetLetter, index: i }});
-                }} // Doubled braces
-            }} // Doubled braces
-            // --- End Simplified Selection Logic ---
-
-
-            if (possibleHints.length === 0) {{ // Doubled braces
-                // No suitable empty slots for letters that haven't been correctly placed yet.
-                showMessage(MSG_NO_MORE_REVEAL, 1500); 
-                return;
-            }} // Doubled braces
-
-            // Choose a random hint from the valid possibilities
-            const {{ letter, index }} = possibleHints[Math.floor(Math.random() * possibleHints.length)];
-
-            // --- Placement Logic (with else block fixed) ---
-            const targetTile = getTileElement(currentRowIndex, index); 
-            
-            // Check if the target tile exists (it should) and is still empty 
-            // (redundant check based on selection logic, but safe)
-            if (targetTile && !guesses[currentRowIndex][index]) {{ // Doubled braces
-                const letterToDisplay = letter.toUpperCase(); // Display revealed letter as uppercase
-                guesses[currentRowIndex][index] = letter; // Store internal state as lowercase (might be 'ς')
-                targetTile.textContent = letterToDisplay;
-                targetTile.classList.add('filled', 'revealed'); // Mark as filled and add reveal animation class
-                
-                // Update keyboard state for the revealed letter (use normalized σ) to 'correct'
-                updateKeyboard(normalizeSigma(letter), ['correct']); 
-
-                revealUsed = true;
-                revealLetterButton.disabled = true;
-                revealLetterButton.classList.add('opacity-50', 'cursor-not-allowed');
-                
-                // Use JS concatenation for safety with Python f-strings
-                showMessage(MSG_REVEALED + ' ' + letterToDisplay, 2000); 
-
-                // Remove the visual animation class after it plays
-                setTimeout(() => {{ // Doubled braces
-                    const revealedTiles = gridContainer.querySelectorAll('.tile.revealed');
-                    revealedTiles.forEach(t => t.classList.remove('revealed'));
-                }}, 600); // Doubled braces
-            }} else {{ // Doubled braces
-                 // This block now runs if something unexpected happened 
-                 // (e.g., the slot chosen was somehow filled between selection and placement).
-                 // Avoid recursion. Just inform the user the hint failed this time.
-                 showMessage(MSG_CANNOT_REVEAL_FULL, 1500); // Or a more specific error message
-            }} // Doubled braces
-            // --- End Placement Logic ---
-
-        }} // Doubled braces
-
-        function addLetter(letter) {{
-            if (currentColIndex < WORD_LENGTH && !isGameOver && !isProcessing) {{
-                guesses[currentRowIndex][currentColIndex] = letter; const tile = getTileElement(currentRowIndex, currentColIndex);
-                if(tile) {{ tile.textContent = letter; tile.classList.add('filled'); }} currentColIndex++;
-            }}
-        }}
-        function deleteLetter() {{
-            if (currentColIndex > 0 && !isGameOver && !isProcessing) {{
-                currentColIndex--; guesses[currentRowIndex][currentColIndex] = ''; const tile = getTileElement(currentRowIndex, currentColIndex);
-                 if(tile) {{ tile.textContent = ''; tile.classList.remove('filled'); }}
-            }}
-        }}
-async function submitGuess() {{
-    if (currentColIndex !== WORD_LENGTH) {{ showMessage(MSG_NOT_ENOUGH_LETTERS); shakeRow(currentRowIndex); return; }}
-    const currentGuess = guesses[currentRowIndex].join('');
-    isProcessing = true; revealLetterButton.disabled = true;
-    const result = checkGuess(currentGuess, targetWord);
-    await animateGuessResult(currentRowIndex, result); updateKeyboard(currentGuess, result);
-    forceKeyboardColors();
-    
-    // More lenient equality check for the win condition
-    // Normalize both words to lowercase with no accents
-    const normalizedGuess = currentGuess.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    const normalizedTarget = targetWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    
-    // Compare the normalized versions
-    const isCorrect = normalizedGuess === normalizedTarget || currentGuess.toLowerCase() === targetWord.toLowerCase();
-    
-    if (isCorrect) {{
-        showMessage(MSG_EXCELLENT); isGameOver = true; playAgainButton.classList.remove('hidden'); revealLetterButton.disabled = true; danceRow(currentRowIndex);
-    }} else if (currentRowIndex === MAX_GUESSES - 1) {{
-        showMessage(`${{LABEL_WORD_WAS}} ${{targetWord.toUpperCase()}}`); isGameOver = true; playAgainButton.classList.remove('hidden'); revealLetterButton.disabled = true;
-    }} else {{
-        currentRowIndex++; currentColIndex = 0; if (!revealUsed) {{ revealLetterButton.disabled = false; }}
-    }}
-    isProcessing = false; if (isGameOver || revealUsed) {{ revealLetterButton.disabled = true; revealLetterButton.classList.add('opacity-50', 'cursor-not-allowed'); }}
-}}
-        
-function checkGuess(guess, target) {{ // Doubled braces
-        // Normalize both guess and target to use only medial sigma (σ)
-        const normalizedGuess = normalizeSigma(guess);
-        const normalizedTarget = normalizeSigma(target);
-
-        const result = Array(WORD_LENGTH).fill('absent');
-        // Perform comparisons using the normalized versions
-        const targetLetters = normalizedTarget.split('');
-        const guessLetters = normalizedGuess.split('');
-        const letterCount = {{}}; // Doubled braces for JS object literal
-
-        // Count letters in the normalized target
-        targetLetters.forEach(letter => {{ // Doubled braces
-            letterCount[letter] = (letterCount[letter] || 0) + 1;
-        }}); // Doubled braces
-
-        // First pass: Check for correct letters (Green) using normalized versions
-        for (let i = 0; i < WORD_LENGTH; i++) {{ // Doubled braces
-            // Comparison is now σ vs σ (if original was σ or ς)
-            if (guessLetters[i] === targetLetters[i]) {{ // Doubled braces
-                result[i] = 'correct';
-                // Decrement count using the normalized letter
-                if (letterCount[guessLetters[i]]) {{ // Doubled braces
-                    letterCount[guessLetters[i]]--;
-                }} // Doubled braces
-            }} // Doubled braces
-        }} // Doubled braces
-
-        // Second pass: Check for present letters (Yellow) using normalized versions
-        for (let i = 0; i < WORD_LENGTH; i++) {{ // Doubled braces
-            if (result[i] !== 'correct') {{ // Doubled braces
-                const currentLetter = guessLetters[i];
-                // Check against remaining counts in letterCount (already reflects normalized target)
-                if (targetLetters.includes(currentLetter) && letterCount[currentLetter] > 0) {{ // Doubled braces
-                    result[i] = 'present';
-                    letterCount[currentLetter]--; // Decrement count
-                }} // Doubled braces
-            }} // Doubled braces
-        }} // Doubled braces
-        return result;
-        }} // Doubled braces
-
-        function getTileElement(row, col) {{ return gridContainer.querySelector(`[data-row="${{row}}"][data-col="${{col}}"]`); }}
-        function getRowElement(row) {{ return gridContainer.querySelector(`[data-row="${{row}}"]`); }}
-        function showMessage(msg, duration = 2000) {{ messageElement.textContent = msg; if (duration > 0) {{ setTimeout(() => {{ if (messageElement.textContent === msg) {{ messageElement.textContent = ''; }} }}, duration); }} }}
-
-async function animateGuessResult(rowIndex, result) {{ 
-    // Using standard JS concatenation to avoid potential f-string/JS literal conflict
-    const rowTiles = gridContainer.querySelectorAll('[data-row="' + rowIndex + '"] .tile'); 
-    
-    if (!rowTiles) return;
-    for (let i = 0; i < WORD_LENGTH; i++) {{ 
-        const tile = rowTiles[i];
-        if (!tile) continue;
-        const state = result[i]; 
-
-        // Apply the flip animation ONLY if the state is 'absent'
-        if (state === 'absent') {{ 
-            tile.classList.add('flip');
-        }} 
-        
-        // Wait for the first half of the potential flip animation (or just a delay)
-        await new Promise(resolve => setTimeout(resolve, 150));
-        
-        // Apply the state class (correct, present, absent) to change color/style
-        tile.classList.add(state);
-        
-        // Wait for the second half of the flip ONLY if it was actually flipping (state was 'absent')
-        if (state === 'absent') {{ 
-            await new Promise(resolve => setTimeout(resolve, 150));
-        }} 
-    }}
-
-    // Force keyboard colors to update after animation is complete
-    forceKeyboardColors();
-}}
-
-       function updateKeyboard(guessOrLetter, resultOrState) {{
-    const processLetter = (letter, newState) => {{
-        const normalizedLetter = normalizeSigma(letter);
-        const keyElement = keyboardContainer.querySelector(`[data-key="${{normalizedLetter}}"]`);
-        if (!keyElement || keyElement.classList.contains('correct')) {{ return; }}
-
-        const currentKeyState = keyStates[normalizedLetter];
-        let finalState = newState;
-
-        if (currentKeyState === 'correct') {{
-            finalState = 'correct';
-        }} else if (currentKeyState === 'present' && newState === 'absent') {{
-            finalState = 'present';
-        }}
-
-        // Remove all state classes first
-        keyElement.classList.remove('correct', 'present', 'absent');
-        
-        // Then add the appropriate state class
-        keyElement.classList.add(finalState);
-        
-        // Handle disabled state separately
-        if (finalState === 'absent' && currentKeyState !== 'correct' && currentKeyState !== 'present') {{
-            keyElement.classList.add('disabled-key');
-            keyElement.disabled = true;
-        }}
-
-        keyStates[normalizedLetter] = finalState;
-    }};
-
-    if (typeof guessOrLetter === 'string' && guessOrLetter.length === 1 && Array.isArray(resultOrState)) {{
-        processLetter(guessOrLetter, resultOrState[0]);
-    }} else if (typeof guessOrLetter === 'string' && Array.isArray(resultOrState)) {{
-        const guessLetters = guessOrLetter.split('');
-        const result = resultOrState;
-        for (let i = 0; i < WORD_LENGTH; i++) {{
-            if (guessLetters[i]) {{ processLetter(guessLetters[i], result[i]); }}
-        }}
-    }}
-}}
-        function shakeRow(rowIndex) {{ const rowElement = getRowElement(rowIndex); if (rowElement) {{ rowElement.classList.add('animate-shake'); setTimeout(() => {{ rowElement.classList.remove('animate-shake'); }}, 500); }} }}
-        function danceRow(rowIndex) {{ const rowTiles = gridContainer.querySelectorAll(`[data-row="${{rowIndex}}"] .tile`); if (!rowTiles) return; rowTiles.forEach((tile, index) => {{ if (!tile) return; setTimeout(() => {{ tile.classList.add('animate-dance'); }}, index * 100); }}); }}
-
-        if (typeof WORD_LENGTH === 'number' && typeof targetWord === 'string' && Array.isArray(GREEK_WORDS) && typeof themeName === 'string') {{ initializeGame(); }}
-        else {{ console.error("Game constants not properly defined."); showMessage(MSG_ERROR_INIT, 0); }}
     </script>
-
+    
+    <!-- Reference the external JavaScript file -->
+    <script src="wordle_game.js"></script>
 </body>
 </html>
 """
 
 def load_words_from_file(filename):
-    """Loads words from a file, assuming they are Base64 encoded."""
+    """Loads words from a file, assuming they are Base64 encoded with optional descriptions."""
     words = []
+    descriptions = {}  # New dictionary to store word -> description mappings
     print(f"Loading and decoding 'encrypted' words from: {filename}") 
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             for line in f:
-                encoded_word = line.strip() # Strips whitespace from the base64 line
+                line = line.strip()
                 
                 # Skip empty lines or comments
-                if not encoded_word or encoded_word.startswith('#'): 
+                if not line or line.startswith('#'): 
                     continue
+                
+                # Split the line at comma to separate word and description
+                parts = line.split(',', 1)
+                encoded_word = parts[0].strip()
+                description = parts[1].strip() if len(parts) > 1 else ""
                     
                 try:
                     # Decode from Base64
@@ -620,41 +208,39 @@ def load_words_from_file(filename):
                     # Decode bytes to string using UTF-8
                     word = decoded_bytes.decode('utf-8').lower() 
                     
-                    # ***** FIX: Strip whitespace AGAIN after decoding *****
+                    # Strip whitespace after decoding
                     word = word.strip() 
-                    # *****************************************************
 
                     # Validation: Ensure it's alphabetic AND not empty after stripping
                     if word and word.isalpha(): 
                         words.append(word)
-                    # Optional: Keep this warning for debugging if needed
-                    # else:
-                    #    print(f"Warning: Skipped invalid/non-alpha decoded word '{word}' from line '{encoded_word}' in {filename}")
-                        
+                        if description:  # Store the description if it exists
+                            descriptions[word] = description
                 except (base64.binascii.Error, UnicodeDecodeError) as decode_error:
                     print(f"Warning: Could not decode line '{encoded_word}' in {filename}. Error: {decode_error}")
                     
         if not words: 
             print(f"Warning: No valid words found/decoded in {filename}.")
         else:
-            print(f"Successfully decoded {len(words)} words.") 
-        return words
+            print(f"Successfully decoded {len(words)} words with {len(descriptions)} descriptions.") 
+        return words, descriptions
         
     except FileNotFoundError:
         print(f"Error: Word file '{filename}' not found.")
-        return None
+        return None, None
     except Exception as e:
         print(f"An error occurred while reading {filename}: {e}")
-        return []
-    
+        return [], {}
+       
 def filter_words_by_length(word_list, length):
+    """Filter words to only include those of the specified length."""
     return [word for word in word_list if len(word) == length]
 
 def choose_theme_and_length(themes_dict, possible_lengths):
     available_themes = list(themes_dict.keys())
     if not available_themes:
         print("Error: No themes defined.")
-        return None, None, None, None
+        return None, None, None, None, None
 
     try:
         sys_random = random.SystemRandom()
@@ -665,22 +251,32 @@ def choose_theme_and_length(themes_dict, possible_lengths):
     word_file = themes_dict[chosen_theme_name]
     print(f"Selected theme: {chosen_theme_name} (using file: {word_file})")
 
-    all_words = load_words_from_file(word_file)
-    if all_words is None:
+    # Updated to handle descriptions as well
+    result = load_words_from_file(word_file)
+    if result is None or result[0] is None:
         print(f"Cannot proceed without words for theme '{chosen_theme_name}'.")
-        return None, None, None, None
+        return None, None, None, None, None
+    
+    all_words, all_descriptions = result
 
     valid_lengths = []
     words_by_length = {}
+    descriptions_by_length = {}
+    
     for length in possible_lengths:
         filtered = filter_words_by_length(all_words, length)
         if filtered:
             valid_lengths.append(length)
             words_by_length[length] = filtered
+            
+            # Filter descriptions to match the filtered words
+            filtered_descriptions = {word: all_descriptions.get(word, "") 
+                                    for word in filtered if word in all_descriptions}
+            descriptions_by_length[length] = filtered_descriptions
 
     if not valid_lengths:
         print(f"Error: No words of lengths {possible_lengths} found in {word_file}.")
-        return None, None, None, None
+        return None, None, None, None, None
 
     try:
         chosen_length = sys_random.choice(valid_lengths)
@@ -689,91 +285,112 @@ def choose_theme_and_length(themes_dict, possible_lengths):
 
     print(f"Selected word length: {chosen_length}")
     filtered_word_list = words_by_length[chosen_length]
-    return chosen_theme_name, chosen_length, filtered_word_list, word_file
-
-def choose_target_word(word_list):
-    if not word_list: return None
+    filtered_descriptions = descriptions_by_length[chosen_length]
+    
+    return chosen_theme_name, chosen_length, filtered_word_list, word_file, filtered_descriptions
+def choose_target_word(word_list, descriptions=None):
+    if not word_list: 
+        return None, None
+    
     try:
         sys_random = random.SystemRandom()
-        return sys_random.choice(word_list)
+        chosen_word = sys_random.choice(word_list)
     except NotImplementedError:
-         return random.choice(word_list)
+        chosen_word = random.choice(word_list)
+    
+    # Get the description for the chosen word, if available
+    description = ""
+    if descriptions and chosen_word in descriptions:
+        description = descriptions[chosen_word]
+    
+    return chosen_word, description
 
-
-# Function signature updated to accept the full path
-def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list):
-    # 1. Prepare JavaScript variables (theme_name_for_js, etc.)
-    #    - This logic is UNCHANGED by the filename/path modifications.
+def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list, target_description=""):
+    """Generate the HTML file for the Wordle game with all placeholders properly substituted."""
+    # 1. Prepare JavaScript variables
     theme_name_for_js = theme_name
     word_length_js = str(word_length)
     target_word_js = json.dumps(target_word)
     word_list_js = json.dumps(word_list)
+    target_description_js = json.dumps(target_description)  # New: JSON encode the description
 
     # 2. Get the HTML template content
-    html_content = HTML_TEMPLATE # Assumes HTML_TEMPLATE is defined elsewhere
+    html_content = HTML_TEMPLATE
 
     # 3. Replace placeholders in the HTML template
     html_content = html_content.replace("{theme_name_placeholder}", theme_name_for_js)
     html_content = html_content.replace("{word_length}", word_length_js)
     html_content = html_content.replace("{target_word_placeholder}", target_word_js)
     html_content = html_content.replace("{word_list_placeholder}", word_list_js)
+    html_content = html_content.replace("{target_explanation_placeholder}", target_description_js)
 
-
-    placeholders_found = []
-    # ...(placeholder checks)...
+    # 4. Make sure the JS file is copied to the same directory
+    js_source_path = os.path.join(SCRIPT_DIR, "wordle_game.js")
+    js_dest_path = os.path.join(os.path.dirname(output_filepath), "wordle_game.js")
+    
     try:
-        # Use the full filepath passed into the function
-        with open(output_filepath, 'w', encoding='utf-8') as f: # <-- Uses the full path
+        # Copy the JS file if it exists
+        if os.path.exists(js_source_path):
+            with open(js_source_path, 'r', encoding='utf-8') as src_file:
+                js_content = src_file.read()
+                
+            with open(js_dest_path, 'w', encoding='utf-8') as dest_file:
+                dest_file.write(js_content)
+                
+            print(f"JavaScript file copied to: {js_dest_path}")
+        else:
+            print(f"Warning: JavaScript file not found at {js_source_path}")
+            
+        # Write the HTML file
+        with open(output_filepath, 'w', encoding='utf-8') as f:
             f.write(html_content)
-        # Print messages using the full filepath
+            
         print(f"Successfully generated game file: '{output_filepath}'")
-        print(f"Theme: {theme_name}, Length: {word_length}, Target Word: {target_word.upper()}")
-        if not placeholders_found: print(f"Open '{output_filepath}' in your web browser to play.")
-    except IOError as e: print(f"Error writing file '{output_filepath}': {e}")
-    except Exception as e: print(f"Unexpected error writing file: {e}")
+        print(f"Theme: {theme_name}, Length: {word_length}, Target Word: {target_word}")
+        if target_description:
+            print(f"Description: {target_description}")
+        print(f"Open '{output_filepath}' in your web browser to play.")
+    except IOError as e: 
+        print(f"Error writing file '{output_filepath}': {e}")
+    except Exception as e: 
+        print(f"Unexpected error writing file: {e}")
+
 
 if __name__ == "__main__":
     print(f"--- Generating Attic Greek Wordle HTML Game ---")
     print(f"Script location: {SCRIPT_DIR}")
 
-    # Use the THEMES dictionary that uses get_data_path() for word lists
-    theme, length, words_for_length, source_file = choose_theme_and_length(THEMES, POSSIBLE_LENGTHS)
+    theme, length, words_for_length, source_file, descriptions = choose_theme_and_length(THEMES, POSSIBLE_LENGTHS)
 
     if theme and length and words_for_length and source_file:
         print(f"Found {len(words_for_length)} words of length {length} in {source_file}.")
-        target = choose_target_word(words_for_length)
+        if descriptions: # Check if descriptions dictionary exists
+             print(f"Words with descriptions: {len(descriptions)}")
 
-        if target:
-            # --- CONSTRUCT NEW FILENAME ---
-            current_date = datetime.datetime.now()
-            formatted_date = current_date.strftime("%Y-%m-%d")
-            output_filename_base = f"λεξιτήρα.html"
-            # --- END CONSTRUCT NEW FILENAME ---
+        # choose_target_word returns a tuple: (word, description)
+        word_tuple = choose_target_word(words_for_length, descriptions) 
 
-            # --- CALCULATE OUTPUT PATH RELATIVE TO SCRIPT ---
-            # 1. Go up one directory from the script's directory
+        if word_tuple and word_tuple[0]: # Check if a word was actually chosen
+            actual_target_word = word_tuple[0]
+            actual_target_description = word_tuple[1]
+
+            output_filename_base = "λεξιτήρα.html"
             parent_dir = os.path.dirname(SCRIPT_DIR)
-            # 2. Go up another directory (to the repository root)
             repo_root_dir = os.path.dirname(parent_dir)
-            # 3. Define the target directory relative to the root
             target_subdir = 'docs'
-            # 4. Construct the full absolute path to the target directory
             output_dir_absolute = os.path.join(repo_root_dir, target_subdir)
-
-            print(f"Calculated repository root: {repo_root_dir}")
-            print(f"Target output directory: {output_dir_absolute}")
-
-            # 5. Ensure the target output directory exists
             os.makedirs(output_dir_absolute, exist_ok=True)
-
-            # 6. Join the target directory path and base filename
             output_filepath = os.path.join(output_dir_absolute, output_filename_base)
-            # --- END CALCULATE OUTPUT PATH ---
 
             print(f"Generating HTML file '{output_filepath}'...")
-            # Call generate_html_file with the calculated full path
-            # (Ensure generate_html_file function accepts the full path)
-            generate_html_file(output_filepath, theme, length, target, words_for_length)
+            generate_html_file(
+                output_filepath, 
+                theme, 
+                length, 
+                actual_target_word,       # Pass the string here
+                words_for_length, 
+                actual_target_description # Pass the description string here
+            )
         else:
             print("Error: Could not choose target word.")
     else:
