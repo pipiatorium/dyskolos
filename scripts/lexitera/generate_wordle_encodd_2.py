@@ -45,6 +45,7 @@ HTML_TEMPLATE = f"""
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ἑλληνική Λέξις ({GREEK_UI['theme_label']} {{theme_name_placeholder}})</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text x='50' y='50' font-size='90' fill='red' dominant-baseline='middle' text-anchor='middle'&gt;Δ&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
