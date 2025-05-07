@@ -207,12 +207,10 @@ async function submitGuess() {
     forceKeyboardColors();
     
     // More lenient equality check for the win condition
-    // Normalize both words to lowercase with no accents
-    const normalizedGuess = currentGuess.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    const normalizedTarget = targetWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    
-    // Compare the normalized versions
-    const isCorrect = normalizedGuess === normalizedTarget || currentGuess.toLowerCase() === targetWord.toLowerCase();
+    const normalizedGuess = normalizeSigma(currentGuess).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const normalizedTarget = normalizeSigma(targetWord).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+    const isCorrect = normalizedGuess === normalizedTarget;
     
     if (isCorrect) {
         showMessage(MSG_EXCELLENT);
