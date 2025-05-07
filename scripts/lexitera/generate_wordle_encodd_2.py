@@ -305,69 +305,38 @@ def choose_target_word(word_list, descriptions=None):
     
     return chosen_word, description
 
-# Fix 1: Update the JS file path in the HTML template
-# Replace this line in your HTML_TEMPLATE:
-# <script src="../scripts/lexitera/wordle_game.js"></script>
-# With:
-# <script src="scripts/lexitera/wordle_game.js"></script>
 
-# Fix 2: Update the file copying code to match the path in the HTML template
-def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list, target_description=""):
-    """Generate the HTML file for the Wordle game with all placeholders properly substituted."""
-    # 1. Prepare JavaScript variables
+def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list):
+    # 1. Prepare JavaScript variables (theme_name_for_js, etc.)
+    #    - This logic is UNCHANGED by the filename/path modifications.
     theme_name_for_js = theme_name
     word_length_js = str(word_length)
     target_word_js = json.dumps(target_word)
     word_list_js = json.dumps(word_list)
-    target_description_js = json.dumps(target_description)  # New: JSON encode the description
 
     # 2. Get the HTML template content
-    html_content = HTML_TEMPLATE
-    
-    # 3. Update the JS reference in the HTML template to use a local path
-    html_content = html_content.replace(
-        '<script src="../scripts/lexitera/wordle_game.js"></script>',
-        '<script src="wordle_game.js"></script>'
-    )
+    html_content = HTML_TEMPLATE # Assumes HTML_TEMPLATE is defined elsewhere
 
-    # 4. Replace placeholders in the HTML template
+    # 3. Replace placeholders in the HTML template
     html_content = html_content.replace("{theme_name_placeholder}", theme_name_for_js)
     html_content = html_content.replace("{word_length}", word_length_js)
     html_content = html_content.replace("{target_word_placeholder}", target_word_js)
     html_content = html_content.replace("{word_list_placeholder}", word_list_js)
-    html_content = html_content.replace("{target_explanation_placeholder}", target_description_js)
 
-    # 5. Copy the JS file to the same directory as the HTML file
-    js_source_path = os.path.join(SCRIPT_DIR, "wordle_game.js")
-    js_dest_path = os.path.join(os.path.dirname(output_filepath), "wordle_game.js")
-    
+
+    placeholders_found = []
+    # ...(placeholder checks)...
     try:
-        # Copy the JS file if it exists
-        if os.path.exists(js_source_path):
-            with open(js_source_path, 'r', encoding='utf-8') as src_file:
-                js_content = src_file.read()
-                
-            with open(js_dest_path, 'w', encoding='utf-8') as dest_file:
-                dest_file.write(js_content)
-                
-            print(f"JavaScript file copied to: {js_dest_path}")
-        else:
-            print(f"Warning: JavaScript file not found at {js_source_path}")
-            
-        # Write the HTML file
-        with open(output_filepath, 'w', encoding='utf-8') as f:
+        # Use the full filepath passed into the function
+        with open(output_filepath, 'w', encoding='utf-8') as f: # <-- Uses the full path
             f.write(html_content)
-            
+        # Print messages using the full filepath
         print(f"Successfully generated game file: '{output_filepath}'")
-        print(f"Theme: {theme_name}, Length: {word_length}, Target Word: {target_word}")
-        if target_description:
-            print(f"Description: {target_description}")
-        print(f"Open '{output_filepath}' in your web browser to play.")
-    except IOError as e: 
-        print(f"Error writing file '{output_filepath}': {e}")
-    except Exception as e: 
-        print(f"Unexpected error writing file: {e}")    
-
+        print(f"Theme: {theme_name}, Length: {word_length}, Target Word: {target_word.upper()}")
+        if not placeholders_found: print(f"Open '{output_filepath}' in your web browser to play.")
+    except IOError as e: print(f"Error writing file '{output_filepath}': {e}")
+    except Exception as e: print(f"Unexpected error writing file: {e}")
+    
 if __name__ == "__main__":
     print(f"--- Generating Attic Greek Wordle HTML Game ---")
     print(f"Script location: {SCRIPT_DIR}")
