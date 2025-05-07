@@ -323,21 +323,23 @@ def generate_html_file(output_filepath, theme_name, word_length, target_word, wo
 
     # 2. Get the HTML template content
     html_content = HTML_TEMPLATE
+    
+    # 3. Update the JS reference in the HTML template to use a local path
+    html_content = html_content.replace(
+        '<script src="../scripts/lexitera/wordle_game.js"></script>',
+        '<script src="wordle_game.js"></script>'
+    )
 
-    # 3. Replace placeholders in the HTML template
+    # 4. Replace placeholders in the HTML template
     html_content = html_content.replace("{theme_name_placeholder}", theme_name_for_js)
     html_content = html_content.replace("{word_length}", word_length_js)
     html_content = html_content.replace("{target_word_placeholder}", target_word_js)
     html_content = html_content.replace("{word_list_placeholder}", word_list_js)
     html_content = html_content.replace("{target_explanation_placeholder}", target_description_js)
 
-    # 4. Create scripts/lexitera directory in the same location as the HTML file
-    scripts_dir = os.path.join(os.path.dirname(output_filepath), "scripts", "lexitera")
-    os.makedirs(scripts_dir, exist_ok=True)
-    
-    # Copy the JS file to the scripts/lexitera directory
+    # 5. Copy the JS file to the same directory as the HTML file
     js_source_path = os.path.join(SCRIPT_DIR, "wordle_game.js")
-    js_dest_path = os.path.join(scripts_dir, "wordle_game.js")
+    js_dest_path = os.path.join(os.path.dirname(output_filepath), "wordle_game.js")
     
     try:
         # Copy the JS file if it exists
@@ -365,6 +367,7 @@ def generate_html_file(output_filepath, theme_name, word_length, target_word, wo
         print(f"Error writing file '{output_filepath}': {e}")
     except Exception as e: 
         print(f"Unexpected error writing file: {e}")
+        
 
 if __name__ == "__main__":
     print(f"--- Generating Attic Greek Wordle HTML Game ---")
