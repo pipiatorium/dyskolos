@@ -178,7 +178,7 @@ HTML_TEMPLATE = f"""
     </script>
     
     <!-- Reference the external JavaScript file -->
-    <script src="wordle_game.js"></script>
+    <script src="../scripts/lexitera/wordle_game.js"></script>
 </body>
 </html>
 """
@@ -326,7 +326,7 @@ def generate_html_file(output_filepath, theme_name, word_length, target_word, wo
 
     # 4. Make sure the JS file is copied to the same directory
     js_source_path = os.path.join(SCRIPT_DIR, "wordle_game.js")
-    js_dest_path = os.path.join(os.path.dirname(output_filepath), "../scripts/lexitera/wordle_game.js")
+    js_dest_path = os.path.join(os.path.dirname(output_filepath), "wordle_game.js")
     
     try:
         # Copy the JS file if it exists
