@@ -366,8 +366,7 @@ def generate_html_file(output_filepath, theme_name, word_length, target_word, wo
     except IOError as e: 
         print(f"Error writing file '{output_filepath}': {e}")
     except Exception as e: 
-        print(f"Unexpected error writing file: {e}")
-        
+        print(f"Unexpected error writing file: {e}")    
 
 if __name__ == "__main__":
     print(f"--- Generating Attic Greek Wordle HTML Game ---")
