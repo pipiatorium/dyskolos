@@ -539,8 +539,8 @@ function initializeGame() {
         tile.classList.remove('fade-out');
     });
     
-    console.log(`Theme: ${themeName}, Length: ${WORD_LENGTH}, Target: ${targetWord}`);
-    console.log(`Target explanation available: ${targetExplanation ? 'Yes' : 'No'}`);
+    // console.log(`Theme: ${themeName}, Length: ${WORD_LENGTH}, Target: ${targetWord}`);
+    // console.log(`Target explanation available: ${targetExplanation ? 'Yes' : 'No'}`);
     
     createGrid();
     createKeyboard();
