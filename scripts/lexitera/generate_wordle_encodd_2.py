@@ -179,7 +179,7 @@ HTML_TEMPLATE = f"""
     </script>
     
     <!-- Reference the external JavaScript file -->
-    <script src="../scripts/lexitera/wordle_game.js"></script>
+    <script src="wordle_game.js"></script>
 </body>
 </html>
 """
