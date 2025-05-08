@@ -207,6 +207,7 @@ async function submitGuess() {
     forceKeyboardColors();
     
     // More lenient equality check for the win condition
+
     const normalizedGuess = normalizeSigma(currentGuess).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     const normalizedTarget = normalizeSigma(targetWord).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
@@ -537,8 +538,8 @@ function initializeGame() {
         tile.classList.remove('fade-out');
     });
     
-    // console.log(`Theme: ${themeName}, Length: ${WORD_LENGTH}, Target: ${targetWord}`);
-    // console.log(`Target explanation available: ${targetExplanation ? 'Yes' : 'No'}`);
+    console.log(`Theme: ${themeName}, Length: ${WORD_LENGTH}, Target: ${targetWord}`);
+    console.log(`Target explanation available: ${targetExplanation ? 'Yes' : 'No'}`);
     
     createGrid();
     createKeyboard();
