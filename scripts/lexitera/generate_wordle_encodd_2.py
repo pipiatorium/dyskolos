@@ -140,7 +140,7 @@ HTML_TEMPLATE = f"""
         <button id="play-again" class="action-button px-2 py-1 bg-blue-600 text-white font-normal rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 hidden text-sm">
             {GREEK_UI['play_again_button_label']}
         </button>
-        <a href="https://forms.gle/828Xt2x97G9FKP2DA"
+        <a href="https://forms.gle/H991LsbtHGPKSP9M6"
         target="_blank"
         class="action-button px-2 py-1 bg-green-500 text-white font-normal rounded-lg shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75 text-sm">
             Subscribe
@@ -307,7 +307,7 @@ def choose_target_word(word_list, descriptions=None):
     return chosen_word, description
 
 
-def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list):
+def generate_html_file(output_filepath, theme_name, word_length, target_word, word_list, target_description=""):
     # 1. Prepare JavaScript variables (theme_name_for_js, etc.)
     #    - This logic is UNCHANGED by the filename/path modifications.
     theme_name_for_js = theme_name
@@ -319,6 +319,7 @@ def generate_html_file(output_filepath, theme_name, word_length, target_word, wo
     html_content = HTML_TEMPLATE # Assumes HTML_TEMPLATE is defined elsewhere
 
     # 3. Replace placeholders in the HTML template
+    html_content = html_content.replace("{target_explanation_placeholder}", json.dumps(target_description))
     html_content = html_content.replace("{theme_name_placeholder}", theme_name_for_js)
     html_content = html_content.replace("{word_length}", word_length_js)
     html_content = html_content.replace("{target_word_placeholder}", target_word_js)
