@@ -125,7 +125,7 @@ HTML_TEMPLATE = f"""
 
     <header class="text-center mb-4">
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Λεξιτήρα</h1>
-        <p class="text-sm text-gray-600">{GREEK_UI['theme_label']} {{theme_name_placeholder}} - {{word_length}} {GREEK_UI['letters_label']}</p>
+        <p class="text-sm text-gray-600">{GREEK_UI['theme_label']} {{theme_name_placeholder}}</p>
     </header>
     <div id="message-container" class="h-4 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
     <div id="grid-container" class="grid grid-rows-6 gap-1 mb-4"></div>
