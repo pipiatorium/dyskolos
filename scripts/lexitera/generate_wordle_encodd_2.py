@@ -133,7 +133,10 @@ HTML_TEMPLATE = f"""
     <div id="explanation" class="mb-4 hidden"></div>
     <div id="keyboard" class="w-full max-w-xl p-1 bg-gray-200 rounded-md"></div>
     
-    <div class="flex space-x-4 mt-4 items-center">
+    <div class="flex space-x-2 mt-4 items-center">
+        <a href="index.html" aria-label="Home">
+            <i class="fas fa-home" style="font-size: 24px;"></i>
+        </a>
         <button id="reveal-letter" class="action-button px-2 py-1 bg-yellow-500 text-white font-normal rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed text-sm">
             {GREEK_UI['reveal_button_label']}
         </button>
@@ -147,7 +150,7 @@ HTML_TEMPLATE = f"""
         </a>
         <div class="social-icons-row">
             <a href="https://www.paypal.com/donate/?hosted_button_id=FLR49G2DRY2SL" target="_blank" aria-label="Donate">
-                <i class="fas fa-hand-holding-usd" style="font-size: 36px;"></i>
+                <i class="fas fa-hand-holding-usd" style="font-size: 32px;"></i>
             </a>
         </div>
     </div>
