@@ -1,4 +1,4 @@
-# Base64 Encoded Words (Obfuscated)
+# Core Philosophical Concepts
 zr3Ov8+Fz4I=, soul or spirit in ancient Greek belief.
 zrHPgc+Hzrc=, truth or reality in philosophical discourse.
 zrfOuM6/z4I=, death or mortality in classical thought.
@@ -17,7 +17,7 @@ zrHPgc+HzrHOuQ==, harmony or balanced arrangement in Greek aesthetics.
 zrXOuc60zr/Pgg==, happiness or well-being in Aristotelian ethics.
 z4DOsc64zr/Pgg==, passion or strong emotion in Greek psychology.
 z4POv8+GzrnOsQ==, wisdom or deep knowledge in philosophical virtue.
-z4TOtc+Hzr3Otw==, art or skill in ancient Greek practices.
+z4TOtc+Hzr3Otw==, art or skill in philosophical practice.
 zrzOtc+Dzr/OvQ==, method or approach in philosophical inquiry.
 zrHOvs65zrE=, worth or value in ethical considerations.
 zrbPic63, light or illumination in metaphorical thought.
@@ -30,13 +30,13 @@ z4DPgc6xzr7Ouc+C, practice or action in ethical philosophy.
 z4TOtc67zr/Pgg==, end or purpose in teleological thought.
 z4XOu863, matter or material substance in physics.
 z4bPic+C, light or brightness in natural philosophy.
-zrjOtc+DzrnPgg==, divine or godly in religious concepts.
+zrjOtc+DzrnPgg==, divine or godly in religious philosophy.
 zrjOtc+Jz4HOuc6x, theory or contemplation in philosophical method.
 zrrOuc69zrfPg865z4I=, motion or movement in natural philosophy.
 zrrOv8+DzrzOv8+C, cosmos or ordered universe in Greek cosmology.
-zrzOsc64zrfPg865z4I=, learning or education in Greek culture.
+zrzOsc64zrfPg865z4I=, learning or education in philosophical culture.
 zrzOv8+Bz4bOtw==, form or shape in Platonic metaphysics.
-zr3Ov868zr/Pgg==, law or principle in jurisprudence.
+zr3Ov868zr/Pgg==, law or principle in philosophical jurisprudence.
 zr/Ou86/zr0=, all or everything in universal concepts.
 zrHPhM6/zrzOv869, atom or indivisible element in ancient physics.
 zrPOvc+Jz4POuc+C, knowledge or understanding in cognitive philosophy.
@@ -49,3 +49,38 @@ z4PPhM6xz4POuc+C, structure or arrangement in systematic thought.
 z4PPh863zrzOsQ==, body or physical form in dualistic philosophy.
 z4TOv8+Azr/Pgg==, place or location in spatial theory.
 z4fOsc6/z4I=, space or void in physical theory.
+zr3Ov8+F, wise or possessing wisdom in ethical thinking.
+zrHOsc+G, path or method in philosophical inquiry.
+z4DPhc+B, pure or without mixture in metaphysical quality.
+zrXOtM+J, self or personal identity in consciousness studies.
+zrTOtc+J, gift or endowment in human potential theory.
+zrLPic+J, deep or profound in philosophical understanding.
+zr/OtM+J, fate or destiny in deterministic thought.
+zrzOtc+E, part or portion in ontological division.
+zrPOvc+J, sign or symbol in semiotic interpretation.
+z4bPhc+D, mind or consciousness in dualistic theory.
+zrzOv8+N, form or essential nature in Aristotelian metaphysics.
+zrHOus+N, good or excellence in ethical theory.
+z4DOtc+J, pain or suffering in hedonistic philosophy.
+zrPOtc+J, goal or target in teleological thinking.
+zrTOtc+D, bond or connection in relational ontology.
+zrPOvc+E, knowledge through direct experience.
+zrHOsc+N, axis or central principle in systematic thought.
+zrjOtc+E, thesis or proposition in argumentative logic.
+zrXOus+N, ethos or character in ethical development.
+zrfOtc+D, heat or energy in natural philosophy.
+z4TOv8+D, talk or dialogue in philosophical discourse.
+zrPOtc+D, genus or category in taxonomic thinking.
+z4TOuc+D, type or classification in logical systems.
+zrHOsc+J, arche or first principle in metaphysics.
+z4jOtc+D, soul or essential self in dualistic philosophy.
+zrrOtc+N, void or emptiness in Eastern-influenced thought.
+zr7Otc+J, flow or continual change in process philosophy.
+zrjOtc+D, them or other in philosophical anthropology.
+zr3Ov8+J, nous or divine intellect in classical thought.
+zrTOtc+N, doxa or common opinion in epistemology.
+z4TOtc+J, telos or final cause in Aristotelian philosophy.
+zrHOuc+D, aeon or age in temporal philosophy.
+zrTOtc+E, deme or social unit in political philosophy.
+zrXOus+D, eros or desire in psychological theory.
+zrzOtc+J, mean or middle way in ethical moderation.

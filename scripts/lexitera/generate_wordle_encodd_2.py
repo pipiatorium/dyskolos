@@ -15,6 +15,7 @@ THEMES = {
     "Φιλοσοφία": get_data_path("philosophy_words_encoded.txt"),
     "Ἀθήναις": get_data_path("Ἀθήναις_words_encoded.txt"),
     "Θέατρον": get_data_path("theatre_words_encoded.txt"),
+    "Μαθηματικά": get_data_path("mathematics_words_encoded.txt"),
 }
 POSSIBLE_LENGTHS = [4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6]
 

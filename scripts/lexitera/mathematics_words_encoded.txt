@@ -1,0 +1,84 @@
+# Mathematics and Geometry (4-letter terms)
+zrzOsc+E, math or calculation in Greek science.
+z4HOv8+G, root or basic solution in mathematics.
+z4TPic+H, cube or solid square in geometry.
+z4jOtc+D, line or straight path in geometry.
+zrrPhc+D, data or measured values in mathematics.
+z4fOv8+H, unit or basic measure in calculations.
+zrPPic+B, gyro or circular motion in geometry.
+z4TOtc+D, trig or angle calculations in mathematics.
+zrHOsc+D, axis or central line in geometry.
+zr/Pgc+D, sine or trigonometric function.
+zrrz41M, cone or tapered shape in geometry.
+z4DPic+D, pyth or Pythagorean theorem concept.
+zrXPg+D, area or surface extent in geometry.
+zrHPgc+D, arcs or curved segments in geometry.
+zrHPgc+M, area or measured space in geometry.
+z4bOsc+D, fold or crease in geometric transformations.
+zrTOuc+D, dual or complementary pair in mathematics.
+z4TOuc+G, norm or standard measure in calculations.
+zrLOsc+D, base or foundation in number systems.
+zrXOuc+D, hexa or six-sided shape in geometry.
+
+# Astronomy (4-letter terms)
+z4HOsc+G, star or celestial body in astronomy.
+zrHPg8+E, astr or study of celestial objects.
+z4fOsc+M, dawn or morning celestial position.
+z4TOsc+H, pole or axis of celestial rotation.
+zrrOv8+M, orbs or spherical celestial bodies.
+zrPOtc+D, glow or luminosity of stars.
+z4bOsc+D, full or complete lunar phase.
+zrPOtc+G, gaze or astronomical observation.
+z4bOsc+H, face or visible surface of moon.
+zr/Pgc+E, orbs or spherical bodies in astronomy.
+zr3Ov8+E, nova or new star in astronomical events.
+z4HOuc+D, rise or appearance of celestial bodies.
+zrPOtc+H, gaps between celestial bodies.
+z4TOtc+G, tide or gravitational effect of moon.
+zrHOsc+H, apex or highest point in celestial arc.
+
+# Medicine and Biology (4-letter terms)
+z4POsQ==, sap or plant fluid in botanical studies.
+z4HOtc+J, flow or movement of bodily fluids.
+z4bOv8+B, skin or outer covering of organisms.
+zrbPic+D, life or living state in biology.
+z4jOtc+D, thin or dilute solution in medicine.
+z4DOtc+D, pelt or animal skin in biological studies.
+z4bPhc+E, fuel or energy source for bodily functions.
+zrPOtc+E, gene or hereditary unit in biological study.
+zrfOtc+E, heal or recovery process in medicine.
+zrTOtc+E, dose or measured amount in medicine.
+zrrOtc+D, bone or skeletal element in anatomy.
+z4bPhc+D, form or structural shape in biology.
+z4HPhc+D, rate or speed of biological processes.
+zrLOtc+D, bile or digestive fluid in humoral theory.
+z4fOtc+D, herb or medicinal plant in pharmacy.
+
+# Physics and Natural Sciences (4-letter terms)
+z4bPhc+D, fluid or flowing substance in physics.
+zrjOtc+D, them or basic principle in scientific law.
+z4XOtM+E, atom or basic unit of matter.
+zrTOtc+D, disc or flat circular object in mechanics.
+z4bPic+C, fire or combustion phenomenon in physics.
+zrPPic+D, gear or mechanical rotation device.
+z4HPhc+G, rate or measure of change in physics.
+zr/Pgc+G, push or applied force in mechanics.
+zrHPgM+E, axis of rotation in mechanical physics.
+z4TOtc+J, term or endpoint in measurement.
+zrzOtc+J, mass or quantity of matter in physics.
+z4jOtc+J, heat or thermal energy in physics.
+z4jOtc+E, test or experimental trial in science.
+zrrPic+E, core or central point in physics.
+z4DPhc+E, pull or attractive force in physics.
+
+# Additional Scientific Terms (5-9 letter terms)
+zrzOv87M, model or representation in scientific study.
+z4bPhc+DzrnM, nature or physical world in scientific study.
+zrfOtc+Jz4, heat or thermal energy in physics.
+z4HOtc+Jz4, rheo or flow in fluid dynamics.
+z4PPhM+Bz4, stere or solid measurement in geometry.
+z4fPic+BzrnM, chem or substance study in natural science.
+z4TOsc+Hzrc=, tools or instruments in scientific work.
+z4DOsc67zr/M, pole or extremity in magnetic studies.
+zrLOsc+Jz4, bias or systematic error in measurements.
+zrzOtc+Ez4, meta or beyond in theoretical frameworks.

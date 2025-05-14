@@ -1,51 +1,61 @@
-# Base64 Encoded Words (Obfuscated)
-zrHOs86/z4HOsQ==, market or marketplace in ancient Greek cities.
-zr3Osc6/z4I=, temple or sacred building in religious architecture.
-z4DOv867zrnPgg==, city or city-state in ancient Greek political organization.
-zrjOtc6/z4I=, god or divine being in Greek mythology.
-zrfPgc+Jz4I=, mind or intellect in cognitive philosophy.
-zrnOtc+Bzr/OvQ==, hieros (sacred or holy) in religious contexts.
-z4PPhM6/zrE=, column or pillar in classical architecture.
-zrTOt868zr/Pgg==, people or populace in political discourse.
-zrLPic68zr/Pgg==, altar or sacred platform in religious practice.
-zr/Ouc66zr/Pgg==, house or dwelling in domestic architecture.
-zrHOs8+Jzr0=, good or virtue in ethical philosophy.
-zrvOuc68zrfOvQ==, lake or standing water in geography.
-zrHPg8+Ez4U=, star or celestial body in astronomy.
-zrHOvc63z4E=, need or necessity in philosophical concepts.
-zrHPgc+Hzrc=, principle or beginning in metaphysical thought.
-zrLOv8+FzrvOtw==, counsel or advice in practical wisdom.
-z4fOv8+Bzr/Pgg==, time or temporal dimension in philosophical discourse.
-zrXOv8+Bz4TOtw==, festival or celebration in cultural practices.
-zrjOtc6x, goddess or female deity in religious belief.
-zr/OtM6/z4I=, path or way in philosophical journey.
-zrnPgM+Azr/Pgg==, horse or equine in animal symbolism.
-zrrOt8+Azr/Pgg==, garden or cultivated space in natural settings.
-zrvOv86zzr/Pgg==, reason or rational principle in philosophical thought.
-zrzPhc64zr/Pgg==, myth or sacred story in cultural narratives.
-zr3Ouc66zrc=, victory or triumph in competitive values.
-zr7Otc69zr/Pgg==, foreign or stranger in social categories.
-zr/Pgc66zr/Pgg==, weapon or tool of war in military contexts.
-z4DOsc65z4I=, child or offspring in family relationships.
-z4HOt8+Ez4nPgQ==, rhetoric or persuasive speech in communication arts.
-z4POv8+Gzr/Pgg==, body or physical form in dualistic philosophy.
-z4TOtc+Hzr3Otw==, art or craft in creative expression.
-z4XOtM+Jz4E=, water or fluid element in natural philosophy.
-z4bPhc+DzrnPgg==, nature or natural world in philosophical thought.
-z4fOsc67zrrOv8+C, bronze or copper in metallurgical arts.
-z4jOt8+Gzr/Pgg==, animal or living creature in biological classification.
-z4nPgc6x, hour or time period in temporal measurements.
-zrXPgc6zzr/OvQ==, freedom or liberty in political philosophy.
-zrTOuc66zrc=, justice or fairness in ethical principles.
-zrXOuc66z4nOvQ==, image or likeness in representational theory.
-zrbPic63, light or illumination in metaphysical symbolism.
-zrjPhc+BzrE=, door or gateway in architectural elements.
-zrrOv8+Bzrc=, world or cosmos in cosmological thought.
-zrvPhc+BzrE=, stone or rock in material substances.
-zrzOtc67zr/Pgg==, care or concern in ethical relationships.
-zr3Ov868zr/Pgg==, law or principle in civic governance.
-zr7Ouc+Gzr/Pgg==, wooden or made of wood in material descriptions.
-zr/Ph867zr/Pgg==, gate or portal in boundary structures.
-z4DPhc67zrc=, gate or entrance in architectural features.
-z4HPhc64zrzOv8+C, rhythm or measured flow in musical theory.
-z4TOsc+Gzrc=, talent or ability in skill assessment.
+# Urban Structure & Architecture (4-letter words)
+zrHOs8+M, wine or drink in marketplace trade.
+zrzOv867, wall or defensive structure around cities.
+zr/Ouc66, clay or pottery material in artisan crafts.
+zrXPgM+D, roof or covering of buildings in architecture.
+zrTOv868, tool or instrument for civic work.
+zpTOuc+D, bridge or crossing structure in urban design.
+z4jPhc+B, sand or granular substance in building materials.
+zrTOv8+A, dome or curved roof structure in civic architecture.
+zrPOtc+B, land or territory in urban planning.
+z4DOv8+B, port or harbor for maritime trade.
+zrXPg+G, road or street in urban layout.
+zrHOs8+D, silk or fine fabric in commercial goods.
+zrfOvc+N, tax or civic duty in city governance.
+zr/Ouc67, mud or earth material in construction.
+zrXPgM+H, shop or vendor space in marketplace.
+zrTOvc+F, debt or financial obligation in commerce.
+zr7Otc+D, farm or agricultural field near city.
+zrHOus+G, seat or bench in public spaces.
+z4TOuc+H, wall or boundary marker in property division.
+zrzOv8+A, mill or processing facility in urban industry.
+zr3Otc+F, yard or enclosed outdoor space in urban dwellings.
+zr/Pgc+A, well or water source in urban infrastructure.
+zrTOtc+C, pipe or conduit in water systems.
+zrzOuc+E, mine or quarry for building materials.
+zrzOv8+E, mold or form for creating bricks.
+zrLOsc+D, bath or washing facility in public buildings.
+z4TOtc+H, tile or paving stone in urban flooring.
+zrjPhc+E, dock or landing place for boats.
+zrXPg+M, cart or wheeled transport in city streets.
+z4DOu8+H, gate tower or entrance fortification.
+zrTOtc+B, ditch or drainage channel in city planning.
+z4DOu8+B, fort or defensive structure in city protection.
+zrzOtc+H, loom or weaving tool in textile production.
+z4TOtc+G, tomb or burial place in urban outskirts.
+z4DOu8+G, porch or covered entrance to buildings.
+zr/Pgc+E, wood or timber in building construction.
+zrPOtc+G, lamp or lighting fixture in urban spaces.
+zrHOs8+G, goods or merchandise in market trade.
+z4POsc+G, fish or seafood in harbor markets.
+zrjPhc+G, door or entrance to civic buildings.
+zrLOsc+G, base or foundation of urban structures.
+zr3Otc+G, name or designation of city districts.
+zrXPg+H, edge or border of urban settlements.
+zrrOvc+G, kiln or oven for pottery making.
+zrTOtc+G, dock or wharf for maritime trade.
+zrHOs8+E, agora or central marketplace of city.
+zrLOsc+H, bath or public washing facility.
+zr/Pgc+H, path or walkway through urban areas.
+zrrOsc+G, coin or currency in commercial exchange.
+zr3Otc+G, navy or maritime defense force.
+zrHOs86/z4E=, market or marketplace in ancient Greek cities.
+z4DOv867zrnM, city or city-state in Greek organization.
+zrTOt868zr9M, people or populace in political discourse.
+zr/Ouc66zr8=, house or dwelling in domestic architecture.
+zrvOuc68zrg=, lake or standing water in geography.
+zrXOv8+Bz4Q=, feast or celebration in cultural practices.
+zrnPgM+Azr8=, horse or equine in transportation.
+zrrOt8+Azr8=, garden or cultivated space in urban settings.
+z4fOsc67zrr8=, bronze or copper in metallurgical arts.
+z4XOtM+Jz4E=, water or fluid element in city infrastructure.

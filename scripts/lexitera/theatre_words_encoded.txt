@@ -1,51 +1,52 @@
-# Base64 Encoded Words (Obfuscated)
-zrTPgc6xzrzOsQ==, miracle or wonder in religious context.
-z4POus63zr3Otw==, shadow or darkness in contrast to light.
-z4fOv8+Bzr/Pgg==, time or temporal dimension in philosophical thought.
-z4nOtM63, song or lyrical composition in Greek arts.
-zrzPhc64zr/Pgg==, myth or traditional story in Greek culture.
-zrfOuM6/z4I=, death or mortality in existential philosophy.
-z4DOsc64zr/Pgg==, passion or strong emotion in Greek psychology.
-zrvOv86zzr/Pgg==, reason or rational thought in Greek philosophy.
-zrzOtc67zr/Pgg==, care or concern in ethical relationships.
-zrjOtc6x, goddess or divine feminine in Greek religion.
-zrHPg868zrE=, number or numerical concept in Pythagorean thought.
-zrzOuc68zr/Pgg==, imitation or representation in artistic theory.
-zrrPic68zr/Pgg==, wave or undulation in natural phenomena.
-zr/Pgc+HzrfPg865z4I=, poetry or poetic creation in literary arts.
-zrjOtc+DzrnPgg==, divine or relating to gods in religious concepts.
-z4bOv86yzr/Pgg==, fear or dread in emotional experience.
-zrrPgc65z4POuc+C, crisis or decisive moment in temporal events.
-zrXOu861zr/Pgg==, freedom or liberty in political philosophy.
-zr/PiM65z4I=, quality or essence in metaphysical attributes.
-zr3Ov868zr/Pgg==, law or principle in civic governance.
-z4TOtc+Hzr3Otw==, art or craft in creative expression.
-zrHOs8+Jzr0=, good or goodness in ethical evaluation.
-zrTOv8+DzrnPgg==, opinion or belief in epistemological contexts.
-zrTOt868zr/Pgg==, people or populace in political thought.
-z4DOv867zrnPgg==, city or civic community in Greek society.
-z4HOt8+DzrnPgg==, strength or power in physical capability.
-zrHOs86zzrXOu86/z4I=, messenger or herald in mythological roles.
-z4PPhM6xz4POuc+C, structure or system in organizational thought.
-z4XOss+BzrnPgg==, excess or overabundance in ethical caution.
-zrjPhc68zrXOu863, sacrifice or offering in religious practice.
-z4HPhc64zrzOv8+C, rhythm or measured flow in aesthetic theory.
-zrHOv865zrTOv8+C, infinity or boundlessness in mathematical concepts.
-zrXPgM6/z4I=, epic or heroic narrative in literary forms.
-zrzOsc+DzrrOsQ==, music or harmonic art in Greek culture.
-zrfPh86/z4I=, thesis or proposition in dialectical method.
-z4TOv869zr/Pgg==, tension or strain in physical or emotional states.
-z4DOv865zrfPhM63z4I=, source or origin in causal relationships.
-zpTOuc6/z4I=, divine or godly essence in religious belief.
-zr/Os866zr/Pgg==, speech or discourse in communicative acts.
-zrjOuc6xz4POv8+C, healing or cure in medical practice.
-zr/Pgc68zrc=, oath or solemn promise in ethical commitment.
-zrvPhc+DzrnPgg==, grief or sorrow in emotional experience.
-z4PPh863zrzOsQ==, body or physical form in contrast to mind.
-zrXOus+Gz4HOsc+DzrnPgg==, expression or manifestation in communicative acts.
-zrTOtc6/z4I=, god or divine being in religious thought.
-zrrOtc+BzrTOv8+C, heart or emotional center in psychological theory.
-zrXPgc65z4I=, one or unity in numerical concepts.
-zr/Pgc6/z4I=, whole or completeness in holistic philosophy.
-zrvPhc+Azrc=, grief or sorrow in emotional experience.
-z4DOtc69zrjOv8+C, suffering or pain in existential conditions.RetryClaude can make mistakes.
+# Theatrical Elements (4-letter words)
+zr/OtM+M, ode or lyric poem performed with music.
+zrjOtc+C, seat or place for spectators in amphitheater.
+zrzOsc+D, mask or facial covering worn by actors.
+zrTOv8+M, role or character portrayed by an actor.
+z4fOv8+B, chorus or group of performers in Greek drama.
+zrzOtc67, plot or narrative structure in theatrical works.
+zrHOus+G, stage or platform for theatrical performances.
+zrTOsc+G, part or section of a play's structure.
+zr3Ov8+E, face or expression in dramatic portrayal.
+zr/Pgc+H, scene or setting in theatrical representation.
+zrHOus+E, aulos or double-reed wind instrument used in theatre.
+zrzOtc+E, meter or rhythmic structure in dramatic verse.
+zrXPgM+H, episode or scene division in Greek drama.
+zrjOtc+M, actor or performer in theatrical productions.
+zrTOv8+P, dance or choreographed movement in Greek theatre.
+zrzOv8+B, muse or divine inspiration for dramatic works.
+zr3Ov8+M, note or musical tone in theatrical accompaniment.
+zrPOtc+M, gaze or expressive look in actor's technique.
+z4DOsc+D, pathos or emotional appeal in tragic drama.
+zrfOv8+H, theme or central idea in dramatic work.
+zrTOv8+N, deus or divine intervention in plot resolution.
+zrHOs8+N, agon or dramatic conflict between characters.
+zrjOtc+H, theatre or physical performance space.
+zr/Ouc+M, pity or emotional response elicited in audience.
+zrXOus+H, exit or character departure in dramatic structure.
+z4TOv8+B, tone or vocal quality in dramatic delivery.
+zrTOuc+M, drama or theatrical performance genre.
+zrXOus+M, entry or character entrance in scene structure.
+z4fOv8+D, chord or musical harmony in theatrical accompaniment.
+zrLOv8+G, bema or raised speaking platform in theatre.
+z4DOsc+H, pause or dramatic silence in performance.
+zr/Ouc+D, line or verse unit in dramatic dialogue.
+zrTOsc+N, deme or community group attending performances.
+zrXPgM+G, echo or acoustic effect in theatrical space.
+z4TOv8+M, tonal or musical quality in dramatic delivery.
+z4fOv8+G, comic or humorous element in drama.
+zrfOtc+G, hero or central character in dramatic narrative.
+z4bOv8+G, fear or terror evoked by tragic drama.
+zrHOs8+G, agony or intense suffering in tragedy.
+zr/Pgc+G, play or theatrical performance work.
+zrTOv8+G, deed or action performed by characters.
+zr/Pgc+P, poem or verse composition in drama.
+zrrOvc+G, word or key line in dramatic dialogue.
+z4nOtM63, song or lyrical composition in Greek drama.
+zrzPhc64zr8=, myth or story adapted for Greek stage.
+z4DOsc64zr8=, passion or emotion in theatrical expression.
+zrzOuc68zr8=, mimesis or imitation in dramatic theory.
+z4HPhc64zrzM, rhythm or measured flow in dramatic chorus.
+zrXPgM6/z4, epic or heroic narrative adapted for stage.
+zrzOsc+DzrrM, music or harmony in theatrical accompaniment.
+z4TOv869zr8=, tension or dramatic conflict in theatrical plot.

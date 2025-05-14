@@ -1,51 +1,120 @@
-# Base64 Encoded Words (Obfuscated)
-zrjOtc6/z4I=, God or divinity in ancient Greek belief
-zpbOtc+Fz4I=, King of the Olympian gods, god of thunder and sky
-zpfPgc6x, Queen of the gods, wife of Zeus
-zpHPgc63z4I=, God of war, violence and bloodshed
-zpXPgc68zrfPgg==, Messenger god, guide to the underworld
-zpHOuM63zr3OsQ==, Goddess of wisdom, warfare and crafts
-zrfPgc+Jz4I=, Hero or demigod in Greek mythology
-zr3Ouc66zrc=, Personification of victory
-z4XOss+BzrnPgg==, Excessive pride leading to downfall
-zrzOv865z4HOsQ==, Fate, destiny, often personified as the three Fates
-zpTOuc6/z4I=, Another name for Zeus (genitive case)
-zpXPgc+Jz4I=, God of love and desire
-zpHOuc60zrfPgg==, God of the underworld and the dead
-zrzPhc64zr/Pgg==, Story or tale, often with religious significance
-zrjOtc6x, Goddess, female deity
-zpfOss63, Goddess of youth, daughter of Zeus and Hera
-zpnPgc65z4I=, Goddess of the rainbow, messenger of the gods
-zp3Ouc66zrc=, Personification of victory (capitalized form)
-z4fOsc6/z4I=, Primordial void or first existence in creation myths
-zpHPgc+EzrXOvM65z4I=, Goddess of the hunt, wilderness, and the moon
-zrTOsc65zrzPic69, Spirit or minor deity, intermediary between gods and humans
-zpnOsc66z4fOv8+C, Mysterious god associated with the Eleusinian Mysteries
-zprPgc6/zr3Ov8+C, Titan, father of Zeus, known for devouring his children
-zqHOtc6x, Titaness, mother of Zeus and many Olympians
-z4bOv86yzr/Pgg==, Personification of fear, often accompanying Ares in battle
-zrvPhc+Dz4POsQ==, Madness or frenzy, often divine punishment
-zrjPhc68zr/Pgg==, Spirit or energy, often referring to courage or anger
-zrHPgc68zrE=, Chariot, especially those used in warfare or racing
-zrrOt8+BzrXPgg==, Death spirits, often portrayed as winged female figures
-z4DPhc+B, Fire, often associated with Prometheus and civilization
-z4TPhc+Hzrc=, Luck or fortune, sometimes personified as a goddess
-zr/OvM68zrE=, Eye or sight, often referring to divine perception
-zrHOu86zzr/Pgg==, Pain or suffering, often of physical nature
-zrHOv865zrTOtw==, Song or poem, especially epic poetry
-zrXPgc65z4I=, Goddess of discord and strife
-zpvOt8+Ez4k=, Titaness, mother of Apollo and Artemis
-zrzOt869zrnPgg==, Wrath or anger, especially divine anger
-zrvOv86zzr/Pgg==, Word, speech, reason, or divine principle
-zr3Phc68z4bOtw==, Minor female deity associated with nature
-zqDOtc65zrjPiQ==, Goddess of persuasion and seduction
-zrTOv867zr/Pgg==, Trickery or deceit, often in mythological contexts
-zr3Otc66z4TOsc+B, Divine drink of the gods granting immortality
-zrPOt8+BzrHPgg==, Old age, often personified in mythology
-zrrPgc6xz4TOv8+C, Power, strength, or authority, sometimes personified
-zr3Ov8+Dz4TOv8+C, Homecoming journey, especially of heroes after war
-zqnOus61zrHOvc6/z4I=, Titan god of the great river encircling the world
-zpXPhc+Bzr/Pgg==, God of the east wind
-zp3Ov8+Ezr/Pgg==, God of the south wind
-zrvPhc+BzrE=, Musical instrument associated with Apollo
-zpzOv8+Fz4POsQ==, One of nine goddesses of inspiration in arts and sciences
+# Gods and Divine Beings (4-letter words)
+zrjOtc+J, thea or divine vision in prophetic context.
+zrHPg8+E, star or celestial element in divine myths.
+zrTOuc+D, dike or divine justice personified.
+zrLOtc+M, bow or divine weapon of Apollo and Artemis.
+zrjOtc+H, thes or miraculous divine deed.
+z4HPhc+F, rite or ritual ceremony to honor gods.
+zrjOtc+D, thin or mortal being in relation to gods.
+zrLOv8+H, bolt or thunderbolt of Zeus.
+zr/Pgc+G, oral tradition of mythological stories.
+zrHOu8+H, aule or divine court on Mount Olympus.
+zrPOt8+G, gema or divine birth or origin story.
+zrHPgM+H, agla or divine radiance or splendor.
+zrXPg+M, epic song recounting heroic deeds.
+zrfPgc+D, hero born of mortal and divine parents.
+z4TOuc+G, tomb or burial site of mythic heroes.
+zrTOsc+D, dawn or goddess of the early morning.
+z4jOtc+H, thes or sacred relic of divine origin.
+zrHOus+H, axe or double-headed weapon of gods.
+zrfOtc+J, helm of invisibility used in myths.
+zrPOtc+H, gift or offering made to appease gods.
+zrHOs8+G, ambrosia or food of the gods.
+z4XOtM+G, hydr or water serpent in mythology.
+z4DOsc+G, path or journey to the underworld.
+zrTOv8+H, dove or sacred bird in divine symbolism.
+zrHOtc+G, argo or mythic ship of heroes.
+zrLOv8+G, bond or divine punishment for mortals.
+zrjOtc+G, thes or magical artifact in myths.
+zrHOus+G, augo or divine light or radiance.
+zrcOtc+D, bell or divine musical instrument.
+z4HOsc+D, raft used in heroic sea journeys.
+zr/Ouc+G, oath sworn on the River Styx.
+z4TOuc+M, task or labor of mythic heroes.
+zrjOtc6/z4I=, God or divinity in ancient Greek belief.
+zpbOtc+Fz4I=, Zeus, king of the Olympian gods, god of thunder and sky.
+zpfPgc6x, Hera, queen of the gods, wife of Zeus.
+zpHPgc63z4I=, Ares, god of war, violence and bloodshed.
+zpXPgc68zrfPgg==, Hermes, messenger god, guide to the underworld.
+zpHOuM63zr3OsQ==, Athena, goddess of wisdom, warfare and crafts.
+zpXPgc+Jz4I=, Eros, god of love and desire.
+zpHOuc60zrfPgg==, Hades, god of the underworld and the dead.
+zrjOtc6x, Thea, goddess or female deity in general.
+zpfOss63, Hebe, goddess of youth, daughter of Zeus and Hera.
+zpnPgc65z4I=, Iris, goddess of the rainbow, messenger of the gods.
+zpHPgc+EzrXOvM65z4I=, Artemis, goddess of the hunt, wilderness, and the moon.
+zpnOsc66z4fOv8+C, Iakchos, mysterious god associated with the Eleusinian Mysteries.
+zrXPgc65z4I=, Eris, goddess of discord and strife.
+zpvOt8+Ez4k=, Leto, titaness, mother of Apollo and Artemis.
+zpXPhc+Bzr/Pgg==, Euros, god of the east wind.
+zp3Ov8+Ezr/Pgg==, Notos, god of the south wind.
+zpzOv8+Fz4POsQ==, Muse, one of nine goddesses of inspiration in arts and sciences.
+zpTOuc6/z4I=, Dios, another name for Zeus (genitive case).
+Mythological Beings and Concepts
+zrfPgc+Jz4I=, Hero or demigod in Greek mythology.
+zr3Ouc66zrc=, Nike, personification of victory.
+zrzOv865z4HOsQ==, Moira, fate or destiny, often personified as the three Fates.
+zrTOsc65zrzPic69, Daimon, spirit or minor deity between gods and humans.
+zprPgc6/zr3Ov8+C, Kronos, titan, father of Zeus, known for devouring his children.
+zqHOtc6x, Rhea, titaness, mother of Zeus and many Olympians.
+z4bOv86yzr/Pgg==, Phobos, personification of fear, often accompanying Ares.
+zrvPhc+Dz4POsQ==, Lyssa, madness or frenzy, often divine punishment.
+zrjPhc68zr/Pgg==, Thymos, spirit or energy, often referring to courage.
+zrrOt8+BzrXPgg==, Keres, death spirits, often portrayed as winged female figures.
+z4TPhc+Hzrc=, Tyche, luck or fortune, sometimes personified as a goddess.
+zrHOu86zzr/Pgg==, Algos, pain or suffering, often of physical nature.
+zrzOt869zrnPgg==, Menis, wrath or anger, especially divine anger.
+zrvOv86zzr/Pgg==, Logos, word, speech, reason, or divine principle.
+zr3Phc68z4bOtw==, Nymphe, minor female deity associated with nature.
+zqDOtc65zrjPiQ==, Peitho, goddess of persuasion and seduction.
+zrTOv867zr/Pgg==, Dolos, trickery or deceit, often in mythological contexts.
+zr3Otc66z4TOsc+B, Nektar, divine drink of the gods granting immortality.
+zrPOt8+BzrHPgg==, Geras, old age, often personified in mythology.
+zrrPgc6xz4TOv8+C, Kratos, power, strength, or authority, personified.
+zr3Ov8+Dz4TOv8+C, Nostos, homecoming journey, especially of heroes after war.
+zqnOus61zrHOvc6/z4I=, Okeanos, titan god of the great river encircling the world.
+zrvPhc+BzrE=, Lyra, musical instrument associated with Apollo.
+Mythological Elements, Artifacts, and Concepts
+z4fOsc6/z4I=, Chaos, primordial void or first existence in creation myths.
+zrzPhc64zr/Pgg==, Mythos, story or tale with religious significance.
+zrHPgc68zrE=, Harma, chariot, especially those used by gods or heroes.
+z4DPhc+B, Pyr, fire, often associated with Prometheus and civilization.
+zr/OvM68zrE=, Omma, eye or sight, often referring to divine perception.
+zrHOv865zrTOtw==, Aoide, song or poem, especially in epic poetry.
+z4XOss+BzrnPgg==, Hybris, excessive pride leading to downfall.
+zp3Ouc66zrc=, Nike, personification of victory (capitalized form).
+zrjOtc+J, thea or divine vision in prophetic context.
+zrHPg8+E, astr or starry element in celestial myths.
+zrTOuc+D, dike or divine justice personified.
+zrLOtc+M, bow or divine weapon of Apollo and Artemis.
+zrjOtc+H, thes or miraculous divine deed.
+z4HPhc+F, rhyt or ritual flow in religious ceremony.
+zrjOtc+D, thin or mortal being in relation to gods.
+zrLOv8+H, bolt or thunderbolt of Zeus.
+zr/Pgc+G, oral tradition of mythological stories.
+zrHOu8+H, aule or divine court on Mount Olympus.
+zrPOt8+G, gema or divine birth or origin story.
+zrHPgM+H, agla or divine radiance or splendor.
+zrXPg+M, epic song recounting heroic deeds.
+zrfPgc+D, hero born of mortal and divine parents.
+z4TOuc+G, tomb or burial site of mythic heroes.
+zrTOsc+D, dawn or goddess of the early morning.
+z4jOtc+H, thes or sacred relic of divine origin.
+zrHOus+H, axe or double-headed weapon of gods.
+zrfOtc+J, helm of invisibility used in myths.
+zrPOtc+H, gift or offering made to appease gods.
+zrHOs8+G, ambrosia or food of the gods.
+z4XOtM+G, hydr or water serpent in mythology.
+z4DOsc+G, path or journey to the underworld.
+zrTOv8+H, dove or sacred bird in divine symbolism.
+zrHOtc+G, argo or mythic ship of heroes.
+zrLOv8+G, bond or divine punishment for mortals.
+zrjOtc+G, thes or magical artifact in myths.
+zrHOus+G, augo or divine light or radiance.
+zrcOtc+D, bell or divine musical instrument.
+z4HOsc+D, raft used in heroic sea journeys.
+zr/Ouc+G, oath sworn on the River Styx.
+z4TOuc+M, task or labor of mythic heroes.
+zrrOtc+G, horn or cornucopia in divine bounty.
+zrjOtc+N, thin or divine rope/thread of fate.
+zrTOv8+G, door or gateway to divine realms.
