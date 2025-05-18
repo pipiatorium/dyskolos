@@ -138,6 +138,11 @@ HTML_TEMPLATE = f"""
         <a href="index.html" aria-label="Home">
             <i class="fas fa-home" style="font-size: 24px;"></i>
         </a>
+        <div class="social-icons-row">
+            <a href="https://www.paypal.com/donate/?hosted_button_id=FLR49G2DRY2SL" target="_blank" aria-label="Donate">
+                <i class="fas fa-hand-holding-usd" style="font-size: 32px;"></i>
+            </a>
+        </div>
         <button id="reveal-letter" class="action-button px-2 py-1 bg-yellow-500 text-white font-normal rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed text-sm">
             {GREEK_UI['reveal_button_label']}
         </button>
@@ -147,13 +152,8 @@ HTML_TEMPLATE = f"""
         <a href="https://forms.gle/H991LsbtHGPKSP9M6"
         target="_blank"
         class="action-button px-2 py-1 bg-green-500 text-white font-normal rounded-lg shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75 text-sm">
-            Subscribe
+            Join
         </a>
-        <div class="social-icons-row">
-            <a href="https://www.paypal.com/donate/?hosted_button_id=FLR49G2DRY2SL" target="_blank" aria-label="Donate">
-                <i class="fas fa-hand-holding-usd" style="font-size: 32px;"></i>
-            </a>
-        </div>
     </div>
 
     <!-- Pass UI constants to the JS file -->
