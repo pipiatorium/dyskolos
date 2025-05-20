@@ -1,61 +1,58 @@
-# Urban Structure & Architecture (4-letter words)
-zrHOs8+M, wine or drink in marketplace trade.
-zrzOv867, wall or defensive structure around cities.
-zr/Ouc66, clay or pottery material in artisan crafts.
-zrXPgM+D, roof or covering of buildings in architecture.
-zrTOv868, tool or instrument for civic work.
-zpTOuc+D, bridge or crossing structure in urban design.
-z4jPhc+B, sand or granular substance in building materials.
-zrTOv8+A, dome or curved roof structure in civic architecture.
-zrPOtc+B, land or territory in urban planning.
-z4DOv8+B, port or harbor for maritime trade.
-zrXPg+G, road or street in urban layout.
-zrHOs8+D, silk or fine fabric in commercial goods.
-zrfOvc+N, tax or civic duty in city governance.
-zr/Ouc67, mud or earth material in construction.
-zrXPgM+H, shop or vendor space in marketplace.
-zrTOvc+F, debt or financial obligation in commerce.
-zr7Otc+D, farm or agricultural field near city.
-zrHOus+G, seat or bench in public spaces.
-z4TOuc+H, wall or boundary marker in property division.
-zrzOv8+A, mill or processing facility in urban industry.
-zr3Otc+F, yard or enclosed outdoor space in urban dwellings.
-zr/Pgc+A, well or water source in urban infrastructure.
-zrTOtc+C, pipe or conduit in water systems.
-zrzOuc+E, mine or quarry for building materials.
-zrzOv8+E, mold or form for creating bricks.
-zrLOsc+D, bath or washing facility in public buildings.
-z4TOtc+H, tile or paving stone in urban flooring.
-zrjPhc+E, dock or landing place for boats.
-zrXPg+M, cart or wheeled transport in city streets.
-z4DOu8+H, gate tower or entrance fortification.
-zrTOtc+B, ditch or drainage channel in city planning.
-z4DOu8+B, fort or defensive structure in city protection.
-zrzOtc+H, loom or weaving tool in textile production.
-z4TOtc+G, tomb or burial place in urban outskirts.
-z4DOu8+G, porch or covered entrance to buildings.
-zr/Pgc+E, wood or timber in building construction.
-zrPOtc+G, lamp or lighting fixture in urban spaces.
-zrHOs8+G, goods or merchandise in market trade.
-z4POsc+G, fish or seafood in harbor markets.
-zrjPhc+G, door or entrance to civic buildings.
-zrLOsc+G, base or foundation of urban structures.
-zr3Otc+G, name or designation of city districts.
-zrXPg+H, edge or border of urban settlements.
-zrrOvc+G, kiln or oven for pottery making.
-zrTOtc+G, dock or wharf for maritime trade.
-zrHOs8+E, agora or central marketplace of city.
-zrLOsc+H, bath or public washing facility.
-zr/Pgc+H, path or walkway through urban areas.
-zrrOsc+G, coin or currency in commercial exchange.
-zr3Otc+G, navy or maritime defense force.
-zrHOs86/z4E=, market or marketplace in ancient Greek cities.
-z4DOv867zrnM, city or city-state in Greek organization.
-zrTOt868zr9M, people or populace in political discourse.
-zr/Ouc66zr8=, house or dwelling in domestic architecture.
-zrvOuc68zrg=, lake or standing water in geography.
-zrXOv8+Bz4Q=, feast or celebration in cultural practices.
-zrnPgM+Azr8=, horse or equine in transportation.
-zrrOt8+Azr8=, garden or cultivated space in urban settings.
-z4fOsc67zrr8=, bronze or copper in metallurgical arts.
-z4XOtM+Jz4E=, water or fluid element in city infrastructure.
+zpHOk86fzqHOkQ==, marketplace or central gathering place in Athens.
+zp/Omc6azp/Oow==, house or private dwelling in Athenian neighborhoods.
+zqDOn86bzpnOow==, city-state as the fundamental Greek political unit.
+zqXOlM6pzqE=, water or public fountain in city infrastructure.
+zpvOmc6czpfOnQ==, harbor for Athenian maritime trade.
+zp7Opc6bzp/OnQ==, wood used in Athenian construction.
+zp3Okc6fzqM=, temple dedicated to gods in Athens.
+zpTOl86czp/Oow==, people or citizenry of Athens.
+zqPOpM6fzpE=, covered walkway or colonnade in public areas.
+zpHOo86kzqU=, urban center or town of Athens.
+zqTOlc6ZzqfOn86j, wall or fortification surrounding Athens.
+zpTOmc6azpc=, justice or legal proceedings in Athenian courts.
+zpLOqc6czp/Oow==, altar for religious ceremonies.
+zpjOlc6fzpk=, gods worshipped in Athenian religion.
+zpnOlc6hzp/OnQ==, sacred place or sanctuary.
+zp/OlM6fzqM=, road or street in Athenian urban planning.
+zpHOoc6nzqnOnQ==, archon or chief magistrate of Athens.
+zpLOn86lzpvOlw==, council of citizens in Athenian democracy.
+zpHOk86pzp0=, contest or competition in Athenian festivals.
+zqfOn86hzp/Oow==, chorus in Greek theatrical performances.
+zpTOn86lzpvOn86j, slave in Athenian household or society.
+zp3On86czp/Oow==, law or established custom in Athens.
+zpHOk86hzp/Oow==, field or farmland outside the city walls.
+zprOl86gzp/Oow==, garden or cultivated space in urban settings.
+zpTOl86czp/Oow==, district or administrative division of Attica.
+zqPOn86mzp/Oow==, wise person or philosopher in Athenian society.
+zqTOlc6nzp3Olw==, craft or artistic skill valued in Athens.
+zpHOoc6VzqTOlw==, virtue or excellence in Athenian philosophy.
+zpzOpc6Yzp/Oow==, myth or traditional story in Athenian culture.
+zpXOoc6Tzp/OnQ==, work or deed in Athenian ethics.
+zp3Omc6azpc=, victory celebrated in Athenian competitions.
+zp7Olc6dzp/Oow==, foreigner or guest in Athenian society.
+zp/OoM6bzp/OnQ==, weapon or armor of Athenian soldiers.
+zqbOmc6bzp/Oow==, friend or ally in Athenian social networks.
+zqHOl86kzqnOoQ==, orator or public speaker in Athenian politics.
+zpzOlc6kzqHOn86d, measure or standard in Athenian commerce.
+zpvOn86Tzp/Oow==, word, speech, or reason in Athenian philosophy.
+zpjOlc6RzqTOoc6fzp0=, theater where dramatic festivals were held.
+zpHOk86TzpXOmc6fzp0=, vessel or container for Athenian storage.
+zp/Ooc6fzqM=, boundary marker in Athenian property division.
+zp/Oks6fzpvOn86j, small coin in Athenian currency system.
+zpbOqc6fzp0=, animal depicted in Athenian art.
+zpjOpc6hzpE=, door or gateway to Athenian buildings.
+zqPOpM6VzpPOlw==, roof covering Athenian structures.
+zprOm86XzqHOn86j, plot of land assigned to Athenian citizens.
+zprOoc6Xzp3Olw==, fountain or water source in Athenian public spaces.
+zpHOmM6bzp/OnQ==, prize awarded in Athenian competitions.
+zpTOoc6RzpzOkQ==, drama performed in Athenian festivals.
+zpTOlc6jzpzOn86j, bond or fetters in Athenian legal punishment.
+zp/Omc6dzp/Oow==, wine consumed at Athenian symposia.
+zprOm86Zzp3Olw==, couch used for reclining at Athenian gatherings.
+zqHOpc6YzpzOn86j, rhythm in Athenian music and poetry.
+zqPOms6ZzpE=, shadow or shade sought in Athenian heat.
+zpLOmc6fzqM=, life or way of living in Athens.
+zpzOnc6XzpzOkQ==, monument or memorial to Athenian dead.
+zprOn86hzpc=, maiden in Athenian society or sculptural form.
+zpPOkc6czp/Oow==, marriage or wedding celebration in Athens.
+zpnOoM6gzp/Oow==, horse used for Athenian transport and cavalry.

@@ -1,86 +1,50 @@
-# Core Philosophical Concepts
-zr3Ov8+Fz4I=, soul or spirit in ancient Greek belief.
-zrHPgc+Hzrc=, truth or reality in philosophical discourse.
-zrfOuM6/z4I=, death or mortality in classical thought.
-z4bPhc+DzrnPgg==, nature or natural world in Greek philosophy.
-zrvOv86zzr/Pgg==, reason or rational thought in ancient wisdom.
-z4jPhc+Hzrc=, life or vitality in Greek conceptualization.
-zrnOtM61zrE=, idea or concept in Platonic philosophy.
-zrrOsc67zr/OvQ==, beauty or aesthetic excellence in classical aesthetics.
-zrXOvs65z4I=, knowledge or understanding in epistemology.
-zrTOv86+zrE=, glory or honor in ancient Greek values.
-zrHPgc61z4TOtw==, virtue or moral excellence in ethical philosophy.
-z4bOuc67zrnOsQ==, friendship or affection in Greek social concepts.
-zrHOs86xzrjOv869, good or goodness in moral philosophy.
-zrHOuc+EzrnOsQ==, cause or origin in metaphysical thought.
-zrHPgc+HzrHOuQ==, harmony or balanced arrangement in Greek aesthetics.
-zrXOuc60zr/Pgg==, happiness or well-being in Aristotelian ethics.
-z4DOsc64zr/Pgg==, passion or strong emotion in Greek psychology.
-z4POv8+GzrnOsQ==, wisdom or deep knowledge in philosophical virtue.
-z4TOtc+Hzr3Otw==, art or skill in philosophical practice.
-zrzOtc+Dzr/OvQ==, method or approach in philosophical inquiry.
-zrHOvs65zrE=, worth or value in ethical considerations.
-zrbPic63, light or illumination in metaphorical thought.
-zrXPgc6zzr/OvQ==, freedom or liberty in political philosophy.
-zrXOvQ==, one or unity in metaphysical concepts.
-zrzOtc+Ez4HOv869, proportion or balanced measure in aesthetics.
-zr/Ovc+EzrE=, being or existence in ontological discussions.
-zr/Pgc6/z4I=, whole or completeness in holistic thinking.
-z4DPgc6xzr7Ouc+C, practice or action in ethical philosophy.
-z4TOtc67zr/Pgg==, end or purpose in teleological thought.
-z4XOu863, matter or material substance in physics.
-z4bPic+C, light or brightness in natural philosophy.
-zrjOtc+DzrnPgg==, divine or godly in religious philosophy.
-zrjOtc+Jz4HOuc6x, theory or contemplation in philosophical method.
-zrrOuc69zrfPg865z4I=, motion or movement in natural philosophy.
-zrrOv8+DzrzOv8+C, cosmos or ordered universe in Greek cosmology.
-zrzOsc64zrfPg865z4I=, learning or education in philosophical culture.
-zrzOv8+Bz4bOtw==, form or shape in Platonic metaphysics.
-zr3Ov868zr/Pgg==, law or principle in philosophical jurisprudence.
-zr/Ou86/zr0=, all or everything in universal concepts.
-zrHPhM6/zrzOv869, atom or indivisible element in ancient physics.
-zrPOvc+Jz4POuc+C, knowledge or understanding in cognitive philosophy.
-zrTOuc66zrc=, justice or fairness in ethical theory.
-zrjOsc69zrHPhM6/z4I=, death or mortality in existential thought.
-zrvOt864zrc=, oblivion or forgetting in psychological concepts.
-zrzOvc63zrzOtw==, memory or recollection in Platonic theory.
-z4DPhc+B, fire or elemental force in ancient cosmology.
-z4PPhM6xz4POuc+C, structure or arrangement in systematic thought.
-z4PPh863zrzOsQ==, body or physical form in dualistic philosophy.
-z4TOv8+Azr/Pgg==, place or location in spatial theory.
-z4fOsc6/z4I=, space or void in physical theory.
-zr3Ov8+F, wise or possessing wisdom in ethical thinking.
-zrHOsc+G, path or method in philosophical inquiry.
-z4DPhc+B, pure or without mixture in metaphysical quality.
-zrXOtM+J, self or personal identity in consciousness studies.
-zrTOtc+J, gift or endowment in human potential theory.
-zrLPic+J, deep or profound in philosophical understanding.
-zr/OtM+J, fate or destiny in deterministic thought.
-zrzOtc+E, part or portion in ontological division.
-zrPOvc+J, sign or symbol in semiotic interpretation.
-z4bPhc+D, mind or consciousness in dualistic theory.
-zrzOv8+N, form or essential nature in Aristotelian metaphysics.
-zrHOus+N, good or excellence in ethical theory.
-z4DOtc+J, pain or suffering in hedonistic philosophy.
-zrPOtc+J, goal or target in teleological thinking.
-zrTOtc+D, bond or connection in relational ontology.
-zrPOvc+E, knowledge through direct experience.
-zrHOsc+N, axis or central principle in systematic thought.
-zrjOtc+E, thesis or proposition in argumentative logic.
-zrXOus+N, ethos or character in ethical development.
-zrfOtc+D, heat or energy in natural philosophy.
-z4TOv8+D, talk or dialogue in philosophical discourse.
-zrPOtc+D, genus or category in taxonomic thinking.
-z4TOuc+D, type or classification in logical systems.
-zrHOsc+J, arche or first principle in metaphysics.
-z4jOtc+D, soul or essential self in dualistic philosophy.
-zrrOtc+N, void or emptiness in Eastern-influenced thought.
-zr7Otc+J, flow or continual change in process philosophy.
-zrjOtc+D, them or other in philosophical anthropology.
-zr3Ov8+J, nous or divine intellect in classical thought.
-zrTOtc+N, doxa or common opinion in epistemology.
-z4TOtc+J, telos or final cause in Aristotelian philosophy.
-zrHOuc+D, aeon or age in temporal philosophy.
-zrTOtc+E, deme or social unit in political philosophy.
-zrXOus+D, eros or desire in psychological theory.
-zrzOtc+J, mean or middle way in ethical moderation.
+zp3On86lzqM=, mind or intellect in ancient Greek philosophy.
+zpHOoc6nzpc=, beginning or first principle in philosophical discourse.
+zpfOmM6fzqM=, character or moral disposition in classical thought.
+zqbOpc6jzpnOow==, nature or inherent quality in Greek philosophy.
+zpvOn86Tzp/Oow==, reason or rational principle in ancient wisdom.
+zqjOpc6nzpc=, soul or animating force in Greek conceptualization.
+zpnOlM6VzpE=, idea or form in Platonic philosophy.
+zprOkc6bzp/OnQ==, beauty or aesthetic excellence in classical aesthetics.
+zpXOns6ZzqM=, habit or disposition in Aristotelian philosophy.
+zpTOn86ezpE=, opinion or belief in epistemology.
+zpHOoc6VzqTOlw==, virtue or moral excellence in ethical philosophy.
+zqbOmc6bzpnOkQ==, friendship or affection in Greek social concepts.
+zpHOk86RzpjOn86d, good or goodness in moral philosophy.
+zpHOmc6kzpnOkQ==, cause or explanation in metaphysical thought.
+zpXOmc6Uzp/Oow==, form or essence in Platonic metaphysics.
+zqDOkc6Yzp/Oow==, passion or suffering in Greek psychology.
+zqPOn86mzpnOkQ==, wisdom or philosophical knowledge.
+zqTOlc6nzp3Olw==, art or craft in philosophical practice.
+zpzOlc6jzp/OnQ==, middle or mean in Aristotelian ethics.
+zpHOns6ZzpE=, worth or value in ethical considerations.
+zpbOqc6Xzp0=, life or existence in philosophical discourse.
+zpXOoc6Tzp/OnQ==, work or function in teleological philosophy.
+zpHOpM6fzpzOn86d, individual or indivisible particle.
+zpzOlc6kzqHOn86d, measure or appropriate proportion.
+zp/Onc6kzpE=, beings or existents in ontological discussions.
+zp/Om86fzp0=, whole or entirety in holistic thinking.
+zqDOoc6Rzp7Omc6j, action or practice in ethical philosophy.
+zqTOlc6bzp/Oow==, end or purpose in teleological thought.
+zqXOm86Xzp0=, matter or material in physical philosophy.
+zqbOkc6fzqM=, light or illumination in metaphorical thought.
+zpjOlc6fzqM=, god or divine being in religious philosophy.
+zpjOlc6jzpnOow==, position or arrangement in logical argument.
+zprOlc6dzp/OnQ==, void or empty space in physical philosophy.
+zprOoc6RzqPOmc6j, mixture or blending in natural philosophy.
+zprOmc6dzpfOo86ZzqM=, motion or change in natural philosophy.
+zprOn86jzpzOn86j, order or universe in Greek cosmology.
+zpzOkc6YzpfOo86ZzqM=, learning or intellectual acquisition.
+zpzOn86hzqbOlw==, shape or structure in metaphysics.
+zp3On86czp/Oow==, law or custom in social philosophy.
+zpzOlc6Yzp/OlM6fzqM=, method or systematic investigation.
+zpPOnc6pzqPOmc6j, knowledge or insight in cognitive philosophy.
+zpTOmc6azpc=, justice or moral rightness in ethical theory.
+zpTOlc6jzpzOn86j, bond or connection in physical theory.
+zpjOkc6dzpHOpM6fzqM=, death or mortality in existential thought.
+zpvOl86Yzpc=, forgetfulness or oblivion in psychology.
+zpzOnc6XzpzOlw==, memory or recollection in Platonic theory.
+zqDOpc6hzp/Oow==, fire or transformative element in cosmology.
+zqPOpM6RzqPOmc6j, rest or stability in metaphysical thought.
+zqPOp86XzpzOkQ==, figure or form in geometric philosophy.
+zqTOn86gzp/Oow==, place or location in spatial theory.

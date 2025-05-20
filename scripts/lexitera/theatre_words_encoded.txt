@@ -1,52 +1,50 @@
-# Theatrical Elements (4-letter words)
-zr/OtM+M, ode or lyric poem performed with music.
-zrjOtc+C, seat or place for spectators in amphitheater.
-zrzOsc+D, mask or facial covering worn by actors.
-zrTOv8+M, role or character portrayed by an actor.
-z4fOv8+B, chorus or group of performers in Greek drama.
-zrzOtc67, plot or narrative structure in theatrical works.
-zrHOus+G, stage or platform for theatrical performances.
-zrTOsc+G, part or section of a play's structure.
-zr3Ov8+E, face or expression in dramatic portrayal.
-zr/Pgc+H, scene or setting in theatrical representation.
-zrHOus+E, aulos or double-reed wind instrument used in theatre.
-zrzOtc+E, meter or rhythmic structure in dramatic verse.
-zrXPgM+H, episode or scene division in Greek drama.
-zrjOtc+M, actor or performer in theatrical productions.
-zrTOv8+P, dance or choreographed movement in Greek theatre.
-zrzOv8+B, muse or divine inspiration for dramatic works.
-zr3Ov8+M, note or musical tone in theatrical accompaniment.
-zrPOtc+M, gaze or expressive look in actor's technique.
-z4DOsc+D, pathos or emotional appeal in tragic drama.
-zrfOv8+H, theme or central idea in dramatic work.
-zrTOv8+N, deus or divine intervention in plot resolution.
-zrHOs8+N, agon or dramatic conflict between characters.
-zrjOtc+H, theatre or physical performance space.
-zr/Ouc+M, pity or emotional response elicited in audience.
-zrXOus+H, exit or character departure in dramatic structure.
-z4TOv8+B, tone or vocal quality in dramatic delivery.
-zrTOuc+M, drama or theatrical performance genre.
-zrXOus+M, entry or character entrance in scene structure.
-z4fOv8+D, chord or musical harmony in theatrical accompaniment.
-zrLOv8+G, bema or raised speaking platform in theatre.
-z4DOsc+H, pause or dramatic silence in performance.
-zr/Ouc+D, line or verse unit in dramatic dialogue.
-zrTOsc+N, deme or community group attending performances.
-zrXPgM+G, echo or acoustic effect in theatrical space.
-z4TOv8+M, tonal or musical quality in dramatic delivery.
-z4fOv8+G, comic or humorous element in drama.
-zrfOtc+G, hero or central character in dramatic narrative.
-z4bOv8+G, fear or terror evoked by tragic drama.
-zrHOs8+G, agony or intense suffering in tragedy.
-zr/Pgc+G, play or theatrical performance work.
-zrTOv8+G, deed or action performed by characters.
-zr/Pgc+P, poem or verse composition in drama.
-zrrOvc+G, word or key line in dramatic dialogue.
-z4nOtM63, song or lyrical composition in Greek drama.
-zrzPhc64zr8=, myth or story adapted for Greek stage.
-z4DOsc64zr8=, passion or emotion in theatrical expression.
-zrzOuc68zr8=, mimesis or imitation in dramatic theory.
-z4HPhc64zrzM, rhythm or measured flow in dramatic chorus.
-zrXPgM6/z4, epic or heroic narrative adapted for stage.
-zrzOsc+DzrrM, music or harmony in theatrical accompaniment.
-z4TOv869zr8=, tension or dramatic conflict in theatrical plot.
+zqnOmc6Uzpc=, song or lyric poem performed in drama.
+zpjOlc6R, viewing or spectating of theatrical performances.
+zqfOn86hzp/Oow==, chorus or dancing and singing group in drama.
+zpzOpc6Yzp/Oow==, myth or plot in Greek dramatic works.
+zpTOoc6RzpzOkQ==, drama or theatrical performance.
+zqPOms6Xzp3Olw==, stage or scene building for performances.
+zpzOlc6bzp/Oow==, melody or musical element in Greek drama.
+zpjOoc6Xzp3On86j, lament or funeral song in tragic drama.
+zqDOkc6Yzp/Oow==, suffering or emotional element in tragedy.
+zpzOmc6czp/Oow==, mime or imitative theatrical performance.
+zpzOlc6kzqHOn86d, meter or rhythmic pattern in dramatic verse.
+zpXOm86Vzp/Oow==, pity or compassion aroused by tragedy.
+zqbOn86Szp/Oow==, fear or terror evoked by tragic plots.
+zpfOmM6fzqM=, character or moral nature in dramatic roles.
+zp/Ok86azp/Oow==, grandeur or dignity in tragic performance.
+zp/OqM6ZzqM=, spectacle or visual aspect of performance.
+zpHOk86pzp0=, contest or conflict between characters.
+zpvOlc6ezpnOow==, diction or style of language in drama.
+zqHOl86jzpnOow==, speech or extended utterance by an actor.
+zprOqc6czp/Oow==, festive procession in comedic performances.
+zprOn86czpzOn86j, ritual lament shared by actors and chorus.
+zpzOkc6jzprOkQ==, mask or facial covering worn by actors.
+zp/Op86bzp/Oow==, audience or crowd at theatrical events.
+zpHOm86Tzp/Oow==, pain or suffering portrayed in tragedy.
+zpHOo86czpE=, song or musical piece in performances.
+zqHOn86bzp/Oow==, role or character portrayed by an actor.
+zqnOmc6Uzp/Oow==, singer or performer of lyric sections.
+zqHOn86X, flow or rhythm of dramatic performance.
+zqTOn86dzp/Oow==, tone or pitch in vocal delivery.
+zpfOp86fzqM=, sound or auditory element in drama.
+zqbOqc6dzpc=, voice or vocal quality of performer.
+zpXOoM6fzqM=, epic or story element in theatrical works.
+zpPOlc6bzqnOow==, laughter or comic response from audience.
+zqDOn86dzp/Oow==, toil or struggle portrayed in drama.
+zp3Omc6azpc=, victory or triumph in dramatic contests.
+zpXOoc6Tzp/OnQ==, work or theatrical creation as a whole.
+zqPOms6ZzpE=, shadow or dark element in theatrical staging.
+zpLOmc6fzqM=, life or human experience depicted in drama.
+zpvOpc6hzpE=, lyre or musical instrument in performances.
+zqPOkc6kzqXOoc6ZzprOn86d, satyr play or lighter dramatic form.
+zpjOlc6RzqTOoc6fzp0=, theater or place for viewing performances.
+zqDOoc6fzqPOqc6gzpXOmc6fzp0=, mask worn by actors in performances.
+zp/Ooc6nzpfOo86kzqHOkQ==, orchestra or dancing area for the chorus.
+zqHOpc6YzpzOn86j, rhythm or measured movement in performance.
+zpTOmc6YzqXOoc6RzpzOks6fzqM=, dithyramb or choral hymn to Dionysus.
+zpXOns6fzpTOn86j, exit or final part of a Greek tragedy.
+zqPOpM6RzqPOmc6czp/OnQ==, stasimon or choral ode between episodes.
+zqTOoc6RzpPOqc6ZzpTOmc6R, tragedy or serious dramatic form.
+zprOqc6czqnOmc6UzpnOkQ==, comedy or humorous dramatic form.
+zqXOoM6fzprOoc6ZzqTOl86j, actor or performer in theatrical productions.
