@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ἑλληνική Λέξις (Θέμα· Ἀθήναις)</title>
+    <title>Ἑλληνική Λέξις (Θέμα· Μαθηματικά)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text x='50' y='50' font-size='90' fill='red' dominant-baseline='middle' text-anchor='middle'&gt;Δ&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +86,7 @@
 
     <header class="text-center mb-4">
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Λεξιτήρα</h1>
-        <p class="text-sm text-gray-600">Θέμα· Ἀθήναις</p>
+        <p class="text-sm text-gray-600">Θέμα· Μαθηματικά</p>
     </header>
     <div id="message-container" class="h-4 mb-2 text-center font-semibold text-red-600"><p id="message"></p></div>
     <div id="grid-container" class="grid grid-rows-6 gap-1 mb-4"></div>
@@ -122,10 +122,10 @@
         const gameConfig = {
             WORD_LENGTH: parseInt("5"),
             MAX_GUESSES: 6,
-            targetWord: "\u03bf\u03b9\u03ba\u03bf\u03c2",
-            targetExplanation: "house or private dwelling in Athenian neighborhoods.",
-            GREEK_WORDS: ["\u03b1\u03b3\u03bf\u03c1\u03b1", "\u03bf\u03b9\u03ba\u03bf\u03c2", "\u03c0\u03bf\u03bb\u03b9\u03c2", "\u03bb\u03b9\u03bc\u03b7\u03bd", "\u03be\u03c5\u03bb\u03bf\u03bd", "\u03b4\u03b7\u03bc\u03bf\u03c2", "\u03b2\u03c9\u03bc\u03bf\u03c2", "\u03b9\u03b5\u03c1\u03bf\u03bd", "\u03b1\u03c1\u03c7\u03c9\u03bd", "\u03b2\u03bf\u03c5\u03bb\u03b7", "\u03c7\u03bf\u03c1\u03bf\u03c2", "\u03bd\u03bf\u03bc\u03bf\u03c2", "\u03b1\u03b3\u03c1\u03bf\u03c2", "\u03ba\u03b7\u03c0\u03bf\u03c2", "\u03b4\u03b7\u03bc\u03bf\u03c2", "\u03c3\u03bf\u03c6\u03bf\u03c2", "\u03c4\u03b5\u03c7\u03bd\u03b7", "\u03b1\u03c1\u03b5\u03c4\u03b7", "\u03bc\u03c5\u03b8\u03bf\u03c2", "\u03b5\u03c1\u03b3\u03bf\u03bd", "\u03be\u03b5\u03bd\u03bf\u03c2", "\u03bf\u03c0\u03bb\u03bf\u03bd", "\u03c6\u03b9\u03bb\u03bf\u03c2", "\u03c1\u03b7\u03c4\u03c9\u03c1", "\u03bb\u03bf\u03b3\u03bf\u03c2", "\u03c3\u03c4\u03b5\u03b3\u03b7", "\u03ba\u03c1\u03b7\u03bd\u03b7", "\u03b1\u03b8\u03bb\u03bf\u03bd", "\u03b4\u03c1\u03b1\u03bc\u03b1", "\u03bf\u03b9\u03bd\u03bf\u03c2", "\u03ba\u03bb\u03b9\u03bd\u03b7", "\u03bc\u03bd\u03b7\u03bc\u03b1", "\u03b3\u03b1\u03bc\u03bf\u03c2", "\u03b9\u03c0\u03c0\u03bf\u03c2"],
-            themeName: "Ἀθήναις",
+            targetWord: "\u03c0\u03cc\u03bb\u03bf\u03c2",
+            targetExplanation: "polos or celestial axis around which stars revolve.",
+            GREEK_WORDS: ["\u03bb\u03cc\u03b3\u03bf\u03c2", "\u03b3\u03c9\u03bd\u03af\u03b1", "\u03bc\u03ad\u03c1\u03bf\u03c2", "\u03ba\u03cd\u03b2\u03bf\u03c2", "\u03b2\u03ac\u03c3\u03b9\u03c2", "\u03bc\u03bf\u03bd\u03ac\u03c2", "\u1f44\u03b3\u03ba\u03bf\u03c2", "\u1f25\u03bb\u03b9\u03bf\u03c2", "\u03c0\u03cc\u03bb\u03bf\u03c2", "\u03c4\u03c1\u03bf\u03c0\u03ae", "\u03c6\u03ac\u03c3\u03b9\u03c2", "\u03b1\u1f30\u03b8\u03ae\u03c1", "\u03c6\u03cd\u03c3\u03b9\u03c2", "\u03bd\u03cc\u03c3\u03bf\u03c2", "\u03c7\u03c5\u03bc\u03cc\u03c2", "\u03bc\u03ae\u03c4\u03c1\u03b1", "\u1fe5\u03b5\u1fe6\u03bc\u03b1", "\u03c6\u03cd\u03c3\u03b9\u03c2", "\u03c4\u03cc\u03c0\u03bf\u03c2", "\u03ba\u03b5\u03bd\u03cc\u03bd", "\u03b1\u1f30\u03c4\u03af\u03b1", "\u1f44\u03b3\u03ba\u03bf\u03c2", "\u03bc\u1fd6\u03be\u03b9\u03c2", "\u03c4\u03ac\u03c3\u03b9\u03c2", "\u1f30\u03c3\u03c7\u03cd\u03c2"],
+            themeName: "Μαθηματικά",
             // Pass all UI message constants
             MSG_NOT_ENOUGH_LETTERS: "\u039b\u03b5\u03af\u03c0\u03b5\u03b9 \u03b3\u03c1\u03ac\u03bc\u03bc\u03b1\u03c4\u03b1!",
             MSG_NOT_IN_WORD_LIST: "\u039f\u1f50\u03ba \u1f14\u03c3\u03c4\u03b9\u03bd \u1f10\u03bd \u03bb\u03cc\u03b3\u03bf\u03b9\u03c2!",
