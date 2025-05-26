@@ -1,7 +1,7 @@
 name: Diskolos
 on:
   schedule:
-    - cron: '0 5 * * 1,3,5'  # Runs Mon, Wed, Fri at 5:00 UTC
+    #- cron: '0 5 * * 1,3,5'  # Runs Mon, Wed, Fri at 5:00 UTC
     # - cron: '0 5 * * *'  # Runs at 12:00 UTC daily
   workflow_dispatch:  # Allow manual triggers
 
