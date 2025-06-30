@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC8EH70GP0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-KC8EH70GP0');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Κεραμέως Μοῖρα: Τραγῳδία Πολιτική | Αττικές Ιστορίες</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: "Gentium Plus", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            /* Container */
+            .story-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .story-container {
+                    padding: 0 15px;
+                }
+                .story-headline {
+                    font-size: 2.2rem;
+                }
+            }
+
+            /* Header */
+            .story-header {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .story-headline {
+                font-size: 2.2rem;
+                margin-bottom: 10px;
+                line-height: 1.1;
+            }
+
+            .story-date {
+                font-size: 0.9rem;
+            }
+
+            /* Meta */
+            .story-meta {
+                font-style: italic;
+                color: var(--color-dark-gray, #555);
+                margin-bottom: 15px;
+            }
+
+            /* Body text */
+            .text {
+                line-height: 1.6;
+                font-size: 1.4rem;
+                padding: 0.5rem 0.75rem 0.5rem 1.5rem;
+                margin-bottom: 0.5rem;
+                text-align: justify;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+            }
+
+            @media (max-width: 768px) {
+                .text {
+                    text-align: left !important;
+                }
+            }
+
+            /* Highlighted word with tooltip */
+            .highlighted-word {
+                background-color: rgba(255, 255, 220, 0.3);
+                border-bottom: 1px dotted #aaa;
+                position: relative;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+            /* Tooltip */
+            .tooltip {
+                visibility: hidden;
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #f7eac9;
+                color: #8b0000;
+                text-align: center;
+                padding: 8px 12px;
+                border-radius: 10px;
+                font-size: 0.85rem;
+                white-space: normal;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s;
+                max-width: 90vw;
+                min-width: 160px;
+                word-wrap: break-word;
+                font-family: 'Georgia', serif;
+                font-weight: 600;
+            }
+
+            .tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #f9f9f9 transparent transparent transparent;
+            }
+
+            /* Show tooltip on hover */
+            .highlighted-word:hover .tooltip, .highlighted-word:focus .tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* Responsive tooltip adjustments */
+            @media (max-width: 768px) {
+                .tooltip {
+                    white-space: normal;
+                    max-width: calc(100vw - 30px);
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .highlighted-word .tooltip {
+                    right: auto;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            /* Back link */
+            .back-link {
+                display: inline-block;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-weight: 600;
+                text-decoration: none;
+                color: #ea2d2d;
+            }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Continue reading anchor */
+            #continue-reading {
+                scroll-margin-top: 20px;
+            }
+
+            /* Site description */
+            .site-description {
+                font-family: 'GFS Didot', serif;
+                font-size: 1.4rem;
+                letter-spacing: 0.05em;
+                color: #d4b96e;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+                margin: 0.5rem 0;
+                font-weight: 400;
+                border-bottom: 1px solid rgba(212, 185, 110, 0.3);
+                padding-bottom: 0.5rem;
+                font-style: italic;
+            }
+
+            /* Rainbow donate button */
+            .tool-btn {
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                color: white;
+                animation: rainbow 8s ease infinite;
+                border-radius: 8px;
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            @keyframes rainbow {
+                0% {
+                    background-position: 0% 82%;
+                }
+
+                50% {
+                    background-position: 100% 19%;
+                }
+
+                100% {
+                    background-position: 0% 82%;
+                }
+            }
+
+            .tool-btn:hover {
+                animation: rainbow 2s ease infinite;
+            }
+
+            /* Social icons */
+            .social-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+                filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .social-icon {
+                    filter: invert(1) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+                }
+            }
+
+            .social-icon:hover {
+                transform: scale(1.1);
+            }
+
+            * {
+                text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+                -moz-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            /* Footer */
+            footer {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article class="story-container">
+                <header class="story-header">
+                    <h1 class="story-headline">Κεραμέως Μοῖρα: Τραγῳδία Πολιτική</h1>
+                    <div class="story-meta">
+                        <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
+                        <br>
+                        <span class="story-date"><span class="story-date" title="Σκιροφοριών πρώτῃ φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Σκιροφοριών 30, 2025</span></span>
+                    </div>
+                </header>
+                
+        <div class="text greek" id="continue-reading">
+            ### <span class="highlighted-word">ΠΡΟΛΟΓΟΣ<span class="tooltip">Prologus (ὀνομ. ἑν. ἀρσ.) — prima pars tragoediae ubi narratio introducitur</span></span>
+        </div>
+        
+        <div class="text greek">
+            ἘΞΗΚΙΑΣ:
+Ὦ πόλις Ἀθηνῶν, ἣν ἐγὼ στέργω μάλα,
+ἄκουσον ἀνδρὸς χειροτέχνου τοὺς λόγους.
+ἐγὼ κεραμεύς, Ἐξηκίας καλούμενος,
+τέχνῃ διαπρέπω τῇδε πατρῴᾳ πάλαι.
+τὰ δ' ἐν πόλει νῦν πράγματ' οὐκ ὀρθῶς ἔχει·
+στάσις ταράττει πάντα, καὶ φιλεῖ κράτος
+ὁ δῆμος ἄρτι, τοὺς δ' ἀρίστους ἐκβαλεῖν.
+ἐγὼ δ' ἐν ἀμφιβόλῳ μέσος καθίσταμαι.
+        </div>
+        
+        <div class="text greek">
+            ### ΠΑΡΟΔΟΣ
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ:
+<span class="highlighted-word">Ἴδετε<span class="tooltip">videte (ἀορ. β' προστ. ἐνεργ. β' πλ.) — forma imperativi aoristi secundi a verbo 'ὁράω'</span></span> τὸν <span class="highlighted-word">κεραμέα<span class="tooltip">figulum (αἰτ. ἑν. ἀρσ.) — nomen designans artificem qui vasa fictilia fabricat</span></span>, πολῖται,
+ὃς μεταξὺ δήμου καὶ <span class="highlighted-word">ἀρίστων<span class="tooltip">optimatum (γεν. πλ. ἀρσ.) — forma substantivata ex adiectivo 'ἄριστος', designans nobiles vel potentes civitatis</span></span> 
+ἵσταται, <span class="highlighted-word">δίκην<span class="tooltip">instar (αἰτ. ἑν. θηλ.) — adverbialiter usurpatum, significans 'ad modum' vel 'sicut'</span></span> πηλοῦ μαλακοῦ
+σχῆμα λαμβάνων ὁποῖον ἂν
+χεῖρες <span class="highlighted-word">πλάσσωσι<span class="tooltip">fingant (ὑποτ. ἐνεστ. ἐνεργ. γ' πλ.) — verbum artis figulinae, significans 'formare' vel 'fingere'</span></span> τῶν κρατούντων.
+ἆρα γιγνώσκει τίς ἡ ἀρετὴ
+ἀνδρὸς πολίτου ἐν στάσει;
+        </div>
+        
+        <div class="text greek">
+            ### ΕΠΕΙΣΟΔΙΟΝ Α´
+        </div>
+        
+        <div class="text greek">
+            [Ἐν τῷ βαλανείῳ]
+        </div>
+        
+        <div class="text greek">
+            ἘΞΗΚΙΑΣ:
+Ὅμοιός ἐστιν ἄνθρωπος <span class="highlighted-word">ἀγγείῳ κενῷ<span class="tooltip">vaso vacuo (ὀνομ. δοτ. ἑν.) — metaphora pro homine qui animo vel intellectu caret</span></span>·
+τὸ βαλανεῖον <span class="highlighted-word">ἐκκαθαίρει<span class="tooltip">expurgat (ὁριστ. ἐνεστ. ἐνεργ. γ' ἑν.) — verbum compositum a praepositione 'ἐκ' et verbo 'καθαίρω'</span></span> μὲν <span class="highlighted-word">δέμας<span class="tooltip">corpus (αἰτ. ἑν.) — vocabulum poeticum pro corpore humano</span></span>, 
+ψυχὴν δὲ τίς ἂν <span class="highlighted-word">ἐκπλύνειεν<span class="tooltip">elueret (εὐκτ. ἀορ. ἐνεργ. γ' ἑν.) — forma optativi aoristi cum particula ἄν potentialem sensum exprimens</span></span> ἐν στάσει;
+        </div>
+        
+        <div class="text greek">
+            ΟΛΙΓΑΡΧΙΚΟΣ:
+Ἐξηκία, σὺ τεχνίτης <span class="highlighted-word">περίβλεπτος<span class="tooltip">conspicuus (ὀνομ. ἑν. ἀρσ.) — adjectivum compositum significans 'ab omnibus aspectus, illustris'</span></span> πόλει,
+τί <span class="highlighted-word">δῆτα<span class="tooltip">igitur (ἐπίρρημα) — particula interrogativa emphasin addens</span></span> δήμῳ <span class="highlighted-word">συμπονεῖς<span class="tooltip">collaboras (ὁριστ. ἐνεστ. ἐνεργ. β' ἑν.) — verbum compositum ex 'σύν' et 'πονέω', significans 'una laborare'</span></span> τῷ <span class="highlighted-word">μαινομένῳ<span class="tooltip">insanienti (μτχ. ἐνεστ. μέσ. δοτ. ἑν. ἀρσ.) — participium a verbo 'μαίνομαι', metaphorice de populo turbulento</span></span>;
+οἱ βέλτιστοί σε τιμήσουσιν ἀξίως.
+        </div>
+        
+        <div class="text greek">
+            ΔΗΜΟΤΙΚΟΣ:
+Μὴ <span class="highlighted-word">πείθου<span class="tooltip">obedi (προστ. παρακ. μέσ. β' ἑν.) — imperativus a verbo 'πείθομαι', significat obedire alicui</span></span> τούτῳ, <span class="highlighted-word">χειροτέχνα<span class="tooltip">artifex (κλητ. ἑν.) — vocativus nominis 'χειροτέχνης', qui arte manuum vivit</span></span>· δῆμος ὢν
+δήμῳ <span class="highlighted-word">πρόσελθε<span class="tooltip">accede (προστ. ἀορ. β' ἐνεργ. β' ἑν.) — imperativus aoristi a verbo 'προσέρχομαι', significat accedere ad aliquem</span></span>· τίς γὰρ οἶδε τοὺς πόνους
+ἢ χεῖρες αἱ <span class="highlighted-word">τρίβουσαι<span class="tooltip">terentes (μτχ. ἐνεστ. ἐνεργ. ὀνομ. πλ. θηλ.) — participium praesens a verbo 'τρίβω', significat terere, fricare</span></span> καὶ μοχθοῦσαι ἀεί;
+        </div>
+        
+        <div class="text greek">
+            ### ΣΤΑΣΙΜΟΝ Α´
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ:
+Δεινὸν ὅταν πόλις διχοστατῇ,
+δεινότερον ὅταν πολίτης 
+μέσος ἕλκηται δίχα.
+ἆρ' οὐχ ὁρᾶτε τὸν κεραμέα
+ὥσπερ τροχὸν δινούμενον
+ὑπὸ τῶν λόγων τῶν ἔνθεν κἀκεῖθεν;
+φεῦ, τῷ χρόνῳ πᾶς πηλὸς 
+ἢ θραύεται ἢ σκληρύνεται.
+        </div>
+        
+        <div class="text greek">
+            ### ΕΠΕΙΣΟΔΙΟΝ Β´
+        </div>
+        
+        <div class="text greek">
+            ἘΞΗΚΙΑΣ:
+Ἔγνωκα δή· τὸ μέσον οὐκ ἔστι σαφές.
+ὥσπερ κεραμεὺς οἶδα κρῖναι τὴν φύσιν
+τοῦ πηλοῦ· οὕτω καὶ πολιτείας τρόπον.
+κακῶς ἔχει τὰ τῆς πόλεως, ὅταν κρατῇ
+ἢ πλῆθος ἄκριτον ἢ τύραννος εἷς μόνος.
+        </div>
+        
+        <div class="text greek">
+            ### ΕΞΟΔΟΣ
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ:
+Τοιαῦτα πάσχει πᾶσα γῆ <span class="highlighted-word">στασιάζουσα<span class="tooltip">seditione laborans (μτχ. ἐνεστ. ἐνεργ. ὀνομ. θηλ. ἑν.) — a verbo 'στασιάζω', significat 'in factiones divisa esse', de civitate discordiis laborante</span></span>,
+ὁμοία <span class="highlighted-word">κύλικι συντριβείσῃ<span class="tooltip">calici confracto (δοτ. ἑν. θηλ. μτχ. παθ. ἀορ.) — a verbo 'συντρίβω', significat 'omnino fractum esse', metaphora pro civitate divisa</span></span> εἰς μέρη·
+οὐκ ἔστι τέχνη τις <span class="highlighted-word">συγκολλῆσαι<span class="tooltip">conglutinare (ἀπρφ. ἀορ. ἐνεργ.) — a verbo 'συγκολλάω', significat 'partes disiectas rursum coniungere'</span></span> πάλιν.
+μόνη δ' ἐλπὶς ἡ σοφία τοῦ <span class="highlighted-word">κεραμέως<span class="tooltip">figuli (γεν. ἑν.) — artifex qui vasa fictilia conficit; hic metaphorice pro deo vel principe sapiente qui civitatem reformare potest</span></span>,
+ὃς οἶδεν ὅτι δεῖ <span class="highlighted-word">πηλὸν<span class="tooltip">lutum (αἰτ. ἑν.) — materia mollis ex qua figulus vasa fingit; hic metaphorice pro elementis societatis novae</span></span> νέον λαβεῖν,
+καὶ σχῆμα καινὸν <span class="highlighted-word">πλάσαι<span class="tooltip">fingere (ἀπρφ. ἀορ. ἐνεργ.) — a verbo 'πλάσσω', proprie de figulo qui ex luto figuras format; hic de nova reipublicae forma creanda</span></span> τῇ πολιτείᾳ.
+ταῦτ' ἔστω μάθημα πᾶσι τοῖς θεωμένοις.
+        </div>
+        
+                <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
+            </article>
+        </main>
+        <script>
+            // Add touch support for mobile devices
+            document.addEventListener('DOMContentLoaded', function() {
+                const highlightedWords = document.querySelectorAll('.highlighted-word');
+
+                // Function to position tooltip properly within viewport
+                function positionTooltip(word, tooltip) {
+                    // Get dimensions and positions
+                    const wordRect = word.getBoundingClientRect();
+                    const tooltipRect = tooltip.getBoundingClientRect();
+                    const viewportWidth = window.innerWidth;
+
+                    // Default position (centered above word)
+                    let leftPosition = '50%';
+                    let transform = 'translateX(-50%)';
+
+                    // Check if tooltip would go off the left edge
+                    if (wordRect.left + (wordRect.width / 2) - (tooltipRect.width / 2) < 10) {
+                        // Align tooltip with left edge plus some padding
+                        leftPosition = '0';
+                        transform = 'translateX(10px)';
+                    }// Check if tooltip would go off the right edge
+                    else if (wordRect.left + (wordRect.width / 2) + (tooltipRect.width / 2) > viewportWidth - 10) {
+                        // Align tooltip with right edge minus some padding
+                        leftPosition = '100%';
+                        transform = 'translateX(calc(-100% - 10px))';
+                    }
+
+                    // Apply positioning
+                    tooltip.style.left = leftPosition;
+                    tooltip.style.transform = transform;
+                }
+
+                // For mobile devices, toggle tooltip visibility on touch
+                if ('ontouchstart'in window || navigator.maxTouchPoints) {
+                    highlightedWords.forEach(word => {
+                        word.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+
+                            // Hide all other tooltips first
+                            highlightedWords.forEach(w => {
+                                if (w !== word) {
+                                    const tooltip = w.querySelector('.tooltip');
+                                    if (tooltip) {
+                                        tooltip.style.visibility = 'hidden';
+                                        tooltip.style.opacity = '0';
+                                    }
+                                }
+                            }
+                            );
+
+                            // Toggle current tooltip
+                            const tooltip = word.querySelector('.tooltip');
+                            if (tooltip) {
+                                if (tooltip.style.visibility === 'visible') {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                } else {
+                                    // Position the tooltip before showing it
+                                    positionTooltip(word, tooltip);
+                                    tooltip.style.visibility = 'visible';
+                                    tooltip.style.opacity = '1';
+                                }
+                            }
+                        });
+                    }
+                    );
+
+                    // Close tooltips when tapping elsewhere
+                    document.addEventListener('touchstart', function(e) {
+                        if (!e.target.closest('.highlighted-word')) {
+                            highlightedWords.forEach(word => {
+                                const tooltip = word.querySelector('.tooltip');
+                                if (tooltip) {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                }
+                            }
+                            );
+                        }
+                    });
+                } else {
+                    // For desktop devices, use hover
+                    highlightedWords.forEach(word => {
+                        const tooltip = word.querySelector('.tooltip');
+                        if (tooltip) {
+                            word.addEventListener('mouseenter', function() {
+                                positionTooltip(word, tooltip);
+                                tooltip.style.visibility = 'visible';
+                                tooltip.style.opacity = '1';
+                            });
+
+                            word.addEventListener('mouseleave', function() {
+                                tooltip.style.visibility = 'hidden';
+                                tooltip.style.opacity = '0';
+                            });
+                        }
+                    }
+                    );
+                }
+
+                // Also reposition on window resize
+                window.addEventListener('resize', function() {
+                    highlightedWords.forEach(word => {
+                        const tooltip = word.querySelector('.tooltip');
+                        if (tooltip && tooltip.style.visibility === 'visible') {
+                            positionTooltip(word, tooltip);
+                        }
+                    }
+                    );
+                });
+            });
+        </script>
+        <footer>
+            <div class="container">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                        <button class="tool-btn" onclick="window.open('https://www.paypal.com/ncp/payment/PMWMHAY55RZSE', '_blank')" title="Donate!">Donate</button>
+                    </div>
+                    <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+                    <div class="social-buttons">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.dyskolos.com&amp;title=Αττικές%20Ιστορίες&amp;summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on LinkedIn" class="social-icon" src="../assets/in.png"/>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.dyskolos.com" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on Facebook" class="social-icon" src="../assets/fb.png"/>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on X" class="social-icon" src="../assets/x.png"/>
+                        </a>
+                        <a href="https://telegram.me/share/url?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on Telegram" class="social-icon" src="../assets/inst.png"/>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <img alt="YouTube" class="social-icon" src="../assets/yt.png"/>
+                        </a>
+                    </div>
+                    <p style="margin-top: 15px; text-align: center;">©2025 Αττικές Ιστορίες</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
