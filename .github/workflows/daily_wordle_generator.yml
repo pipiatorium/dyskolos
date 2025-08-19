@@ -3,7 +3,8 @@ name: Generate Daily Wordle Game
 on:
   schedule:
     # Runs every day at 00:00 UTC (Midnight).
-    - cron: '0 12 * * *'
+    - cron: '0 12 * * 1,3,5'
+    # - cron: '0 12 * * *'
   workflow_dispatch:
 
 # --- ADDED ---
