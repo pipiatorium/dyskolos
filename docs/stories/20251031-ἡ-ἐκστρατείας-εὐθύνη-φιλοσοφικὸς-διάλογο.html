@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KC8EH70GP0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-KC8EH70GP0');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ἡ Ἐκστρατείας Εὐθύνη: Φιλοσοφικὸς Διάλογος | Αττικές Ιστορίες</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: "Gentium Plus", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            /* Container */
+            .story-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .story-container {
+                    padding: 0 5px;
+                }
+                .story-headline {
+                    font-size: 2.2rem;
+                }
+            }
+
+            /* Header */
+            .story-header {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .story-headline {
+                font-size: 2.2rem;
+                margin-bottom: 10px;
+                line-height: 1.1;
+            }
+
+            .story-date {
+                font-size: 0.9rem;
+            }
+
+            /* Meta */
+            .story-meta {
+                font-style: italic;
+                color: var(--color-dark-gray, #555);
+                margin-bottom: 15px;
+            }
+
+            /* Body text */
+            .text {
+                line-height: 1.6;
+                font-size: 1.4rem;
+                padding: 0.5rem 0.75rem 0.5rem 1.5rem;
+                margin-bottom: 0.5rem;
+                text-align: justify;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+            }
+
+            @media (max-width: 768px) {
+                .text {
+                    text-align: left !important;
+                }
+            }
+
+            /* Highlighted word with tooltip */
+            .highlighted-word {
+                background-color: rgba(255, 255, 220, 0.3);
+                border-bottom: 1px dotted #aaa;
+                position: relative;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+            /* Tooltip */
+            .tooltip {
+                visibility: hidden;
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #f7eac9;
+                color: #8b0000;
+                text-align: center;
+                padding: 8px 12px;
+                border-radius: 10px;
+                font-size: 0.85rem;
+                white-space: normal;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s;
+                max-width: 90vw;
+                min-width: 160px;
+                word-wrap: break-word;
+                font-family: 'Georgia', serif;
+                font-weight: 600;
+            }
+
+            .tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #f9f9f9 transparent transparent transparent;
+            }
+
+            /* Show tooltip on hover */
+            .highlighted-word:hover .tooltip, .highlighted-word:focus .tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* Responsive tooltip adjustments */
+            @media (max-width: 768px) {
+                .tooltip {
+                    white-space: normal;
+                    max-width: calc(100vw - 30px);
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .highlighted-word .tooltip {
+                    right: auto;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            /* Back link */
+            .back-link {
+                display: inline-block;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-weight: 600;
+                text-decoration: none;
+                color: #ea2d2d;
+            }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Continue reading anchor */
+            #continue-reading {
+                scroll-margin-top: 20px;
+            }
+
+            /* Site description */
+            .site-description {
+                font-family: 'GFS Didot', serif;
+                font-size: 1.4rem;
+                letter-spacing: 0.05em;
+                color: #d4b96e;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+                margin: 0.5rem 0;
+                font-weight: 400;
+                border-bottom: 1px solid rgba(212, 185, 110, 0.3);
+                padding-bottom: 0.5rem;
+                font-style: italic;
+            }
+
+            /* Rainbow donate button */
+            .tool-btn {
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                color: white;
+                animation: rainbow 8s ease infinite;
+                border-radius: 8px;
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            @keyframes rainbow {
+                0% {
+                    background-position: 0% 82%;
+                }
+
+                50% {
+                    background-position: 100% 19%;
+                }
+
+                100% {
+                    background-position: 0% 82%;
+                }
+            }
+
+            .tool-btn:hover {
+                animation: rainbow 2s ease infinite;
+            }
+
+            /* Social icons */
+            .social-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+                filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .social-icon {
+                    filter: invert(1) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+                }
+            }
+
+            .social-icon:hover {
+                transform: scale(1.1);
+            }
+
+            * {
+                text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+                -moz-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            /* Footer */
+            footer {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <article class="story-container">
+                <header class="story-header">
+                    <h1 class="story-headline">Ἡ Ἐκστρατείας Εὐθύνη: Φιλοσοφικὸς Διάλογος</h1>
+                    <div class="story-meta">
+                        <span class="author">ὑπὸ ΧΑΡΙΤΩΝ Π.</span>
+                        <br>
+                        <span class="story-date"><span class="story-date" title="Πυανεψιών 0 φθίνοντος, Ὀλυμπιάδος 700 ἔτους τετάρτῃ">Πυανεψιών 31, 2025</span></span>
+                    </div>
+                </header>
+                
+        <div class="text greek" id="continue-reading">
+            ΧΑΡΜΙΔΗΣ: Ὦ Εὔδημε, χαῖρε. Ὁρῶ σε <span class="highlighted-word">μελετῶντα<span class="tooltip">exercentem (μτχ. ἐνεστ. ἐνεργ. αἰτ. ἑν. ἀρσ.) — participium a verbo 'μελετάω', significat actionem exercendi vel praeparandi aliquid cum cura</span></span> πάλιν τὰς τοῦ <span class="highlighted-word">ὁπλίτου<span class="tooltip">gravis armaturae militis (γεν. ἑν.) — nomen quod designat militem pedestrem qui armis gravibus instructus est</span></span> <span class="highlighted-word">ἀσκήσεις<span class="tooltip">exercitationes (αἰτ. πλ.) — nomen actionis quod significat varios modos se exercendi ad artem vel virtutem acquirendam</span></span> ἐν τῷ γυμνασίῳ.
+        </div>
+        
+        <div class="text greek">
+            ΕΥΔΗΜΟΣ: <span class="highlighted-word">Ναὶ μὰ Δία<span class="tooltip">Ita per Iovem (ἐπίρ. + ὅρκος) — formula iurandi affirmativa, qua quis affirmat aliquid verum esse per Iovem invocatum</span></span>, ὦ Χαρμίδη. Ἡ γὰρ <span class="highlighted-word">ἐκστρατεία<span class="tooltip">expeditio (ὀνομ. ἑν.) — nomen actionis quod significat iter militare extra fines patriae susceptum</span></span> εἰς Σικελίαν <span class="highlighted-word">πλησίον<span class="tooltip">prope (ἐπίρ.) — adverbium temporale quod indicat aliquid brevi tempore eventurum esse</span></span>, καὶ δεῖ ἡμᾶς <span class="highlighted-word">παρασκευάζεσθαι<span class="tooltip">se praeparare (ἀπαρ. ἐνεστ. μέσ.) — infinitivus medialis a verbo 'παρασκευάζω', significat se ipsum aptare vel instruere ad aliquid</span></span> καλῶς.
+        </div>
+        
+        <div class="text greek">
+            ΧΑΡΜΙΔΗΣ: <span class="highlighted-word">Ἆρα οὖν<span class="tooltip">Num igitur (ἐπίρρ.) — particula interrogativa quae responsum negativum exspectat, cum 'οὖν' coniuncta</span></span> νομίζεις δικαίαν εἶναι ταύτην τὴν <span class="highlighted-word">ἐκστρατείαν<span class="tooltip">expeditionem (οὐσ. αἰτ. ἑν. θηλ.) — militaris profectio extra fines patriae</span></span>; Ἔγωγε <span class="highlighted-word">ἀπορῶ<span class="tooltip">dubito (ῥῆμα ὁριστ. ἐνεστ. ἐνεργ. α' ἑν.) — in dubitatione vel haesitatione versor</span></span> πότερον ὑπὲρ τῆς πόλεως ἢ ὑπὲρ τῆς δόξης τῶν στρατηγῶν <span class="highlighted-word">πολεμήσομεν<span class="tooltip">bellum geremus (ῥῆμα ὁριστ. μέλλ. ἐνεργ. α' πλ.) — futurum tempus verbi 'πολεμέω', indicans actionem belli gerendi</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: Ἰδοὺ ἄνδρες Ἀθηναῖοι περὶ πολέμου <span class="highlighted-word">διαλέγονται<span class="tooltip">disserunt (ῥῆμα ὁριστ. ἐνεστ. μέσ. γ' πλ.) — verbum deponens significans 'colloqui' vel 'disputare'</span></span>. Πόλεως δὲ βουλὴ μέγα πρᾶγμα, καὶ ὅπλων <span class="highlighted-word">κτύπος<span class="tooltip">strepitus (οὐσ. ὀνομ. ἑν. ἀρσ.) — sonitus vel fragor</span></span> ἤδη πολλῶν <span class="highlighted-word">ἥψατο<span class="tooltip">tetigit (ῥῆμα ὁριστ. ἀορ. μέσ. γ' ἑν.) — aoristus medii verbi 'ἅπτομαι', significans 'tangere' vel 'attingere'</span></span> δωμάτων.
+        </div>
+        
+        <div class="text greek">
+            ΕΥΔΗΜΟΣ: <span class="highlighted-word">Ἄτοπος<span class="tooltip">Absurdus (ἐπίθ. ὀνομ. ἑν. ἀρσ.) — ineptus vel incongruus, litteraliter 'sine loco'</span></span> ὁ λόγος, ὦ <span class="highlighted-word">ἑταῖρε<span class="tooltip">amice (οὐσ. κλητ. ἑν. ἀρσ.) — vocativus nominis 'ἑταῖρος', significans 'sodalem' vel 'comitem'</span></span>. Οὐ τοῦ στρατιώτου ἐστὶ κρίνειν τὰ τῆς πόλεως <span class="highlighted-word">δόγματα<span class="tooltip">decreta (οὐσ. αἰτ. πλ. οὐδ.) — placita vel statuta publica auctoritate sancita</span></span>, ἀλλὰ πείθεσθαι τοῖς ἄρχουσι καὶ τῇ <span class="highlighted-word">ἐκκλησίᾳ<span class="tooltip">concioni (οὐσ. δοτ. ἑν. θηλ.) — conventus populi Atheniensis ad deliberandum de rebus publicis</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΧΑΡΜΙΔΗΣ: Ἀλλὰ τοῦ πολίτου ἐστίν, ὦ <span class="highlighted-word">βέλτιστε<span class="tooltip">optime (ὀνομ. κλητ. ἑν.) — superlativus ab adiectivo 'ἀγαθός', usatur in allocutione</span></span>, καὶ <span class="highlighted-word">οὐχ ἁπλῶς<span class="tooltip">non simpliciter (ἐπίρρ.) — adverbium negationem significans cum emphasi</span></span> ὁπλίτου. Ἢ οὐ <span class="highlighted-word">μεμνήμεθα<span class="tooltip">meminimus (παρακ. ὁριστ. μέσ. α' πλ.) — a verbo 'μιμνήσκω', perfectum cum significatione praesentis</span></span> τῶν Σωκράτους λόγων, ὅτι τὸν βίον <span class="highlighted-word">ἐξεταστέον<span class="tooltip">examinandum est (ῥημ. ἐπίθ.) — verbale adiectivum necessitatem indicans, a verbo 'ἐξετάζω'</span></span>;
+        </div>
+        
+        <div class="text greek">
+            ΕΥΔΗΜΟΣ: Πῶς οὖν <span class="highlighted-word">ἐξετάσεις<span class="tooltip">examinabis (μέλ. ὁριστ. ἐνεργ. β' ἑν.) — futurum activi a verbo 'ἐξετάζω'</span></span> <span class="highlighted-word">τὸ τῆς πόλεως συμφέρον<span class="tooltip">id quod civitati utile est (ἐπίθ. οὐσιαστ. αἰτ. ἑν.) — substantivatum adiectivum cum genitivo attributivo</span></span>, ὦ σοφώτατε; Οἱ γὰρ πατέρες ἡμῶν οὕτω τὴν ἀρχὴν <span class="highlighted-word">ἐκτήσαντο<span class="tooltip">acquisierunt (ἀορ. ὁριστ. μέσ. γ' πλ.) — aoristus medii a verbo 'κτάομαι'</span></span>, ταῖς ναυσὶ καὶ τοῖς ὅπλοις.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: <span class="highlighted-word">Φεῦ<span class="tooltip">heu (ἐπιφών.) — interiectio dolorem vel miserationem indicans</span></span>, τῶν ἀνθρωπίνων <span class="highlighted-word">βουλευμάτων<span class="tooltip">consiliorum (γεν. πλ.) — genitivus pluralis a substantivo 'βούλευμα'</span></span>. Πολλάκις <span class="highlighted-word">τὸ δοκοῦν συμφέρειν<span class="tooltip">id quod videtur prodesse (μτχ. ἐνεστ. ἐνεργ. οὐσιαστ.) — participium praesens substantivatum cum infinitivo</span></span> τὸ βλαβερὸν κρύπτει. <span class="highlighted-word">Μνήσθητε<span class="tooltip">mementote (ἀορ. προστ. παθ. β' πλ.) — imperativus aoristi passivi a verbo 'μιμνήσκω'</span></span> τῶν προτέρων <span class="highlighted-word">σφαλμάτων<span class="tooltip">erroribus (γεν. πλ.) — genitivus pluralis a substantivo 'σφάλμα'</span></span>, ὦ ἄνδρες.
+        </div>
+        
+        <div class="text greek">
+            ΧΑΡΜΙΔΗΣ: Ὁρᾷς, καὶ ὁ χορὸς <span class="highlighted-word">συμφωνεῖ<span class="tooltip">consentit (ὁριστ. ἐνεργ. γ' ἑν.) — verbum compositum ex 'σύν' et 'φωνέω', significat consentire vel concordare</span></span> μοι. <span class="highlighted-word">Κρεῖττον<span class="tooltip">melius (συγκρ. ἐπίρρημα) — adverbium comparativum a 'κρατύς', significat melius vel praestantius</span></span> γὰρ τὸ <span class="highlighted-word">διαλέγεσθαι<span class="tooltip">disserere (ἀπαρ. ἐνεστ. μέσ.) — infinitivus verbi 'διαλέγομαι', significat disputare vel colloqui</span></span> καὶ σκοπεῖν τί πράττομεν, ἢ <span class="highlighted-word">τυφλῶς<span class="tooltip">caece (ἐπίρρημα) — adverbium a 'τυφλός', significat sine consideratione vel sine iudicio</span></span> πείθεσθαι.
+        </div>
+        
+        <div class="text greek">
+            ΕΥΔΗΜΟΣ: Ἀλλὰ πῶς οὐκ <span class="highlighted-word">αἰσχρόν<span class="tooltip">turpe (ἐπίθ. οὐδ. ὀνομ. ἑν.) — adiectivum neutrum, significat turpe vel inhonestum</span></span>, <span class="highlighted-word">ἐψηφισμένης τῆς ἐκστρατείας<span class="tooltip">decreta expeditione (μτχ. παρακ. μέσ. γεν. θηλ. ἑν.) — genetivus absolutus cum participio perfecto medii a verbo 'ψηφίζομαι'</span></span>, τοὺς πολίτας <span class="highlighted-word">ἀντιλέγειν<span class="tooltip">contradicere (ἀπαρ. ἐνεστ. ἐνεργ.) — infinitivus verbi 'ἀντιλέγω', significat contradicere vel refutare</span></span>; Τοῦτο <span class="highlighted-word">στάσις<span class="tooltip">seditio (οὐσ. θηλ. ὀνομ. ἑν.) — nomen femininum, significat seditionem vel discordiam civilem</span></span>, οὐ πολιτεία.
+        </div>
+        
+        <div class="text greek">
+            ΧΑΡΜΙΔΗΣ: <span class="highlighted-word">Τὸ ζητεῖν<span class="tooltip">quaerere (ἄρθ. + ἀπαρ. ἐνεστ. ἐνεργ.) — infinitivus substantivatus cum articulo, significat actionem quaerendi</span></span> τὴν ἀλήθειαν <span class="highlighted-word">οὐδέποτε<span class="tooltip">numquam (ἐπίρρημα) — adverbium negativum, significat numquam vel nullo tempore</span></span> αἰσχρόν, ὦ φίλε. Ἐν τούτῳ γὰρ καὶ <span class="highlighted-word">διαφέρουσιν<span class="tooltip">differunt (ὁριστ. ἐνεστ. ἐνεργ. γ' πλ.) — verbum in tertia persona pluralis, significat differre vel praestare</span></span> Ἀθηναῖοι τῶν βαρβάρων, ὅτι λόγῳ πρὸ ἔργου <span class="highlighted-word">χρῶνται<span class="tooltip">utuntur (ὁριστ. ἐνεστ. μέσ. γ' πλ.) — verbum deponens in tertia persona pluralis, significat uti vel adhibere</span></span>.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: Σοφοὶ λόγοι παρ' <span class="highlighted-word">ἀμφοτέρων<span class="tooltip">utrorumque (γεν. πλ.) — pronomen quod significat 'amborum', ab 'uterque'</span></span>, ἀλλ' ἡ πόλις <span class="highlighted-word">ἀμφίβολον<span class="tooltip">dubiam (αἰτ. ἑν. θηλ.) — adiectivum quod significat 'incertum' vel 'ambiguum'</span></span> ὁδὸν <span class="highlighted-word">βαίνει<span class="tooltip">graditur (ὁριστ. ἐνεστ. ἐνεργ. γ' ἑν.) — verbum intransitivum quod significat 'incedere' vel 'ambulare'</span></span>. Ἡ νίκη <span class="highlighted-word">δύσκριτος<span class="tooltip">difficilis iudicatu (ὀνομ. ἑν. θηλ.) — adiectivum compositum ex 'δυσ-' et 'κρίνω', significat 'quod difficile est diiudicare'</span></span>, ὁ κίνδυνος φανερός. <span class="highlighted-word">Εἴθε παρῆν<span class="tooltip">Utinam adesset (εὐκτικὴ ἔκφρασις + παρατ. ὁριστ. γ' ἑν.) — optativa expressio cum verbo 'πάρειμι' in imperfecto</span></span> ὁ Περικλῆς διδάσκων τὴν μεσότητα.
+        </div>
+        
+        <div class="text greek">
+            ΕΥΔΗΜΟΣ: <span class="highlighted-word">Εἶεν<span class="tooltip">Esto (εὐκτ. ἀορ. γ' πλ. ὡς ἐπιφώνημα) — interiectio ex optativo aoristi verbi 'εἰμί', significans 'sit ita' vel 'concedo'</span></span>· <span class="highlighted-word">ἔστω<span class="tooltip">sit (προστ. ἐνεστ. γ' ἑν.) — imperativus verbi 'εἰμί', hic in formula concessiva usurpatur</span></span> φιλοσοφεῖν ἡμᾶς, ἀλλὰ <span class="highlighted-word">μέχρι τίνος<span class="tooltip">quousque (πρόθεσις + γεν. ἐρωτημ. ἀντων.) — locutio interrogativa significans 'usque ad quem terminum' vel 'quamdiu'</span></span>; Αὔριον γὰρ ἡ <span class="highlighted-word">ἐξέτασις<span class="tooltip">inspectio (ὀνομ. ἑν. θηλ.) — substantivum actionem examinandi vel inspiciendi significans</span></span> τῶν ὅπλων, καὶ οὐ λόγοις ἀλλ' ἔργοις δεῖ παρασκευάζεσθαι.
+        </div>
+        
+        <div class="text greek">
+            ΧΑΡΜΙΔΗΣ: <span class="highlighted-word">Τῷ ὄντι<span class="tooltip">Re vera (δοτ. ἑν. μτχ. ἐνεστ. οὐδ.) — locutio adverbialis ex participio verbi 'εἰμί', significans 'vere' vel 'revera'</span></span> λέγεις. Ἀλλὰ <span class="highlighted-word">μέμνησο<span class="tooltip">memento (προστ. παρακ. μέσ. β' ἑν.) — imperativus perfecti medii verbi 'μιμνήσκω', imperativus status perfectionis</span></span> ὅτι οὐκ ἔστιν ὅπλα <span class="highlighted-word">ἄνευ<span class="tooltip">sine (πρόθεσις + γεν.) — praepositio cum genitivo constructa, absentiam vel privationem significans</span></span> ἀρετῆς ὠφέλιμα. <span class="highlighted-word">Γυμνάζωμεν<span class="tooltip">Exerceamus (ὑποτ. ἐνεστ. ἐνεργ. α' πλ.) — coniunctivus hortativus, actionem exercitationis vel instructionis significans</span></span> οὖν καὶ τὰ σώματα καὶ τὰς ψυχὰς ἅμα.
+        </div>
+        
+        <div class="text greek">
+            ΧΟΡΟΣ: Εὖ <span class="highlighted-word">εἴρηται<span class="tooltip">dictum est (παρακ. ὁριστ. παθ. γ' ἑν.) — a verbo 'λέγω', forma perfecti passivi</span></span> τὸ τέλος. Καὶ σῶμα καὶ ψυχὴ πρὸς πόλεμον <span class="highlighted-word">παρασκευαστέον<span class="tooltip">praeparandum est (ῥημ. ἐπίθετ.) — verbale adiectivum quod necessitatem indicat, a verbo 'παρασκευάζω'</span></span>. Ἀλλ' ὁ <span class="highlighted-word">φρόνιμος<span class="tooltip">prudens (ἐπίθ. ὀνομ. ἑν. ἀρσ.) — adiectivum quod sapientiam et prudentiam indicat</span></span> ἀνὴρ ὁρᾷ καὶ τὰ μετὰ τὸν πόλεμον, <span class="highlighted-word">εἰ ἄρα<span class="tooltip">si revera (σύνδ. + ἐπίρρ.) — coniunctio cum particula quae dubitationem aut condicionem exprimit</span></span> τὸ νικᾶν ἄξιον τοῦ κινδύνου.
+        </div>
+        
+                <a href="../index.html" class="back-link">← Πάλιν εἰς πάσας τὰς ἱστορίας</a>
+            </article>
+        </main>
+        <script>
+            // Add touch support for mobile devices
+            document.addEventListener('DOMContentLoaded', function() {
+                const highlightedWords = document.querySelectorAll('.highlighted-word');
+
+                // Function to position tooltip properly within viewport
+                function positionTooltip(word, tooltip) {
+                    // Get dimensions and positions
+                    const wordRect = word.getBoundingClientRect();
+                    const tooltipRect = tooltip.getBoundingClientRect();
+                    const viewportWidth = window.innerWidth;
+
+                    // Default position (centered above word)
+                    let leftPosition = '50%';
+                    let transform = 'translateX(-50%)';
+
+                    // Check if tooltip would go off the left edge
+                    if (wordRect.left + (wordRect.width / 2) - (tooltipRect.width / 2) < 10) {
+                        // Align tooltip with left edge plus some padding
+                        leftPosition = '0';
+                        transform = 'translateX(10px)';
+                    }// Check if tooltip would go off the right edge
+                    else if (wordRect.left + (wordRect.width / 2) + (tooltipRect.width / 2) > viewportWidth - 10) {
+                        // Align tooltip with right edge minus some padding
+                        leftPosition = '100%';
+                        transform = 'translateX(calc(-100% - 10px))';
+                    }
+
+                    // Apply positioning
+                    tooltip.style.left = leftPosition;
+                    tooltip.style.transform = transform;
+                }
+
+                // For mobile devices, toggle tooltip visibility on touch
+                if ('ontouchstart'in window || navigator.maxTouchPoints) {
+                    highlightedWords.forEach(word => {
+                        word.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+
+                            // Hide all other tooltips first
+                            highlightedWords.forEach(w => {
+                                if (w !== word) {
+                                    const tooltip = w.querySelector('.tooltip');
+                                    if (tooltip) {
+                                        tooltip.style.visibility = 'hidden';
+                                        tooltip.style.opacity = '0';
+                                    }
+                                }
+                            }
+                            );
+
+                            // Toggle current tooltip
+                            const tooltip = word.querySelector('.tooltip');
+                            if (tooltip) {
+                                if (tooltip.style.visibility === 'visible') {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                } else {
+                                    // Position the tooltip before showing it
+                                    positionTooltip(word, tooltip);
+                                    tooltip.style.visibility = 'visible';
+                                    tooltip.style.opacity = '1';
+                                }
+                            }
+                        });
+                    }
+                    );
+
+                    // Close tooltips when tapping elsewhere
+                    document.addEventListener('touchstart', function(e) {
+                        if (!e.target.closest('.highlighted-word')) {
+                            highlightedWords.forEach(word => {
+                                const tooltip = word.querySelector('.tooltip');
+                                if (tooltip) {
+                                    tooltip.style.visibility = 'hidden';
+                                    tooltip.style.opacity = '0';
+                                }
+                            }
+                            );
+                        }
+                    });
+                } else {
+                    // For desktop devices, use hover
+                    highlightedWords.forEach(word => {
+                        const tooltip = word.querySelector('.tooltip');
+                        if (tooltip) {
+                            word.addEventListener('mouseenter', function() {
+                                positionTooltip(word, tooltip);
+                                tooltip.style.visibility = 'visible';
+                                tooltip.style.opacity = '1';
+                            });
+
+                            word.addEventListener('mouseleave', function() {
+                                tooltip.style.visibility = 'hidden';
+                                tooltip.style.opacity = '0';
+                            });
+                        }
+                    }
+                    );
+                }
+
+                // Also reposition on window resize
+                window.addEventListener('resize', function() {
+                    highlightedWords.forEach(word => {
+                        const tooltip = word.querySelector('.tooltip');
+                        if (tooltip && tooltip.style.visibility === 'visible') {
+                            positionTooltip(word, tooltip);
+                        }
+                    }
+                    );
+                });
+            });
+        </script>
+        <footer>
+            <div class="container">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                        <button class="tool-btn" onclick="window.open('https://www.paypal.com/ncp/payment/PMWMHAY55RZSE', '_blank')" title="Donate!">Donate</button>
+                    </div>
+                    <div style="margin-bottom: 15px; text-align: center;">δείξατε ❤️ κοινοποιοῦντες ἡμᾶς ἐπί·</div>
+                    <div class="social-buttons">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.dyskolos.com&amp;title=Αττικές%20Ιστορίες&amp;summary=Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on LinkedIn" class="social-icon" src="../assets/in.png"/>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.dyskolos.com" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on Facebook" class="social-icon" src="../assets/fb.png"/>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on X" class="social-icon" src="../assets/x.png"/>
+                        </a>
+                        <a href="https://telegram.me/share/url?url=https://www.dyskolos.com&amp;text=Αττικές%20Ιστορίες%20-%20Ἁπλαῖ%20ἱστορίαι%20τῆς%20Ἀττικῆς%20διαλέκτου" rel="noopener noreferrer" target="_blank">
+                            <img alt="Share on Telegram" class="social-icon" src="../assets/inst.png"/>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <img alt="YouTube" class="social-icon" src="../assets/yt.png"/>
+                        </a>
+                    </div>
+                    <p style="margin-top: 15px; text-align: center;">©2025 Αττικές Ιστορίες</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
