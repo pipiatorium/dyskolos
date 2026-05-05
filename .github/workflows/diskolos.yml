@@ -1,8 +1,6 @@
 name: Diskolos
 on:
-  schedule:
-    - cron: '0 5 * * *'  # Runs at 12:00 UTC daily
-  workflow_dispatch:  # Allow manual triggers
+  workflow_dispatch:  # Manual trigger only
 
 permissions:
   contents: write  # Required for pushing changes
